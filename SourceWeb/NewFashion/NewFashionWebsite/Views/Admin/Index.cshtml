@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Index";
+    @Styles.Render("~/Content/css-admin-custom1")
+    @Scripts.Render("~/bundles/script-admin-custom1")
+}
+
+<div class="text-center">
+    <ul class="stats_box">
+	<li>
+	    <div class="sparkline bar_week"></div>
+	    <div class="stat_text">
+		<strong></strong>Số sản phẩm
+		<span class="percent down"> <i class="icon-caret-down"></i></span>
+	    </div>
+	</li>
+	<li>
+	    <div class="sparkline line_day"></div>
+	    <div class="stat_text">
+		<strong></strong>Số lượng người ghé thăm
+		<span class="percent up"> <i class="icon-caret-up"></i></span>
+	    </div>
+	</li>
+	<li>
+	    <div class="sparkline pie_week"></div>
+	    <div class="stat_text">
+		<strong></strong>Số khách hàng
+		<span class="percent"></span>
+	    </div>
+	</li>
+	<li>
+	    <div class="sparkline stacked_month"></div>
+	    <div class="stat_text">
+		<strong></strong>Số lượng hàng đã bán
+		<span class="percent down"> <i class="icon-caret-down"></i></span>
+	    </div>
+	</li>
+    </ul>
+</div>
+<hr>
+

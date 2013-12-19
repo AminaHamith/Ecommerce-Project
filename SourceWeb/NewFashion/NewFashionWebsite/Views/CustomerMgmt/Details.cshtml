@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "Thông tin khách hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    @Styles.Render("~/Content/css-admin-custom2")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @model NewFashionBLL.customer
+}
+
+<h2>Thông tin khách hàng</h2>
+
+<table width="400px">
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Họ tên:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @Model.cusfirstname @Model.cuslastname
+           </b>
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Giới tính:
+        </td>
+       <td width="70%" align="left" valign="top">
+               @if (Int32.Parse(Model.customer_information.gender) == 0)
+               {
+                   <b>Nam</b>
+               }
+               else
+               {
+                   <b>Nữ</b>
+               }
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Ngày sinh:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @if (Model.customer_information.birthday != null)
+               {
+                   @Model.customer_information.birthday.Value.ToString("dd/MM/yyyy");
+               }
+           </b>
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Địa chỉ 1:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @Model.customer_information.address1
+           </b>
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Địa chỉ 2:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @Model.customer_information.address2
+           </b>
+       </td>
+    </tr>
+     <tr>
+        <td width="30%" align="left" valign="top">
+            Thành phố:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @Model.customer_information.city
+           </b>
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Quốc gia:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @Model.customer_information.country
+           </b>
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Mã bưu điện:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @Model.customer_information.post_code
+           </b>
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Điện thoại 1:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @Model.customer_information.phonenumber1
+           </b>
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Điện thoại 2:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @Model.customer_information.phonenumber2
+           </b>
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            
+        </td>
+        <td width="70%" align="left" valign="top">
+            <b>
+                <a id="delete" onclick="alert('Đang xây dựng')" class="btn btn-danger btn-sm btn-flat btn-rect" data-original-title="" title="">
+                    <i class="glyphicon glyphicon-remove"> Xóa</i>
+
+                </a>
+                <a class="btn btn-success btn-sm btn-flat btn-rect" href="@Url.Action("Edit", "CustomerMgmt", new { id = Model.cusid.ToString()})" data-original-title="" title="">
+                    <i class="glyphicon glyphicon-pencil"> Sửa</i>
+                </a>
+            </b>
+        </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            
+        </td>
+        <td width="70%" align="left" valign="top">
+            
+        </td>
+    </tr>
+</table>

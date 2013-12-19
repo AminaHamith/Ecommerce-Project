@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b7d1e69ca2844b0787b38983eabc9496" Name="Diagram1">
+        <EntityTypeShape EntityType="NewFashionDBModel.advertisement" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.aspnet_Applications" Width="1.5" PointX="7.5" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.aspnet_Membership" Width="1.5" PointX="15" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.aspnet_Paths" Width="1.5" PointX="9.75" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="12" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="12" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.aspnet_Profile" Width="1.5" PointX="12" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.aspnet_Roles" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.aspnet_Users" Width="1.5" PointX="9.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.aspnet_WebEvent_Events" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.brand" Width="1.5" PointX="6.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.category" Width="1.5" PointX="6.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.color" Width="1.5" PointX="6.75" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.comment" Width="1.5" PointX="11.25" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.customer" Width="1.5" PointX="12" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.customer_information" Width="1.5" PointX="9.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.delivery_method" Width="1.5" PointX="3" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.discount" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.image_product" Width="1.5" PointX="6" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.image_slide" Width="1.5" PointX="3" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.imagetb" Width="1.5" PointX="0.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.material" Width="1.5" PointX="6.75" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.order_detail" Width="1.5" PointX="11.25" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.payment_method" Width="1.5" PointX="3" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.product" Width="1.5" PointX="9" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.product_order" Width="1.5" PointX="5.25" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.product_variety" Width="1.5" PointX="11.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.shipping_method" Width="1.5" PointX="3" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.shopping_cart" Width="1.5" PointX="14.25" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.size" Width="1.5" PointX="6.75" PointY="32" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.sysdiagram" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.variety" Width="1.5" PointX="9" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewFashionDBModel.wish_list" Width="1.5" PointX="14.25" PointY="13.5" IsExpanded="true" />
+        <AssociationConnector Association="NewFashionDBModel.FK__advertise__imgid__19AACF41" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__aspnet_Me__Appli__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__aspnet_Pa__Appli__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__aspnet_Ro__Appli__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__aspnet_Us__Appli__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__aspnet_Me__UserI__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__aspnet_Pe__PathI__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__aspnet_Pe__PathI__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__aspnet_Pe__UserI__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__aspnet_Pr__UserI__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK_customer_aspnet_user" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__product__brandid__74794A92" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__product__procati__73852659" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__product__colorid__719CDDE7" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__comment__cusid__0C50D423" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__comment__proid__0D44F85C" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__product_o__cusid__54CB950F" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__shopping___cusid__43A1090D" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__wish_list__cusid__4959E263" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK_customer_customer_information" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK_product_order_customer_information" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK_product_order_customer_information1" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__product_o__iddel__57A801BA" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK_discount_image" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__image_pro__imgla__16CE6296" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__image_pro__imgsm__15DA3E5D" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__image_pro__proid__14E61A24" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__image_sli__imgid__11158940" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__image_sli__imgth__1209AD79" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__image_sli__proid__10216507" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__product__imgthum__7755B73D" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK_payment_image" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__product__materia__76619304" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__order_det__ordid__5C6CB6D7" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__order_det__proid__5D60DB10" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__product_o__idpay__59904A2C" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__product__sizeid__72910220" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__product_v__proid__7D0E9093" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__shopping___proid__44952D46" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__wish_list__proid__4A4E069C" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__product_o__idshi__589C25F3" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.FK__product_v__proid__7E02B4CC" ManuallyRouted="false" />
+        <AssociationConnector Association="NewFashionDBModel.aspnet_UsersInRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

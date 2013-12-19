@@ -1,0 +1,165 @@
+﻿@model List<NewFashionBLL.product>
+@{
+    ViewBag.Title = "Product List";
+    @Scripts.Render("~/bundles/script-shopymart-product-list")
+    //@Scripts.Render("~/bundles/jquery")
+}
+<section class="content">
+    <h1 style="color: rgb(245, 100, 12)">SEARCH RESULT</h1>
+    <div class="ctrl">
+        <form class="left">
+            Sort By :&nbsp;
+                               
+            <select>
+                <option>Thứ tự</option>
+                <option>Tên</option>
+                <option>Giá</option>
+                <!--<option>Rating</option>-->
+                <option>Màu sắc</option>
+            </select>
+            &nbsp;&nbsp;
+                                Show:&nbsp;
+                               
+            <select>
+                <option>6</option>
+                <option>10</option>
+                <option>25</option>
+            </select>
+        </form>
+        <span class="list-style-buttons">
+            <a href="#" id="gridview" class="switcher">
+                <img src="@Url.Content("~/Images/grid-view.png")" alt="Grid"></a>
+            <a href="#" id="listview" class="switcher active">
+                <img src="@Url.Content("~/Images/list-view-active.png")" alt="List"></a>
+        </span>
+    </div>
+    <div id="divPartialViewProductList">
+        @Html.Partial("~/Views/Shared/searchItems.cshtml")
+    </div>
+</section>
+<aside class="sidebar">
+    <div class="side">
+        <h4>Category</h4>
+        <ul class="cat">
+            <li><a href="#">Women's Clothes</a></li>
+            <li><a href="#">Men's Clothes</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Men's Shoes</a></li>
+            <li><a href="#">Women's Shoes</a></li>
+        </ul>
+    </div>
+    <!--end:side-->
+    <div class="side">
+        <h4>Bestsellers</h4>
+        <div class="entry">
+            <div class="da-thumbs">
+                <div>
+                    <img src="@Url.Content("~/Images/products/thumb-1.jpg")" alt="">
+                    <article class="da-animate da-slideFromRight" style="display: block;">
+                        <p><a href="product-detail.html" class="link"></a></p>
+                    </article>
+                </div>
+            </div>
+            <h3><a href="product-detail.html">Athletic Shoes</a></h3>
+            <small>$59.95</small>
+        </div>
+        <div class="entry">
+            <div class="da-thumbs">
+                <div>
+                    <img src="@Url.Content("~/Images/products/thumb-2.jpg")" alt="">
+                    <article class="da-animate da-slideFromRight" style="display: block;">
+                        <p><a href="product-detail.html" class="link"></a></p>
+                    </article>
+                </div>
+            </div>
+            <h3><a href="product-detail.html">Athletic Shoes</a></h3>
+            <small>$59.95</small>
+        </div>
+    </div>
+    <!--end:side-->
+    <div class="side">
+        <h4>Recent Blog</h4>
+        <div class="entry">
+            <div class="da-thumbs">
+                <div>
+                    <img src="@Url.Content("~/Images/products/thumb-1.jpg")" alt="">
+                    <article class="da-animate da-slideFromRight" style="display: block;">
+                        <p><a href="blog.html" class="link"></a></p>
+                    </article>
+                </div>
+            </div>
+            <h3><a href="blog.html">Pellentesque habitant morbi..</a></h3>
+            <span><a href="blog.html">Posted on:02/28/13</a></span>
+        </div>
+        <div class="entry">
+            <div class="da-thumbs">
+                <div>
+                    <img src="@Url.Content("~/Images/products/thumb-2.jpg")" alt="">
+                    <article class="da-animate da-slideFromRight" style="display: block;">
+                        <p><a href="blog.html" class="link"></a></p>
+                    </article>
+                </div>
+            </div>
+            <h3><a href="blog.html">Pellentesque habitant morbi ...</a></h3>
+            <span><a href="blog.html">Posted on:02/28/13</a></span>
+        </div>
+    </div>
+    <!--end:side-->
+    <div class="side">
+        <h4>Our Customer Love Us!</h4>
+        <ul class="fade">
+            <li class="feed">Easy shopping experience! Pricing is attractive! Lots of styles to choose from and great pics!<br>
+                <small><a href="#">&mdash; Louie Jie Mahusay</a></small>
+            </li>
+            <li class="feed">Easy shopping experience! Pricing is attractive! Lots of styles to choose from and great pics!<br>
+                <small><a href="#">&mdash; Louie Jie Mahusay</a></small>
+            </li>
+            <li class="feed">Easy shopping experience! Pricing is attractive! Lots of styles to choose from and great pics!<br>
+                <small><a href="#">&mdash; Louie Jie Mahusay</a></small>
+            </li>
+            <li class="feed">Easy shopping experience! Pricing is attractive! Lots of styles to choose from and great pics!<br>
+                <small><a href="#">&mdash; Louie Jie Mahusay</a></small>
+            </li>
+        </ul>
+    </div>
+</aside>
+<script>
+    /*
+    $(document).on('click', "#pagination li p", function () {
+            alert('button clicked');
+            $.ajax({
+                url: '/home/getProductList',
+                type: 'POST',
+                data: { page: 1, idCategory: 9 },
+                success: function (mydata) {
+                    $("#divPartialViewProductList").empty().append(mydata);
+                },
+                error: function () {
+                    alert("Error");
+                }
+            });
+        });*/
+
+    // Call a service that takes a list as an argument
+    function getSearchResult(keyWord, page) {
+        var args = new Object();
+        //alert('JQuery: ' + 1);
+
+        args.page = page;
+        args.keyWord = keyWord;
+        $.ajax({
+            url: '/search/ajaxResult',
+            type: 'GET',
+            data: { keyWord: keyWord, page: page },
+            success: function (mydata) {
+                $("#divPartialViewProductList").empty().append(mydata);
+            },
+            error: function () {
+                alert("Error");
+            }
+        });
+
+
+    }
+
+</script>

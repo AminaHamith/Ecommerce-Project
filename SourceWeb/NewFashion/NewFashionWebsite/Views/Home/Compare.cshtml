@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Compare";
+    @Scripts.Render("~/bundles/script-shopymart-compare")
+}
+<script type="text/javascript">
+    $(document).ready(function() {
+    $('#rate1').rating('http://html5awesome.com/themeforest/shopymart/www.url.php', {maxvalue:5, curvalue:3});
+	$('#rate2').rating('http://html5awesome.com/themeforest/shopymart/www.url.php', {maxvalue:5, curvalue:5});
+	$('#rate3').rating('http://html5awesome.com/themeforest/shopymart/www.url.php', {maxvalue:5, curvalue:4});
+	$('#rate4').rating('http://html5awesome.com/themeforest/shopymart/www.url.php', {maxvalue:5, curvalue:2});
+	$('#rate5').rating('http://html5awesome.com/themeforest/shopymart/www.url.php', {maxvalue:5, curvalue:2});
+	$('#rate6').rating('http://html5awesome.com/themeforest/shopymart/www.url.php', {maxvalue:5, curvalue:0});
+	$('#rate7').rating('http://html5awesome.com/themeforest/shopymart/www.url.php', {maxvalue:5, curvalue:4});
+	$('#rate8').rating('http://html5awesome.com/themeforest/shopymart/www.url.php', {maxvalue:5, curvalue:1});
+	$('#rate9').rating('http://html5awesome.com/themeforest/shopymart/www.url.php', {maxvalue:5, curvalue:3});
+});
+</script>   
+<link rel="stylesheet" type="text/css" href="/Content/css/rating.css" />
+<div style="clear: both; display: block; height: 40px"></div>
+<h2>Compare Products &nbsp;<small>compare other products</small></h2>
+<table class="compare">
+    <tbody>
+        <tr>
+            <td class="name">Product</td>
+            <td class="name"><a href="#">T-shirts</a></td>
+            <td class="name"><a href="#">Shoes</a></td>
+            <td class="name"><a href="#">Jeans</a></td>
+        </tr>
+        <tr>
+            <td class="name">Image</td>
+            <td>
+                <img src="@Url.Content("~/Images/products/thumb-2.jpg")" alt=""></td>
+            <td>
+                <img src="@Url.Content("~/Images/products/thumb-1.jpg")" alt=""></td>
+            <td>
+                <img src="@Url.Content("~/Images/products/thumb-2.jpg")" alt=""></td>
+        </tr>
+        <tr>
+            <td class="name">Price</td>
+            <td>$105.00 </td>
+            <td>$40.00 </td>
+            <td>$200.00 </td>
+        </tr>
+        <tr>
+            <td class="name">Model</td>
+            <td>Model 1</td>
+            <td>Model 2</td>
+            <td>Model 3</td>
+        </tr>
+        <tr>
+            <td class="name">Brand</td>
+            <td>Levis</td>
+            <td>Adidas</td>
+            <td>Lee</td>
+        </tr>
+        <tr>
+            <td class="name">Availability</td>
+            <td>Out of Stock</td>
+            <td>In Stock</td>
+            <td>In Stock</td>
+        </tr>
+        <tr>
+            <td class="name">Rating</td>
+            <td>
+                <div id="rate1" class="rating">&nbsp;</div>
+            </td>
+            <td>
+                <div id="rate2" class="rating">&nbsp;</div>
+            </td>
+            <td>
+                <div id="rate3" class="rating">&nbsp;</div>
+            </td>
+        </tr>
+        <tr class="description">
+            <td class="name">Summary</td>
+            <td>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+            </td>
+            <td>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+            </td>
+            <td>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="button"><a href="#" class="tip remove" title="Remove">
+                <img src="@Url.Content("~/Images/remove.png")" alt=""></a>
+                <a href="#" class="tip addtocart" title="Add to cart">
+                    <img src="@Url.Content("~/Images/icon-addcart.png")" alt=""></a></td>
+        </tr>
+    </tbody>
+</table>
+<div style="clear: both; display: block; height: 40px"></div>

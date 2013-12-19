@@ -1,0 +1,229 @@
+﻿@model NewFashionWebsite.Models.ProductModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/modernizr")
+}
+
+@section Scripts{
+<script type="text/javascript">
+    tinymce.init({
+        selector: "textarea#TuyenDuLich_MO_TA_TUYEN",
+        body_id: "tiny_mce_body",
+        theme: "modern",
+        width: 800,
+        height: 400,
+        verify_html: false,
+
+        plugins: [
+             "advlist autolink link lists charmap print preview hr pagebreak",
+             "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking",
+             " table contextmenu directionality paste textcolor"
+        ],
+        statusbar: false,
+
+        toolbar: "insertfile undo redo | styleselect fontselect fontsizeselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview fullscreen media fullpage | forecolor backcolor emoticons",
+        style_formats: [
+             { title: 'Heading 1', block: 'h1' },
+             { title: 'Heading 2', block: 'h2' },
+             { title: 'Heading 3', block: 'h3' },
+             { title: 'Heading 4', block: 'h4' },
+             { title: 'Heading 5', block: 'h5' },
+             { title: 'Heading 6', block: 'h6' },
+        ],
+
+        theme_advanced_resizing: false,
+        content_css: "@Url.Content("~/Content/themes/style.css")",
+        convert_urls: false,
+
+    });
+
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#preview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function readAnhGioiThieuURL(input, value) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                html = "<div id = 'YYY'><div><img src ='XXX' width = '500' height = '334' /></div><br/></div>";
+                html = html.replace("XXX", e.target.result);
+                html = html.replace("YYY", value);
+                $('#anhGioiThieuPreview').append(html);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $.validator.setDefaults({
+        ignore: ''
+    });
+
+    $("input[type='submit']").click(function () {
+        tinyMCE.triggerSave();
+    });
+
+    $('#anhDaiDien').MultiFile({
+        list: '#anhDaiDienList',
+        max: 1,
+        accept: 'png|jpg',
+        STRING: {
+            remove: 'X',
+            file: '<em>$file</em>',
+            selected: 'Đang chọn: $file',
+            denied: 'Chỉ nhận file có đuôi PNG, JPG ($ext)',
+            duplicate: 'File này đã được thêm :\n$file!'
+        },
+        afterFileRemove: function (element, value, master_element) {
+            $('#preview').removeAttr('src');
+        },
+        afterFileSelect: function (element, value, master_element) {
+            $('#previewLink').attr('href', value);
+            readURL(element);
+        },
+    });
+
+    $('#anhGioiThieu').MultiFile({
+        list: '#anhGioiThieuList',
+        max: 2,
+        accept: 'png|jpg',
+        STRING: {
+            remove: 'X',
+            file: '<em>$file</em>',
+            selected: 'Đang chọn: $file',
+            denied: 'Chỉ nhận file có đuôi PNG, JPG ($ext)',
+            duplicate: 'File này đã được thêm :\n$file!'
+        },
+        afterFileRemove: function (element, value, master_element) {
+            var fileName = new String(value);
+            var selector = "#" + fileName.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-');
+            $(selector).remove();
+        },
+        afterFileSelect: function (element, value, master_element) {
+            var fileName = new String(value);
+            readAnhGioiThieuURL(element, fileName.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-'));
+        },
+    });
+</script>
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="box">
+            <header>
+                <div class="icons"><i class="icon-bolt"></i></div>
+                <h5>Masked Inputs</h5>
+
+                <div class="toolbar">
+                    <ul class="nav pull-right">
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="icon-th-large"></i>
+                        </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="">q</a></li>
+                                <li><a href="">a</a></li>
+                                <li><a href="">b</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="accordion-toggle minimize-box" data-toggle="collapse" href="#div-4">
+                                <i class="icon-chevron-up"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.toolbar -->
+
+            </header>
+            @if (ViewBag.TEMP != null)
+            {
+                <p>@ViewBag.TEMP</p>
+            }
+            <div id="div-4" class="accordion-body collapse in body">
+                @using (Html.BeginForm("Create", null, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+                {
+                    @Html.ValidationSummary(true)
+                    <div class="form-group">
+                        <label class="control-label col-lg-3"><span class="red">*</span>@Html.DisplayNameFor(m => m.product.proname)</label>
+
+                        <div class="col-lg-5">
+                            <div class="input-group">
+                                @Html.TextBoxFor(m => m.product.proname,new {@class = "form-control"})&nbsp @Html.ValidationMessageFor(m => m.product.proname)
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label col-lg-3"><span class="red">*</span>@Html.DisplayNameFor(m => m.product.procatid)</label>
+
+                        <div class="col-lg-5">
+                            <div class="input-group">
+                                <label>
+                                    @Html.DropDownListFor(m => m.product.procatid, (IEnumerable<SelectListItem>)ViewBag.CATEGORIES)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label col-lg-3"><span class="red">*</span>@Html.DisplayNameFor(m => m.product.proquantity)</label>
+
+                        <div class="col-lg-5">
+                            <div class="input-group">
+                                @Html.TextBoxFor(m => m.product.proquantity,new {@class = "form-control"})&nbsp @Html.ValidationMessageFor(m => m.product.proquantity)
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label col-lg-3"><span class="red">*</span>@Html.DisplayNameFor(m => m.product.prostockprice)</label>
+
+                        <div class="col-lg-5">
+                            <div class="input-group">
+                                @Html.TextBoxFor(m => m.product.prostockprice,new {@class = "form-control"})&nbsp @Html.ValidationMessageFor(m => m.product.prostockprice)
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                            <label class="control-label col-lg-3"><span class="red">*</span>@Html.LabelFor(model => model.anhDaiDien, new { @class = "control-label" })</label>
+                            <div class="col-lg-5">
+                                <div class="input-group">
+                                    <div class ="imageView">
+                                       <img src ="#" alt="Ảnh đại diện" id ="preview" width="200" height="200" />
+                                       @Html.ValidationMessageFor(model => model.anhDaiDien)
+
+                                  </div>
+               
+                                    <div class="inputWrapper">
+                                        @Html.TextBoxFor(model => model.anhDaiDien, new {type ="file" })
+                                        <input type ="button" class="btn btn-primary" value ="Browse" />
+                                        <div id ="anhDaiDienList">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @Html.AntiForgeryToken()
+                    <input type="submit" class="submit" value="Thêm sản phẩm">
+                }
+            </div>
+             </div>
+    </div>
+</div>

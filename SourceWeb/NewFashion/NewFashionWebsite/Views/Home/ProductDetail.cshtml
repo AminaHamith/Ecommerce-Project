@@ -1,0 +1,219 @@
+﻿@model NewFashionBLL.product
+@{
+    ViewBag.Title = "Product detail";
+    Scripts.Render("~/bundles/script-shopymart-product-detail");
+}
+    
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.jqzoom').jqzoom({
+            zoomType: 'innerzoom',
+            preloadImages: false,
+            zoomWidth: 300,
+            alwaysOn: false
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("#tab").organicTabs({
+            "speed": 200
+        });
+    });
+
+    function addToCart(idProduct, quantity) {
+        var args = new Object();
+        //alert("1");
+
+        
+        $.ajax({
+            url: '/ShoppingCart/AddToCart',
+            type: 'POST',
+            data: { idProduct: idProduct, quantity: quantity },
+            success: function (mydata) {
+               // alert("2");
+                $("#PartialCart").empty().append(mydata);
+            },
+            error: function () {
+                alert("Error");
+            }
+        });
+
+
+    }
+</script>
+<div style="clear: both; display: block; height: 40px"></div>
+<div class="prod">
+    <div class="clearfix">
+        @if(Model.image_product.Count > 0)
+        {
+        <a href="@Url.Content(Model.image_product.First().imagetb.url)" class="jqzoom" rel='gal1' title="triumph">
+            <img src="@Url.Content(Model.image_product.First().imagetb1.url)" style="border: 4px solid #e5e5e5;">
+        </a>
+        }
+    </div>
+    <div class="clearfix">
+        <ul id="thumblist" class="clearfix">
+            <li>
+                <a class="zoomThumbActive" href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './images/products/product_small1.jpg',largeimage: './images/products/product_big1.jpg'}">
+                    <img src='images/products/product_small1.jpg'></a>
+            </li>
+            <li><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './images/products/product_small2.jpg',largeimage: './images/products/product_big2.jpg'}">
+                <img src='images/products/product_small2.jpg'></a></li>
+            <li><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './images/products/product_small3.jpg',largeimage: './images/products/product_big3.jpg'}">
+                <img src='images/products/product_small3.jpg'></a></li>
+        </ul>
+    </div>
+</div>
+<!--end:prod-->
+<div class="prod-detail">
+    <h2>@Model.proname</h2>
+    <span class="price">@Model.prostockprice VNĐ</span>
+    <!--<form action="#">
+        Choose you sizes :&nbsp;
+                           
+        <select>
+            <option>Large</option>
+            <option>Medium</option>
+            <option>Small</option>
+            <option>X-Large</option>
+            <option>X-Small</option>
+        </select>
+        &nbsp;&nbsp;
+                             Quantity:&nbsp;
+                            
+        <input value="1" type="text">
+    </form>-->
+    <span class="cart-button">
+        
+        @if(Request.IsAuthenticated == true)
+        {
+            //Ajax.ActionLink("Thêm vào giỏ hàng","AddToCart","ShoppingCart", new { idProduct = Model.proid,  quantity = 1}, new AjaxOptions{InsertionMode = InsertionMode.Replace,UpdateTargetId = "" } )
+            <a onclick="addToCart(@Model.proid, 1)">Thêm vào giỏ hàng</a>
+        }
+        else
+        {
+            <a href="cart.html">Đăng nhập để mua hàng</a>
+        }
+        
+        <a href="compare.html">Thêm vào so sánh</a>
+    </span>
+    <div id="tab">
+        <ul class="nav">
+            <li class="nav-one"><a href="#details" class="current">Details</a></li>
+            <li class="nav-two"><a href="#specs">Specification</a></li>
+            <li class="nav-three"><a href="#reviews">Reviews</a></li>
+            <li class="nav-four last"><a href="#tags">Tags</a></li>
+        </ul>
+        <div class="list-wrap">
+            <div id="details">
+                <p>Vivamus orci sem, consectetur ut vestibulum a, semper ac dui. Aenean tellus nisl, commodo eu aliquet ut, pulvinar ut sapien. Praesent sollicitudin, nibh nec mattis lobortis, dui massa eleifend magna, eget consequat risus felis dignissim ligula. </p>
+                <ul>
+                    <li><a href="#">Lorem ipsum dolor sit amet Consectetur adipiscing elit</a></li>
+                    <li><a href="#">Integer molestie lorem at massa Facilisis in pretium nisl aliquet</a></li>
+                    <li><a href="#">Nulla volutpat aliquam velit </a></li>
+                </ul>
+            </div>
+            <ul id="specs" class="hide">
+                <li><span>Product Code:</span> Product 01</li>
+                <li><span>Availability:</span> In Stock</li>
+                <li><span>Price:</span> $48.00</li>
+                <li><span>Eco Tax:</span> $1</li>
+                <li><span>Vat(10%):</span> $7</li>
+            </ul>
+            <div id="reviews" class="hide">
+                <form action="#">
+                    <fieldset>
+                        <label>Input Text</label>
+                        <input type="text" name="input">
+                        <label>Review</label>
+                        <textarea rows="3"></textarea>
+                    </fieldset>
+                    <input type="submit" class="submit" value="Write a review">
+                </form>
+            </div>
+            <ul id="tags" class="hide">
+                <li><a href="#">Women's Clothes</a></li>
+                <li><a href="#">Men's Clothes</a></li>
+                <li><a href="#">Women's Shoes</a></li>
+                <li><a href="#">Men's Shoes</a></li>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Brand</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--prodetail-->
+<div class="relatedprod">
+    <h4>Related Products</h4>
+    <div class="entry first">
+        <div class="da-thumbs">
+            <div class="div-related">
+                <img src="@Url.Content("~/Images/products/product-5.jpg")" alt="">
+                <article class="da-animate da-slideFromRight" style="display: block;">
+                    <p>
+                        <a href="#" class="link tip" title="View Detail"></a>&nbsp;
+                                   
+                        <a href="#" class="cart tip" title="Add to cart"></a>&nbsp;&nbsp;
+                        <a href="@Url.Content("~/Images/preview/work_1_l.jpg")" rel="prettyPhoto[gallery1]" class="zoom tip" title="Zoom"></a>
+                    </p>
+                </article>
+            </div>
+        </div>
+        <h3><a href="product-detail.html">Athletic Shoes</a></h3>
+        <span>200000 VNĐ</span>
+    </div>
+    <div class="entry">
+        <div class="da-thumbs">
+            <div class="div-related">
+                <img src="@Url.Content("~/Images/products/product-4.jpg")" alt="">
+                <article class="da-animate da-slideFromRight" style="display: block;">
+                    <p>
+                        <a href="#" class="link tip" title="View Detail"></a>&nbsp;
+                                   
+                        <a href="#" class="cart tip" title="Add to cart"></a>&nbsp;&nbsp;
+                        <a href="@Url.Content("~/Images/preview/work_1_l.jpg")" rel="prettyPhoto[gallery1]" class="zoom tip" title="Zoom"></a>
+                    </p>
+                </article>
+            </div>
+        </div>
+        <h3><a href="product-detail.html">Athletic Shoes</a></h3>
+        <span>250000 VNĐ</span>
+    </div>
+    <div class="entry">
+        <div class="da-thumbs">
+            <div class="div-related">
+                <img src="@Url.Content("~/Images/products/product-6.jpg")" alt="">
+                <article class="da-animate da-slideFromRight" style="display: block;">
+                    <p>
+                        <a href="#" class="link tip" title="View Detail"></a>&nbsp;
+                                   
+                        <a href="#" class="cart tip" title="Add to cart"></a>&nbsp;&nbsp;
+                                   
+                        <a href="@Url.Content("~/Images/preview/work_1_l.jpg")" rel="prettyPhoto[gallery1]" class="zoom tip" title="Zoom"></a>
+                    </p>
+                </article>
+            </div>
+        </div>
+        <h3><a href="product-detail.html">Athletic Shoes</a></h3>
+        <span>1000000 VNĐ</span>
+    </div>
+    <div class="entry">
+        <div class="da-thumbs">
+            <div class="div-related">
+                <img src="@Url.Content("~/Images/products/product-3.jpg")" alt="">
+                <article class="da-animate da-slideFromRight" style="display: block;">
+                    <p>
+                        <a href="#" class="link tip" title="View Detail"></a>&nbsp;
+                                   
+                        <a href="#" class="cart tip" title="Add to cart"></a>&nbsp;&nbsp;
+                                   
+                        <a href="@Url.Content("~/Images/preview/work_1_l.jpg")" rel="prettyPhoto[gallery1]" class="zoom tip" title="Zoom"></a>
+                    </p>
+                </article>
+            </div>
+        </div>
+        <h3><a href="product-detail.html">Athletic Shoes</a></h3>
+        <span>200000 VNĐ</span>
+    </div>
+</div>

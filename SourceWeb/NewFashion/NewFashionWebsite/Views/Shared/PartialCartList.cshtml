@@ -1,0 +1,73 @@
+﻿@model  List<NewFashionBLL.shopping_cart>
+<style>
+    #dialog-confirm {
+        display:none;
+    }
+</style>
+@if(Model != null)
+    {
+        for(var i = 0; i < Model.Count() ; i++)
+        {
+        <tr>
+            <td class="image"><a href="#">
+                <img title="product" alt="product" src="@Url.Content(Model[i].product.imagetb.url)" height="50" width="50"></a></td>
+            <td class="name"><a href="#">@Model[i].product.proname</a></td>
+            <td class="model">@Model[i].product.category.catname</td>
+            <td class="quantity">
+                <!--<input type="text" size="1" value="Model[i].count" name="quantity[40]" class="span1"></td>-->
+                @Html.TextBoxFor(m => m[i].count, new { @class="span1",@size="1",@name="quantity[40]"})
+            <td class="price">@Model[i].product.prostockprice</td>
+            <td class="total">@(Model[i].count*Model[i].product.prostockprice)</td>
+            <td class="remove-update"><a onclick="removeCart(@Model[i].id, '@Model[i].product.proname')" class="tip remove" title="Remove">
+                <img src="@Url.Content("~/Images/remove.png")" alt=""></a>
+                <a href="#" class="tip update" title="Update">
+                    <img src="@Url.Content("~/Images/update.png")" alt=""></a></td>
+        </tr>
+        }
+    }
+    else
+    {
+        
+    }
+<div id="dialog-confirm" title="Xóa sản phẩm?">
+    <p id="dialog-confirm-message"><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span></p><p>Bạn thực sự muốn xóa?</p>
+</div>
+
+<script>
+    function removeCart(idCart, productName) {
+        //alert("1");
+        var pkNo = $(this).attr("pkNo");
+        var value =
+        $("#dialog-confirm-message").empty().text("Tên sản phẩm: " + productName);
+        //alert(productName);
+        $("#dialog-confirm").dialog({
+            resizable: false,
+            height: 200,
+            width: 400,
+            modal: true,
+            buttons: {
+                "Không": function () {
+                    $(this).dialog("close");
+                    //alert("2");
+                },
+                "Có": function () {
+                    $.ajax({
+                        url: '/ShoppingCart/RemoveFromCart',
+                        type: 'POST',
+                        data: { idCart: idCart },
+                        success: function (mydata) {
+                            $("#divPartialViewCartList").empty().append(mydata);
+                            //alert("Success");
+                        },
+                        error: function () {
+                            alert("Error");
+                        }
+                    });
+                    $(this).dialog("close");
+                   // alert("3");
+                }
+            }
+        });
+    }
+    
+</script>

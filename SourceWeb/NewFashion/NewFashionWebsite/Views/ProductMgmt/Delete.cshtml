@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Xóa sản phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";    
+    @Styles.Render("~/Content/css-admin-custom2")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/modernizr")
+    
+    @model NewFashionBLL.product
+}
+
+<h2>Xóa sản phẩm</h2>
+<p>Bạn có chắc chắn muốn xóa sản phẩm <b>@Model.proname</b> không? Lưu ý việc này không thể hoàn tác.</p>
+
+<p align="center">
+    <input type="submit" value="Có, xóa sản phẩm này" /> 
+    <input type="button" value="Quay lại" onclick="history.back(-1)" />
+</p>

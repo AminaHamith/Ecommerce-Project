@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Shopping Cart";
+    //@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/modernizr")
+}
+<div style="clear: both; display: block; height: 40px"></div>
+<h2>Giỏ hàng</h2>
+<table class="shopping-cart">
+    <tr>
+        <th class="image">Hình đại diện</th>
+        <th class="name">Tên sản phẩm</th>
+        <th class="model">Danh mục</th>
+        <th class="quantity">Số lượng</th>
+        <th class="price">Đơn giá</th>
+        <th class="total">Tổng</th>
+        <th class="action"></th>
+    </tr>
+    <tbody id="divPartialViewCartList">
+        @Html.Partial("~/Views/Shared/PartialCartList.cshtml")
+    </tbody>
+</table>
+<div class="contentbox">
+    <!--cartoptionbox-->
+    <div class="alltotal one-half">
+        <table class="alltotal">
+            <tr>
+                <td><span class="extra">Tổng cộng :</span></td>
+                <td><span></span></td>
+            </tr>
+            <tr>
+                <td><span class="extra">Eco Tax (-2.00) :</span></td>
+                <td><span></span></td>
+            </tr>
+            <tr>
+                <td><span class="extra">VAT (18.2%) :</span></td>
+                <td><span></span></td>
+            </tr>
+            <tr>
+                
+                <td><span class="extra grandtotal">Tổng cộng :</span></td>
+                @if (ViewBag.TOTAL != null) { 
+                    <td><span class="grandtotal">@ViewBag.TOTAL VNĐ</span></td>
+                }
+                else
+                {
+                    <td><span class="grandtotal"></span></td>
+                }
+            </tr>
+        </table>
+        <a href="@Url.Action("Index","Home")"><input type="submit" value="Tiếp tục mua sắm"></a>
+        <a href="@Url.Action("Checkout","Home")"><input type="submit" value="Thanh toán"></a>
+    </div>
+    <!--end:alltotal-->
+</div>
+<!--end:contentbox-->
+<div style="clear: both; display: block; height: 40px"></div>

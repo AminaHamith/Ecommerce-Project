@@ -1,0 +1,316 @@
+﻿@model NewFashionWebsite.Models.CheckoutModel
+@{
+    ViewBag.Title = "Payment";
+    @Scripts.Render("~/bundles/script-shopymart-checkout")
+}
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("#tab").organicTabs({
+            "speed": 200
+        });
+    });
+</script>
+<div style="clear: both; display: block; height: 40px"></div>
+<h2>Thanh toán: &nbsp;<small>các bước thanh toán</small></h2>
+<div id="tab" class="tab2">
+    <ul class="nav nav2">
+        <li class="nav-one"><a href="#billing" class="current">Thông tin người mua</a></li>
+        <li class="nav-two"><a href="#delivery">Thông tin người nhận</a></li>
+        <li class="nav-three"><a href="#deliverymethod">Phương thức giao hàng</a></li>
+        <li class="nav-four"><a href="#payment">Phương thức thanh toán</a></li>
+        <li class="nav-five"><a href="#confirm">Xác nhận</a></li>
+    </ul>
+    <div class="list-wrap checkoutbox">
+            
+        <div id="billing">
+            <form action="#" class="form-register">
+                <div class="one-third first">
+                    <h3>Thông tin cá nhân</h3>
+                    <div class="registerbox">
+                        <fieldset>
+                            <div class="control-group">
+                                <label class="control-label"><span class="red">*</span> Họ:</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label"><span class="red">*</span> Tên:</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label"><span class="red">*</span> Email:</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label"><span class="red">*</span> Số điện thoại thứ nhất:</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label"> Số điện thoại thứ hai:</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="one-third">
+                    <h3>Địa chỉ</h3>
+                    <div class="registerbox">
+                        <fieldset>
+                            <div class="control-group">
+                                <label class="control-label"><span class="red">*</span>Địa chỉ thứ nhất:</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">Địa chỉ thứ hai:</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    <span class="red">*</span>Thành phố:</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Mã khu vực:</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="select01" class="control-label">
+                                    <span class="red">*</span>Quốc gia:</label>
+                                <div class="controls">
+                                    <select id="select01" class="span3">
+                                        <option>Country:</option>
+                                        <option>Philippines</option>
+                                        <option>Germany</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    <span class="red">*</span>Quận / huyện:</label>
+                                <div class="controls">
+                                    <select id="select02" class="span3">
+                                        <option>Region / State:</option>
+                                        <option>Manila</option>
+                                        <option>Cagayan de Oro City</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+        <!--end:billing-->
+        <div id="delivery" class="hide">
+            <form action="#" class="form-register">
+                <div class="one-third first">
+                    <h3>Thông tin cá nhân</h3>
+                    <div class="registerbox">
+                        <fieldset>
+                            <div class="control-group">
+                                <label class="control-label"><span class="red">*</span> Họ:</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label"><span class="red">*</span> Tên:</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label"><span class="red">*</span> Email:</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label"><span class="red">*</span> Số điện thoại thứ nhất:</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label"> Số điện thoại thứ hai:</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="one-third">
+                    <h3>Địa chỉ</h3>
+                    <div class="registerbox">
+                        <fieldset>
+                            <div class="control-group">
+                                <label class="control-label"><span class="red">*</span>Địa chỉ thứ nhất:</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">Địa chỉ thứ hai:</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    <span class="red">*</span>Thành phố:</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Mã khu vực:</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="select01" class="control-label">
+                                    <span class="red">*</span>Quốc gia:</label>
+                                <div class="controls">
+                                    <select id="select01" class="span3">
+                                        <option>Country:</option>
+                                        <option>Philippines</option>
+                                        <option>Germany</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    <span class="red">*</span>Quận / huyện:</label>
+                                <div class="controls">
+                                    <select id="select02" class="span3">
+                                        <option>Region / State:</option>
+                                        <option>Manila</option>
+                                        <option>Cagayan de Oro City</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+        <!--end:delivery-->
+        <div id="deliverymethod" class="hide">
+            <p>Phương thức bạn có thể thanh toán</p>
+            <label class="inline">
+                <input type="radio" value="option1">
+                Nhận tại cửa hàng
+                                   
+            </label>
+            <label class="inline">
+                <input type="radio" value="option1">
+                Giao tận nhà
+                                   
+            </label>
+            <textarea rows="3">Add Comment here...</textarea>
+            <br>
+            <span><a href="#">Continue</a></span>
+        </div>
+        <!--end:deliverymethod-->
+        <div id="payment" class="hide">
+            <p>Please select the preferred payment method to use on this order.</p>
+            <label class="inline">
+                <input type="radio" value="option1">
+                Cash on delivery
+                                   
+            </label>
+            <textarea rows="3">Add Comment here...</textarea>
+            <br>
+            <span><a href="#">Continue</a></span>
+        </div>
+        <!--end:payment-->
+        <div id="confirm" class="hide">
+            <table class="shopping-cart">
+                <tr>
+                    <th class="image">Hình đại diện</th>
+                    <th class="name">Tên sản phẩm</th>
+                    <th class="model">Danh mục</th>
+                    <th class="quantity">Số lượng</th>
+                    <th class="price">Đơn giá</th>
+                    <th class="total">Tổng</th>
+                </tr>
+                <tbody id="divPartialViewCartList">
+                @if(Model != null)
+                {
+                   if (Model.listCart != null)
+                   {
+                       for (var i = 0; i < Model.listCart.Count(); i++)
+                       {
+                            <tr>
+                                <td class="image"><a href="#">
+                                    <img title="product" alt="product" src="@Url.Content(Model.listCart[i].product.imagetb.url)" height="50" width="50"></a></td>
+                                <td class="name"><a href="#">@Model.listCart[i].product.proname</a></td>
+                                <td class="model">@Model.listCart[i].product.category.catname</td>
+                                <td class="quantity">
+                                    <!--<input type="text" size="1" value="Model[i].count" name="quantity[40]" class="span1"></td>-->
+                                    @Html.TextBoxFor(m => m.listCart[i].count, new { @class = "span1", @size = "1", @name = "quantity[40]" })
+                                <td class="price">@Model.listCart[i].product.prostockprice</td>
+                                <td class="total">@(Model.listCart[i].count * Model.listCart[i].product.prostockprice)</td>
+                            </tr>
+                       }
+                   }
+                }
+                </tbody>
+            </table>
+            <div class="contentbox">
+                
+                <!--cartoptionbox-->
+                <div class="alltotal one-half">
+                    <table class="alltotal">
+                        <tr>
+                            <td><span class="extra">Sub-Total :</span></td>
+                            <td><span></span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="extra">Eco Tax (-2.00) :</span></td>
+                            <td><span></span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="extra">VAT (18.2%) :</span></td>
+                            <td><span></span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="extra grandtotal">Total :</span></td>
+                            <td><span class="grandtotal"></span></td>
+                        </tr>
+                    </table>
+                    <input type="submit" value="Continue Shopping">
+                    <input type="submit" value="CheckOut">
+                </div>
+                <!--end:alltotal-->
+            </div>
+            <!--end:contentbox-->
+        </div>
+        <!--end:confirm-->
+    </div>
+</div>
+<div style="clear: both; display: block; height: 40px"></div>

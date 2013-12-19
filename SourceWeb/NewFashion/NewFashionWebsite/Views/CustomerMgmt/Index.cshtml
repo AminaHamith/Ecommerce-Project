@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Quản lý khách hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    @Styles.Render("~/Content/css-admin-custom2")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/modernizr")
+                    //@Scripts.Render("~/bundles/script-admin-custom2")
+}
+
+<!--Begin Datatables-->
+<div class="row">
+    <div class="col-lg-12">
+        <a href="@Url.Action("Create","CustomerMgmt")">Thêm khách hàng</a>
+        <div class="box">
+            <header>
+                <div class="icons"><i class="icon-move"></i></div>
+                <h5>Danh sách khách hàng</h5>
+                
+            </header>
+            <div id="collapse4" class="body">
+                @Html.Partial("~/Views/Shared/PartialCustomerList.cshtml")
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+<!--End Datatables-->
+
+<script>
+    <!--$(function () { metisTable(); metisSortable(); });-->
+        
+    
+    // Call a service that takes a list as an argument
+    function listCustomer(page) {
+        
+        //alert('JQuery: ' + 1);
+
+        $.ajax({
+            url: '/CustomerMgmt/Index',
+            type: 'POST',
+            data: { page: page },
+            success: function (mydata) {
+                $("#collapse4").empty().append(mydata);
+                //alert("Success");
+            },
+            error: function () {
+                alert("Error");
+            }
+        });
+
+
+    }
+</script>

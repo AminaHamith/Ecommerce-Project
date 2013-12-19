@@ -1,0 +1,104 @@
+﻿@model List<NewFashionBLL.customer>
+@{
+    Layout = null;
+}
+<style>
+    #dialog-confirm {
+        display:none;
+    }
+</style>
+<table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên đăng nhập</th>
+            <th>Họ tên</th>
+            <th>Email</th>
+            <th>Lần đăng nhập gần nhất</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            for (var i = 0; i < Model.Count; i++)
+            {
+            <tr>
+                <td>@(i + 1)</td>
+                <td>@Model[i].aspnet_Users.UserName</td>
+                <td>@Model[i].cusfirstname @Model[i].cuslastname</td>
+                <td>@Model[i].aspnet_Users.aspnet_Membership.Email</td>
+                <td>@Model[i].aspnet_Users.LastActivityDate</td>
+                <td>
+                    <a class="btn btn-info btn-sm btn-flat btn-rect" href="@Url.Action("Details", "CustomerMgmt", new { id = Model[i].cusid })" data-original-title="" title=""><i class="glyphicon glyphicon-info-sign"></i></a>
+                    <a id="delete" onclick="deleteCustomer(@ViewBag.CURRENT_PAGE,'@Model[i].cusid','@Model[i].aspnet_Users.UserName')" class="btn btn-danger btn-sm btn-flat btn-rect" data-original-title="" title=""><i class="glyphicon glyphicon-remove"></i></a>
+                    <a class="btn btn-success btn-sm btn-flat btn-rect" href="@Url.Action("Edit", "CustomerMgmt", new { id = Model[i].cusid })" data-original-title="" title=""><i class="glyphicon glyphicon-pencil"></i></a>
+                </td>
+            </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+<ul id="pagination">
+    @if (ViewBag.COUNT != null)
+    {
+        for (int i = 1; i <= ViewBag.COUNT; i++)
+        {
+            if (ViewBag.CURRENT_PAGE == i)
+            {
+        <li>
+            <p class="current" onclick="listCustomer(@i)">@i</p>
+        </li>
+            }
+            else
+            {
+        <li>
+            <p onclick="listCustomer(@i)">@i</p>
+        </li>
+            }
+        }
+    }
+</ul>
+<div id="dialog-confirm" title="Xóa khách hàng?">
+    <p id="dialog-confirm-message"><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span></p><p>Bạn thực sự muốn xóa?</p>
+</div>
+<br />
+<script>
+    function deleteCustomer(page, idCustomer, username) {
+        //alert("3");
+        var pkNo = $(this).attr("pkNo");
+        var value =
+        $("#dialog-confirm-message").empty().text("Khách hàng có tên tài khoản: " + username);
+        $("#dialog-confirm").dialog({
+            resizable: false,
+            height: 200,
+            width: 400,
+            modal: true,
+            buttons: {
+                "Không": function () {
+                    $(this).dialog("close");
+                    //alert("1");
+                },
+                "Có": function () {
+                    $.ajax({
+                        url: '/CustomerMgmt/Delete',
+                        type: 'POST',
+                        data: { page: page, idCustomer: idCustomer },
+                        success: function (mydata) {
+                            $("#collapse4").empty().append(mydata);
+                            //alert("Success");
+                        },
+                        error: function () {
+                            alert("Error");
+                        }
+                    });
+                    $(this).dialog("close");
+                    //alert("2");
+                }
+            }
+        });
+    }
+    
+</script>

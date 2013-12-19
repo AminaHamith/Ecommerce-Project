@@ -1,0 +1,202 @@
+﻿@model NewFashionWebsite.Models.RegisterModel
+@{
+    ViewBag.Title = "Update";
+    @Scripts.Render("~/bundles/jqueryval")
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/modernizr")
+}
+<section class="content">
+    <h2>Chỉnh sửa thông tin cá nhân</h2>
+    <!--
+    <div id="divPartialViewRegister">
+        Html.Partial("~/Views/Shared/PartialRegister.cshtml")
+    </div>-->
+    
+@using (Html.BeginForm("ChangePassword", null, FormMethod.Post, new { @class = "form-register", id = "form-register" }))
+{
+    @Html.ValidationSummary(true)
+    <h3><span class="red">*</span>Tài khoản</h3>
+    <div class="registerbox">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label"><span class="red">*</span>@Html.DisplayNameFor(m => m.accountModel.Username): </label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.accountModel.Username, new { @class = "input-xlarge" ,@readonly = true})&nbsp @Html.ValidationMessageFor(m => m.accountModel.Username)
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="red">*</span>@Html.DisplayNameFor(m => m.accountModel.Email): </label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.accountModel.Email, new { @class = "input-xlarge" })&nbsp @Html.ValidationMessageFor(m => m.accountModel.Email)
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="red">*</span>@Html.DisplayNameFor(m => m.accountModel.ConfirmEmail): </label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.accountModel.ConfirmEmail, new { @class = "input-xlarge" })&nbsp @Html.ValidationMessageFor(m => m.accountModel.ConfirmEmail)
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <h3>Thông tin cá nhân</h3>
+    <div class="registerbox">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label"><span class="red">*</span>@Html.DisplayNameFor(m => m.customerModel.cusfirstname): </label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.customerModel.cusfirstname, new { @class = "input-xlarge" })&nbsp @Html.ValidationMessageFor(m => m.customerModel.cusfirstname)
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label"><span class="red">*</span>@Html.DisplayNameFor(m => m.customerModel.cuslastname): </label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.customerModel.cuslastname, new { @class = "input-xlarge" })&nbsp @Html.ValidationMessageFor(m => m.customerModel.cuslastname)
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">@Html.DisplayNameFor(m => m.customerModel.customer_information.phonenumber1): </label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.customerModel.customer_information.phonenumber1, new { @class = "input-xlarge" })&nbsp @Html.ValidationMessageFor(m => m.customerModel.customer_information.phonenumber1)
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">@Html.DisplayNameFor(m => m.customerModel.customer_information.phonenumber2): </label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.customerModel.customer_information.phonenumber2, new { @class = "input-xlarge" })&nbsp @Html.ValidationMessageFor(m => m.customerModel.customer_information.phonenumber2)
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">@Html.DisplayNameFor(m => m.customerModel.customer_information.gender): </label>
+                <div class="controls" id="gender">
+                    <label>
+                        @Html.DropDownListFor(m => m.customerModel.customer_information.gender, (IEnumerable<SelectListItem>)ViewBag.GENDER)
+                    </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">@Html.DisplayNameFor(m => m.customerModel.customer_information.birthday): </label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.customerModel.customer_information.birthday, "{0:MM/dd/yyyy}") &nbsp @Html.ValidationMessageFor(m => m.customerModel.customer_information.birthday)
+
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">@Html.DisplayNameFor(m => m.customerModel.customer_information.address1): </label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.customerModel.customer_information.address1, new { @class = "input-xlarge" })&nbsp @Html.ValidationMessageFor(m => m.customerModel.customer_information.address1)
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">@Html.DisplayNameFor(m => m.customerModel.customer_information.address2): </label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.customerModel.customer_information.address2, new { @class = "input-xlarge" })&nbsp @Html.ValidationMessageFor(m => m.customerModel.customer_information.address2)
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">@Html.DisplayNameFor(m => m.customerModel.customer_information.address2): </label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.customerModel.customer_information.country, new { @class = "input-xlarge" })&nbsp @Html.ValidationMessageFor(m => m.customerModel.customer_information.country)
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">@Html.DisplayNameFor(m => m.customerModel.customer_information.city): </label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.customerModel.customer_information.city, new { @class = "input-xlarge" })&nbsp @Html.ValidationMessageFor(m => m.customerModel.customer_information.city)
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">@Html.DisplayNameFor(m => m.customerModel.customer_information.region_state): </label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.customerModel.customer_information.region_state, new { @class = "input-xlarge" })&nbsp @Html.ValidationMessageFor(m => m.customerModel.customer_information.region_state)
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">@Html.DisplayNameFor(m => m.customerModel.customer_information.post_code): </label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.customerModel.customer_information.post_code, new { @class = "input-xlarge" })&nbsp @Html.ValidationMessageFor(m => m.customerModel.customer_information.post_code)
+                </div>
+            </div>
+        </fieldset>
+    </div>
+       
+    <div class="pull-right">
+        @Html.AntiForgeryToken()
+        <input type="submit" id="btnRegister" class="submit" value="Chỉnh sửa">
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#customerModel_cuscustomer_information").datepicker(
+                                    {
+                                        changeMonth: true,
+                                        changeYear: true,
+                                        dateFormat: 'dd/mm/yy',
+                                        yearRange: '-100:+0',
+                                    });
+        });
+                        </script>
+}
+</section>
+<aside class="sidebar">
+    
+    <div class="side">
+        <h4>Bestsellers</h4>
+        <div class="entry">
+            <div class="da-thumbs">
+                <div>
+                    <img src="@Url.Content("~/Images/products/thumb-1.jpg")" alt="">
+                    <article class="da-animate da-slideFromRight" style="display: block;">
+                        <p><a href="#" class="link"></a></p>
+                    </article>
+                </div>
+            </div>
+            <h3><a href="product-detail.html">Sản phẩm 1</a></h3>
+            <small>100000 VNĐ</small>
+        </div>
+        <div class="entry">
+            <div class="da-thumbs">
+                <div>
+                    <img src="@Url.Content("~/Images/products/thumb-2.jpg")" alt="">
+                    <article class="da-animate da-slideFromRight" style="display: block;">
+                        <p><a href="#" class="link"></a></p>
+                    </article>
+                </div>
+            </div>
+            <h3><a href="product-detail.html">Athletic Shoes</a></h3>
+            <small>200000 VNĐ</small>
+        </div>
+    </div>
+    <!--end:side-->
+    
+</aside>
+<!--
+<script>
+    $(document).ready(function () {
+        $('#form-register').submit(function () {
+            var args = new Object();
+            //alert('JQuery: ' + 1);
+
+            args.page = page;
+            args.idCategory = idCategory;
+            $.ajax({
+                url: '/account/register',
+                type: 'POST',
+                data: $("#divPartialViewRegister").serialize(),
+                success: function (mydata) {
+                    alert('JQuery: ' + 1);
+                    $("#divPartialViewRegister").empty().append(mydata);
+                },
+                error: function () {
+                    alert("Error");
+                }
+            });
+
+
+        })
+    })
+</script>-->

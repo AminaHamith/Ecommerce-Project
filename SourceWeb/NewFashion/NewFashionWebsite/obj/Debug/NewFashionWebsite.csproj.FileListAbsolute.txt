@@ -1,0 +1,67 @@
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\NewFashionWebsite.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\NewFashionWebsite.pdb
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\Antlr3.Runtime.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\DataAnnotationsExtensions.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\EntityFramework.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\Microsoft.Web.Infrastructure.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\NewFashionBLL.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\Newtonsoft.Json.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\Recaptcha.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\Recaptcha.MvcModel.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\Recaptcha.Web.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Net.Http.Formatting.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Http.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Http.WebHost.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Mvc.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Optimization.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Providers.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Razor.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.Deployment.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.Razor.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\WebGrease.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\NewFashionBLL.pdb
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\Recaptcha.pdb
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\EntityFramework.xml
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\Newtonsoft.Json.xml
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Net.Http.Formatting.xml
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Http.xml
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Http.WebHost.xml
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Mvc.xml
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Razor.xml
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.xml
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.Deployment.xml
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.Razor.xml
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\obj\Debug\NewFashionWebsite.csprojResolveAssemblyReference.cache
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\obj\Debug\NewFashionWebsite.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionWebsite\obj\Debug\NewFashionWebsite.pdb
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\NewFashionWebsite.dll
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\NewFashionWebsite.pdb
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\Microsoft.Web.Infrastructure.dll
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\NewFashionBLL.dll
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Net.Http.Formatting.dll
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Http.dll
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Http.WebHost.dll
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Mvc.dll
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Razor.dll
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.Deployment.dll
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.dll
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.Razor.dll
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\NewFashionBLL.pdb
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\Microsoft.Web.Infrastructure.xml
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Net.Http.Formatting.xml
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Http.xml
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Http.WebHost.xml
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Mvc.xml
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Razor.xml
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.xml
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.Deployment.xml
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.Razor.xml
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\obj\Debug\NewFashionWebsite.csprojResolveAssemblyReference.cache
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\obj\Debug\NewFashionWebsite.dll
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\obj\Debug\NewFashionWebsite.pdb
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\Recaptcha.pdb
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\EntityFramework.xml
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\Newtonsoft.Json.xml
+E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\EntityFramework.dll

@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "Information";
+}
+<script type="text/javascript">
+    $(function () {
+        $("#tab").organicTabs({
+            "speed": 200
+        });
+    });
+</script>
+<section class="content">
+    <h2>My Accounts: &nbsp;<small>View all your account information</small></h2>
+    <div id="tab" class="tab2">
+        <ul class="nav nav2">
+            <li class="nav-one"><a href="#account" class="current">My Accounts</a></li>
+            <li class="nav-two"><a href="#order">My Orders</a></li>
+            <li class="nav-three"><a href="#newsletter">Newsletter</a></li>
+        </ul>
+        <div class="list-wrap myaccount">
+            <ul id="account">
+                <li><a href="#">Edit you account information</a></li>
+                <li><a href="#">Change your password</a></li>
+                <li><a href="#">Modify you address book entries</a></li>
+                <li><a href="#">Modify you wishlist</a></li>
+            </ul>
+            <ul id="order" class="hide">
+                <li><a href="#">View your order history</a></li>
+                <li><a href="#">Downloads</a></li>
+                <li><a href="#">View your return request</a></li>
+                <li><a href="#">Your transactions</a></li>
+            </ul>
+            <ul id="newsletter" class="hide">
+                <li><a href="#">Subscribe</a></li>
+                <li><a href="#">Unsubscribe</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<aside class="sidebar">
+    <div class="side">
+        <h4>Category</h4>
+        <ul class="cat">
+            <li><a href="#">Women's Clothes</a></li>
+            <li><a href="#">Men's Clothes</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Men's Shoes</a></li>
+            <li><a href="#">Women's Shoes</a></li>
+        </ul>
+    </div>
+    <!--end:side-->
+    <div class="side">
+        <h4>Bestsellers</h4>
+        <div class="entry">
+            <div class="da-thumbs">
+                <div>
+                    <img src="@Url.Content("~/Images/products/thumb-1.jpg")" alt="">
+                    <article class="da-animate da-slideFromRight" style="display: block;">
+                        <p><a href="product-detail.html" class="link"></a></p>
+                    </article>
+                </div>
+            </div>
+            <h3><a href="product-detail.html">Athletic Shoes</a></h3>
+            <small>$59.95</small>
+        </div>
+        <div class="entry">
+            <div class="da-thumbs">
+                <div>
+                    <img src="@Url.Content("~/Images/products/thumb-2.jpg")" alt="">
+                    <article class="da-animate da-slideFromRight" style="display: block;">
+                        <p><a href="product-detail.html" class="link"></a></p>
+                    </article>
+                </div>
+            </div>
+            <h3><a href="product-detail.html">Athletic Shoes</a></h3>
+            <small>$59.95</small>
+        </div>
+    </div>
+    <!--end:side-->
+    <div class="side">
+        <h4>Recent Blog</h4>
+        <div class="entry">
+            <div class="da-thumbs">
+                <div>
+                    <img src="@Url.Content("~/Images/products/thumb-1.jpg")" alt="">
+                    <article class="da-animate da-slideFromRight" style="display: block;">
+                        <p><a href="blog.html" class="link"></a></p>
+                    </article>
+                </div>
+            </div>
+            <h3><a href="blog.html">Pellentesque habitant morbi..</a></h3>
+            <span><a href="blog.html">Posted on:02/28/13</a></span>
+        </div>
+        <div class="entry">
+            <div class="da-thumbs">
+                <div>
+                    <img src="@Url.Content("~/Images/products/thumb-2.jpg")" alt="">
+                    <article class="da-animate da-slideFromRight" style="display: block;">
+                        <p><a href="blog.html" class="link"></a></p>
+                    </article>
+                </div>
+            </div>
+            <h3><a href="blog.html">Pellentesque habitant morbi ...</a></h3>
+            <span><a href="blog.html">Posted on:02/28/13</a></span>
+        </div>
+    </div>
+    <!--end:side-->
+    <div class="side">
+        <h4>Our Customer Love Us!</h4>
+        <ul class="fade">
+            <li class="feed">Easy shopping experience! Pricing is attractive! Lots of styles to choose from and great pics!<br>
+                <small><a href="#">&mdash; Louie Jie Mahusay</a></small>
+            </li>
+            <li class="feed">Easy shopping experience! Pricing is attractive! Lots of styles to choose from and great pics!<br>
+                <small><a href="#">&mdash; Louie Jie Mahusay</a></small>
+            </li>
+            <li class="feed">Easy shopping experience! Pricing is attractive! Lots of styles to choose from and great pics!<br>
+                <small><a href="#">&mdash; Louie Jie Mahusay</a></small>
+            </li>
+            <li class="feed">Easy shopping experience! Pricing is attractive! Lots of styles to choose from and great pics!<br>
+                <small><a href="#">&mdash; Louie Jie Mahusay</a></small>
+            </li>
+        </ul>
+    </div>
+</aside>

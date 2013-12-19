@@ -1,0 +1,12 @@
+﻿@model NewFashionWebsite.Models.SearchModel
+<h1>Tìm kiếm nâng cao</h1>
+
+@using (Html.BeginForm("Result", "Search", FormMethod.Get, new { @class = "search_bar", id = "search-bar" }))
+{
+                @Html.ValidationSummary(true)
+                    <fieldset>
+                        @Html.TextBoxFor(m => m.keyWord, new { @class = "search" })&nbsp @Html.ValidationMessageFor(m => m.keyWord)
+                        <!--<input type="text" name="search" class="search" value="Enter a keywords..." onblur="if (this.value == ''){this.value = 'Enter a keywords...'; }" onfocus="if (this.value== 'Enter a keywords...') {this.value = ''; }" />-->
+                        <input type="submit" value="Search" class="submit" />
+                    </fieldset>
+}

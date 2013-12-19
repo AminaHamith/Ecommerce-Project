@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AFFAD145-85FE-4250-8CAC-037347F707E8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NewFashionBLL</RootNamespace>
+    <AssemblyName>NewFashionBLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="advertisement.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Applications.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Membership.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Paths.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_PersonalizationAllUsers.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_PersonalizationPerUser.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Profile.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Roles.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_SchemaVersions.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Users.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_WebEvent_Events.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BLL\AccountBLL.cs" />
+    <Compile Include="BLL\CategoryBLL.cs" />
+    <Compile Include="BLL\ColorBLL.cs" />
+    <Compile Include="BLL\CustomerBLL.cs" />
+    <Compile Include="BLL\DeliveryMethodBLL.cs" />
+    <Compile Include="BLL\ImageProductBLL.cs" />
+    <Compile Include="BLL\ImageSlideBLL.cs" />
+    <Compile Include="BLL\OrderBLL.cs" />
+    <Compile Include="BLL\OrderDetailBLL.cs" />
+    <Compile Include="BLL\PaymentMethodBLL.cs" />
+    <Compile Include="BLL\ProductBLL.cs" />
+    <Compile Include="BLL\ImageBLL.cs" />
+    <Compile Include="BLL\ShippingMethodBLL.cs" />
+    <Compile Include="BLL\ShoppingCartBLL.cs" />
+    <Compile Include="BLL\SizeBLL.cs" />
+    <Compile Include="brand.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="category.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="color.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="comment.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customer.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customer_information.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="delivery_method.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="discount.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="imagetb.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="image_product.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="image_slide.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="material.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Metadata\customer_informationMetaData.cs" />
+    <Compile Include="Metadata\customerMetaData.cs" />
+    <Compile Include="Metadata\imageSlideMetadata.cs" />
+    <Compile Include="Metadata\productMetadata.cs" />
+    <Compile Include="Metadata\shopping_cartMetadata.cs" />
+    <Compile Include="NewFashionModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NewFashionModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewFashionModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewFashionModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NewFashionModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="order_detail.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="payment_method.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="product.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="product_order.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="product_variety.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="shipping_method.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="shopping_cart.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="size.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="variety.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="wish_list.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="NewFashionModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NewFashionModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="NewFashionModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NewFashionModel.edmx</DependentUpon>
+      <LastGenOutput>NewFashionModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="NewFashionModel.edmx.diagram">
+      <DependentUpon>NewFashionModel.edmx</DependentUpon>
+    </None>
+    <None Include="NewFashionModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NewFashionModel.edmx</DependentUpon>
+      <LastGenOutput>NewFashionModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

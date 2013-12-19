@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/script-shopymart")
+    
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Arvo:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <!--MENU-->
+    <script type="text/javascript">
+        $(document).ready(function ($) {
+            $('#mega-menu-3').dcMegaMenu({
+                rowItems: '2',
+                speed: 'fast',
+                effect: 'fade'
+            });
+        });
+        //menu profile
+        var timeout = 500;
+        var closetimer = 0;
+        var ddmenuitem = 0;
+
+        // open hidden layer
+        function mopen(id) {
+            // cancel close timer
+            mcancelclosetime();
+
+            // close old layer
+            if (ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+            // get new layer and show it
+            ddmenuitem = document.getElementById(id);
+            ddmenuitem.style.visibility = 'visible';
+
+        }
+        // close showed layer
+        function mclose() {
+            if (ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+        }
+
+        // go close timer
+        function mclosetime() {
+            closetimer = window.setTimeout(mclose, timeout);
+        }
+
+        // cancel close timer
+        function mcancelclosetime() {
+            if (closetimer) {
+                window.clearTimeout(closetimer);
+                closetimer = null;
+            }
+        }
+
+        // close layer when click-out
+        document.onclick = mclose;
+    </script>
+
+</head>
+<body>
+    <div id="page_wrap">
+        <header>
+            <!--
+            <div id="top">
+                <span>Hello! default welcome message</span>
+                <div>
+                    <p>
+                        Language:
+                
+                        <label>
+                            <select>
+                                <option selected>English </option>
+                                <option>German</option>
+                                <option>Spanish</option>
+                            </select>
+                        </label>
+                        ​
+                   
+                    </p>
+                    <p>
+                        Currency:
+                
+                        <label>
+                            <select>
+                                <option selected>US Dollar - USD </option>
+                                <option>Euro - EUR</option>
+                                <option>British Pound - GBP</option>
+                            </select>
+                        </label>
+                        ​
+                   
+                    </p>
+                </div>
+            </div>
+            <!--end:top-->
+            <div id="top2">
+                <ul class="myaccountmenu">
+                    <!--<li><a href="Url.Action("Index","Account")" class="first">My Account</a></li>-->
+                    <li><a href="@Url.Action("ShoppingCart","Home")">Giỏ hàng</a></li>
+                    @if (Request.IsAuthenticated == false)
+                    {
+                        <li class="login"><a href="#login-box" class="last login-window">Đăng nhập</a></li>
+                        <li class="login"><a href="@Url.Action("Register", "Account")" class="last login-window">Đăng ký</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("Checkout", "Home")">Thanh toán</a></li>
+                    }
+                </ul>
+                <div id="login-box" class="login-popup">
+                    <a href="#" class="close">
+                        <img src="@Url.Content("~/Images/process-stop.png")" class="btn_close" title="Close Window" alt="Close" /></a>
+                    @using (Html.BeginForm("LoginInLayout", "Account", FormMethod.Post, new { @class = "signin" }))
+                    {
+                        <fieldset class="textbox">
+                            <label class="username">
+                                <span>Tên đăng nhập</span>
+                                <!--Html.TextBoxFor(m => m.Username)-->
+                                <input id="username" name="username" value="" type="text" autocomplete="on" placeholder="Username">
+                                <!--Html.ValidationMessageFor(model => model.Username)-->
+                            </label>
+                            <label class="password">
+                                <span>Mật khẩu</span>
+                                <!--Html.PasswordFor(m => m.Password)-->
+                                <input id="password" name="password" value="" type="password" placeholder="Password">
+                                <!--Html.ValidationMessageFor(model => model.Password)-->
+                            </label>
+                            <button class="submit button" type="submit">Đăng nhập</button>
+                            <p>
+                                <a class="forgot" href="@Url.Action("ResetPassword", "Account")">Quên mật khẩu?</a> / <a class="register" href="@Url.Action("Register", "Account")">Tạo tài khoản mới</a>
+                            </p>
+                        </fieldset>
+                    }
+                </div>
+                 @if (Request.IsAuthenticated)
+                 {
+                    <div>
+                        <ul id="sddm">
+                            <li>
+                                @if (User.IsInRole("Admin"))
+                                { <a href="#" onmouseover="mopen('m1')" onmouseout="mclosetime()">Hello, Admin</a>
+                                <div id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+                                    <a href="@Url.Action("Logout", "Account")">Đăng xuất</a>
+                                    <a href="@Url.Action("Information", "Account")">Thông tin</a>
+                                    <a href="@Url.Action("ChangePassword", "Account")">Đổi mật khẩu</a>
+                                    <a href="@Url.Action("Index", "Admin")">Quản lý website</a>
+                                </div>
+                                }
+                                else
+                                {
+                                    <a href="#" onmouseover="mopen('m1')" onmouseout="mclosetime()">Hello, <b>@User.Identity.Name</b></a>
+                                <div id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+                                    <a href="@Url.Action("Logout", "Account")">Đăng xuất</a>
+                                    <a href="@Url.Action("Information", "Account")">Thông tin</a>
+                                    <a href="@Url.Action("ChangePassword", "Account")">Đổi mật khẩu</a>
+                                </div>
+                                }
+                            </li>
+                        </ul>
+                    </div>
+                 }
+                <div id="PartialCart">
+                    @Html.Partial("~/Views/Shared/PartialShoppingCart.cshtml")
+                </div>
+            </div>
+            <!--end:top2-->
+            <div id="top3">
+                <h1 class="logo"><a href="@Url.Action("Index", "Home")">New Fashion</a></h1>
+                <form action="#" method="post" class="search_bar">
+                    <fieldset>
+                        <input type="text" name="search" class="search" value="Enter a keywords..." onblur="if (this.value == ''){this.value = 'Enter a keywords...'; }" onfocus="if (this.value== 'Enter a keywords...') {this.value = ''; }" />
+                        <input type="submit" name="submit" value="Search" class="submit" />
+                    </fieldset>
+                </form>
+            </div>
+            <!--end:top3-->
+        </header>
+        <div id="container">
+           <nav>
+                <ul id="mega-menu-3" class="mega-menu">
+                    <li class="first"><a href="@Url.Action("Index", "Home")" class="current">Trang chủ</a></li>
+                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 1 })">Công sở</a>
+                        <ul>
+                            <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 4 })">Phái nam</a>
+                                <!--
+                                <ul class="menu-1">
+                                    <li><a href="http://html5awesome.com/themeforest/shopymart/newarrival.html">New Arrival</a></li>
+                                    <li><a href="http://html5awesome.com/themeforest/shopymart/sale.html">On Sale</a></li>
+                                    <li><a href="brands.html">Brands</a></li>
+                                </ul>
+                                -->
+                                <ul> 
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 10 })">Áo</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 11 })">Quần</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 12 })">Giày</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 14 })">Ví</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 15 })">Thắt lưng</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 5 })">Phái nữ</a>
+                                <ul>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 16 })">Áo</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 17 })">Quần</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 18 })">Giày</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 19 })">Váy</a></li>
+                                    <li><a href="#">Ví</a></li>
+                                    <li><a href="#">Thắt lưng</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 2 })">Dạ hội</a>
+                        <ul>
+                            <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 6 })">Phái nam</a>
+                                <!--
+                                <ul class="menu-1">
+                                    <li><a href="http://html5awesome.com/themeforest/shopymart/newarrival.html">New Arrival</a></li>
+                                    <li><a href="http://html5awesome.com/themeforest/shopymart/sale.html">On Sale</a></li>
+                                    <li><a href="brands.html">Brands</a></li>
+                                </ul>
+                                -->
+                                <ul>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 20 })">Áo</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 21 })">Quần</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 22 })">Giày</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 24 })">Ví</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 25 })">Thắt lưng</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 7 })">Phái nữ</a>
+                                <ul>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 26 })">Áo</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 27 })">Quần</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 28 })">Giày</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 29 })">Váy</a></li>
+                                    <li><a href="#">Ví</a></li>
+                                    <li><a href="#">Thắt lưng</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 3 })">Dã ngoại</a>
+                        <ul>
+                            <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 8 })">Phái nam</a>
+                                <!--
+                                <ul class="menu-1">
+                                    <li><a href="http://html5awesome.com/themeforest/shopymart/newarrival.html">New Arrival</a></li>
+                                    <li><a href="http://html5awesome.com/themeforest/shopymart/sale.html">On Sale</a></li>
+                                    <li><a href="brands.html">Brands</a></li>
+                                </ul>
+                                -->
+                                <ul>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 30 })">Áo</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 31 })">Quần</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 32 })">Giày</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 34 })">Ví</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 35 })">Thắt lưng</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 9 })">Phái nữ</a>
+                                <ul>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 36 })">Áo</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 37 })">Quần</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 38 })">Giày</a></li>
+                                    <li><a href="@Url.Action("ProductList", "Home", new { idCategory = 39 })">Váy</a></li>
+                                    <li><a href="#">Ví</a></li>
+                                    <li><a href="#">Thắt lưng</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Nhà sản xuất</a>
+                    </li>
+                    <li><a href="#">Diễn đàn</a>
+                    </li>
+                    <li><a href="@Url.Action("Contact", "Home")">Liên hệ</a></li>
+                    <li><a href="@Url.Action("About", "Home")">Thông tin</a></li>
+
+                </ul>
+            </nav>
+            <!--end:grey-->
+            <div class="content-wrap">
+                <div style="clear: both; display: block; height: 20px"></div>
+                <div id="intro">
+                    <div class="one-fourth serv first">
+                        <img src="@Url.Content("~/Images/service-1.png")" alt="">
+                        <h3><a href="#">Free Shipping</a></h3>
+                        <span>Available</span>
+                    </div>
+                    <div class="one-fourth serv">
+                        <img src="@Url.Content("~/Images/service-2.png")" alt="">
+                        <h3><a href="#">30 Days Return</a></h3>
+                        <span>Easy Return</span>
+                    </div>
+                    <div class="one-fourth serv">
+                        <img src="@Url.Content("~/Images/service-3.png")" alt="">
+                        <h3><a href="#">Call Us</a></h3>
+                        <span>(63) 912 3456</span>
+                    </div>
+                    <div class="one-fourth serv">
+                        <img src="@Url.Content("~/Images/service-4.png")" alt="">
+                        <h3><a href="#">Secured</a></h3>
+                        <span>Checkout</span>
+                    </div>
+                </div>
+                <div class="container-2">
+                    @RenderBody()
+                    @RenderSection("scripts", required: false)
+                    
+                </div>
+                <!--end:container-2-->
+                
+            </div>
+            <!--end:content-wrap-->
+            <footer>
+                <div class="content-wrap">
+                    
+                </div>
+            </footer>
+        </div>
+        <!--end:container-->
+    </div>
+    <!--end:page_wrap-->
+</body>
+</html>

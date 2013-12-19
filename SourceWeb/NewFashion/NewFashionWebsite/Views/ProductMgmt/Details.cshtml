@@ -1,0 +1,202 @@
+﻿@{
+    ViewBag.Title = "Thông tin sản phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";    
+    @Styles.Render("~/Content/css-admin-custom2")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/modernizr")
+    
+    @model NewFashionBLL.product
+}
+
+<h2>Thông tin sản phẩm</h2>
+asdkjasdasd
+@if(Model != null)
+        {
+<table width="100%">
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Mã sản phẩm:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @Model.proid
+           </b>
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Tên sản phẩm:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @Model.proname
+           </b>
+       </td>
+    </tr>
+     <tr>
+        <td width="30%" align="left" valign="top">
+            Giới thiệu sản phẩm:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <div style="max-height: 300px; overflow-y: scroll; word-wrap: break-word;">
+               @Model.prointro
+           </div>
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Bài viết về sản phẩm:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <div style="max-height: 300px; overflow-y: scroll; word-wrap: break-word;">
+               @Model.proarticle
+           </div>
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Số lượng hàng:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @Model.proquantity
+           </b>
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Đơn giá:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @Model.prostockprice
+           </b>
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Mã khuyến mãi:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @if (Model.discountid != null)
+               {
+                   @Model.discountid
+               }
+               else
+               {
+                   <i>Chưa có</i>
+               }
+           </b>
+       </td>
+    </tr>
+     <tr>
+        <td width="30%" align="left" valign="top">
+            Chất liệu:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @if (Model.material != null)
+               {
+                   @Model.material.materialname
+               }
+               else
+               {
+                   <i>Chưa có</i>
+               }
+           </b>
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Nhãn hiệu:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @if (Model.brand != null)
+               {
+                   @Model.brand.brandname
+               }
+               else
+               {
+                   <i>Chưa có</i>
+               }
+           </b>
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Màu sắc:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @if (Model.color != null)
+               {
+                   @Model.color.colorname
+               }
+               else
+               {
+                   <i>Chưa có</i>
+               }
+           </b>
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Size:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @if (Model.size != null)
+               {
+                   @Model.size.sizename
+               }
+               else
+               {
+                   <i>Chưa có</i>
+               }
+           </b>
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Ngày nhập:
+        </td>
+       <td width="70%" align="left" valign="top">
+           <b>
+               @Model.datearrival.ToString("dd/MM/yyyy")
+           </b>
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            Hình ảnh:
+        </td>
+       <td width="70%" align="left" valign="top">
+           @foreach (var img in Model.image_product.ToList())
+           {
+               <div style="float: left; margin: 5px 15px 5px 5px;">
+                   <img src="@Url.Content(img.imagetb1.url)" />
+               </div>
+           }
+       </td>
+    </tr>
+    <tr>
+        <td width="30%" align="left" valign="top">
+            
+        </td>
+        <td width="70%" align="left" valign="top">
+            <b>
+                <a id="delete" onclick="alert('Đang xây dựng')" class="btn btn-danger btn-sm btn-flat btn-rect" data-original-title="" title="">
+                    <i class="glyphicon glyphicon-remove"> Xóa</i>
+                </a>
+                <a class="btn btn-success btn-sm btn-flat btn-rect" href="@Url.Action("Edit", "ProductMgmt", new { id = Model.proid.ToString()})" data-original-title="" title="">
+                    <i class="glyphicon glyphicon-pencil"> Sửa</i>
+                </a>
+            </b>
+        </td>
+    </tr>
+</table>
+}

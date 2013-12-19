@@ -1,0 +1,101 @@
+﻿@{
+    Layout = null;
+    //@Scripts.Render("~/bundles/jquery-ajax")
+    //<script type="text/javascript" src="@Url.Content("~/Scripts/js/jquery-1.8.2.1.js")"></script>
+    //<script type="text/javascript" src="@Url.Content("~/Scripts/js/custom.js")"></script>
+}
+
+<div id="demo-header">
+    @{
+        var str = "";
+        if (ViewBag.SHOPPING_CART != null)
+        {
+
+            if (ViewBag.SHOPPING_CART.listCart != null)
+            {
+                str = ViewBag.SHOPPING_CART.listCart.Count + "Items - " + @ViewBag.SHOPPING_CART.total + " VNĐ";
+
+            }
+        }
+        else
+        {
+            str = "0 items - 0 VNĐ";
+
+        }
+        <a id="cart-link" href="@Url.Action("ShoppingCart", "Home")" title="Cart">@str</a>
+    }
+
+    <!--if (ViewBag.SHOPPING_CART != null)
+            {
+    <div id="cart-panel">
+        <div class="item-cart">
+            
+            <table>
+                <tbody>
+                    if (ViewBag.SHOPPING_CART.listCart != null)
+                        {
+                            var listCart = ViewBag.SHOPPING_CART.listCart;
+                            foreach (var item in listCart)
+                            {
+                            <tr>
+                                <td class="image"><a href="product.html">
+                                    <img width="60" height="60" src="Url.Content(item.product.imagetb.url)" alt="product" title="product"></a></td>
+                                <td class="name"><a href="product.html">item.product.proname</a></td>
+                                <td class="quantity">x&nbsp;item.count</td>
+                                <td class="total">(item.count * item.product.prostockprice)</td>
+                                <td class="remove"><i class="icon-remove"></i></td>
+                            </tr>
+                    }
+                        }
+                </tbody>
+            </table>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="textright"><b>Sub-Total:</b></td>
+                        <td class="textright"></td>
+                    </tr>
+                    <tr>
+                        <td class="textright"><b>Eco Tax (-2.00):</b></td>
+                        <td class="textright"></td>
+                    </tr>
+                    <tr>
+                        <td class="textright"><b>VAT (10%):</b></td>
+                        <td class="textright"></td>
+                    </tr>
+                    <tr>
+                        <td class="textright"><b>Total:</b></td>
+                        <td class="textright"></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- /login-panel
+
+
+
+
+
+            <div class="buttoncart">
+                <a href="Url.Action("ShoppingCart", "Home")">Giỏ hàng</a>
+                <a href="Url.Action("Checkout", "Home")">Thanh toán</a>
+            </div>
+
+        </div>
+
+    </div>
+    }
+    else
+    {-->
+        <div id="cart-panel">
+        <div class="item-cart">
+        <div class="buttoncart">
+                <a href="@Url.Action("ShoppingCart", "Home")">Giỏ hàng</a>
+                <a href="@Url.Action("Checkout", "Home")">Thanh toán</a>
+            </div>
+
+        </div>
+
+    </div>
+    
+</div>

@@ -1,0 +1,10 @@
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\NewFashionBLL.dll.config
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\NewFashionBLL.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\NewFashionBLL.pdb
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\EntityFramework.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\Newtonsoft.Json.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\EntityFramework.xml
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\Newtonsoft.Json.xml
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionBLL\obj\Debug\NewFashionBLL.dll
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionBLL\obj\Debug\NewFashionBLL.pdb
+D:\RiouxSVN\SourceWeb\NewFashion\NewFashionBLL\obj\Debug\NewFashionBLL.csprojResolveAssemblyReference.cache

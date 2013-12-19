@@ -1,0 +1,111 @@
+﻿@model List<NewFashionBLL.product>
+@{
+    ViewBag.Title = "Product List";
+    @Scripts.Render("~/bundles/script-shopymart-product-list")
+    //@Scripts.Render("~/bundles/jquery")
+}
+<section class="content">
+    <h1 style="color: rgb(245, 100, 12)">@ViewBag.CATEGORY_NAME</h1>
+    <div class="ctrl">
+        <form class="left">
+            Sort By :&nbsp;
+                               
+            <select>
+                <option>Thứ tự</option>
+                <option>Tên</option>
+                <option>Giá</option>
+                <!--<option>Rating</option>-->
+                <option>Màu sắc</option>
+            </select>
+            &nbsp;&nbsp;
+                                Show:&nbsp;
+                               
+            <select>
+                <option>6</option>
+                <option>10</option>
+                <option>25</option>
+            </select>
+        </form>
+        <span class="list-style-buttons">
+            <a href="#" id="gridview" class="switcher">
+                <img src="@Url.Content("~/Images/grid-view.png")" alt="Grid"></a>
+            <a href="#" id="listview" class="switcher active">
+                <img src="@Url.Content("~/Images/list-view-active.png")" alt="List"></a>
+        </span>
+    </div>
+    <div id="divPartialViewProductList">
+        @Html.Partial("~/Views/Shared/PartialProductList.cshtml")
+    </div>
+</section>
+<aside class="sidebar">
+    
+    <div class="side">
+        <h4>Bestsellers</h4>
+        <div class="entry">
+            <div class="da-thumbs">
+                <div>
+                    <img src="@Url.Content("~/Images/products/thumb-1.jpg")" alt="">
+                    <article class="da-animate da-slideFromRight" style="display: block;">
+                        <p><a href="#" class="link"></a></p>
+                    </article>
+                </div>
+            </div>
+            <h3><a href="product-detail.html">Sản phẩm 1</a></h3>
+            <small>100000 VNĐ</small>
+        </div>
+        <div class="entry">
+            <div class="da-thumbs">
+                <div>
+                    <img src="@Url.Content("~/Images/products/thumb-2.jpg")" alt="">
+                    <article class="da-animate da-slideFromRight" style="display: block;">
+                        <p><a href="#" class="link"></a></p>
+                    </article>
+                </div>
+            </div>
+            <h3><a href="product-detail.html">Athletic Shoes</a></h3>
+            <small>200000 VNĐ</small>
+        </div>
+    </div>
+    <!--end:side-->
+    
+</aside>
+<script>
+    /*
+    $(document).on('click', "#pagination li p", function () {
+            alert('button clicked');
+            $.ajax({
+                url: '/home/getProductList',
+                type: 'POST',
+                data: { page: 1, idCategory: 9 },
+                success: function (mydata) {
+                    $("#divPartialViewProductList").empty().append(mydata);
+                },
+                error: function () {
+                    alert("Error");
+                }
+            });
+        });*/
+    
+    // Call a service that takes a list as an argument
+    function listProduct(idCategory,page) {
+        var args = new Object();
+        //alert('JQuery: ' + 1);
+        
+        args.page = page;
+        args.idCategory = idCategory;
+        $.ajax({
+            url: '/home/getProductList',
+            type: 'POST',
+            data: {  idCategory: idCategory, page: page},
+            success: function (mydata) {
+                $("#divPartialViewProductList").empty().append(mydata);
+            },
+            error: function () {
+                alert("Error");
+            }
+        });
+
+
+    }
+
+</script>

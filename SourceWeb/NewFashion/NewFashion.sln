@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewFashionWebsite", "NewFashionWebsite\NewFashionWebsite.csproj", "{7F7C9070-3699-423D-8F90-FF35A954637B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewFashion.Tests", "NewFashion.Tests\NewFashion.Tests.csproj", "{7D3E6C74-1494-412B-B76A-80BB495EE841}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewFashionBLL", "NewFashionBLL\NewFashionBLL.csproj", "{AFFAD145-85FE-4250-8CAC-037347F707E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F7C9070-3699-423D-8F90-FF35A954637B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F7C9070-3699-423D-8F90-FF35A954637B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F7C9070-3699-423D-8F90-FF35A954637B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F7C9070-3699-423D-8F90-FF35A954637B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D3E6C74-1494-412B-B76A-80BB495EE841}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D3E6C74-1494-412B-B76A-80BB495EE841}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D3E6C74-1494-412B-B76A-80BB495EE841}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D3E6C74-1494-412B-B76A-80BB495EE841}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFFAD145-85FE-4250-8CAC-037347F707E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFFAD145-85FE-4250-8CAC-037347F707E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFFAD145-85FE-4250-8CAC-037347F707E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFFAD145-85FE-4250-8CAC-037347F707E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
