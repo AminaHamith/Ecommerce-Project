@@ -14,6 +14,10 @@
 <p>Bạn có chắc chắn muốn xóa thông tin của khách hàng <b>@Model.cuslastname</b> không? Lưu ý việc này không thể hoàn tác.</p>
 
 <p align="center">
-    <input type="submit" value="Có, xóa thông tin khách hàng" /> 
-    <input type="button" value="Quay lại" onclick="history.back(-1)" />
+    @using (Html.BeginForm("DeleteCustomer", "CustomerMgmt", FormMethod.Post))
+{
+        @Html.Hidden("idCustomer", @Model.cusid)
+        <input type="submit" value="Có, xóa thông tin khách hàng" /> 
+        <input type="button" value="Quay lại" onclick="history.back(-1)" />
+}
 </p>

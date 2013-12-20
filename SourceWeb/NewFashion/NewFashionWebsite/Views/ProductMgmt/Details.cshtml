@@ -11,7 +11,7 @@
 }
 
 <h2>Thông tin sản phẩm</h2>
-asdkjasdasd
+
 @if(Model != null)
         {
 <table width="100%">
@@ -189,7 +189,7 @@ asdkjasdasd
         </td>
         <td width="70%" align="left" valign="top">
             <b>
-                <a id="delete" onclick="alert('Đang xây dựng')" class="btn btn-danger btn-sm btn-flat btn-rect" data-original-title="" title="">
+                <a id="delete" onclick="deleteProduct(@Model.proid.ToString(), '@Model.proname')" class="btn btn-danger btn-sm btn-flat btn-rect" data-original-title="" title="">
                     <i class="glyphicon glyphicon-remove"> Xóa</i>
                 </a>
                 <a class="btn btn-success btn-sm btn-flat btn-rect" href="@Url.Action("Edit", "ProductMgmt", new { id = Model.proid.ToString()})" data-original-title="" title="">
@@ -199,4 +199,48 @@ asdkjasdasd
         </td>
     </tr>
 </table>
+    <div id="dialog-confirm" style="display:none" title="Xóa sản phẩm?">
+    <p id="dialog-confirm-message"><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span></p><p>Bạn thực sự muốn xóa?</p>
+</div>
+    <script>
+    function deleteProduct(idProduct, name) {
+        //alert("3");
+        var pkNo = $(this).attr("pkNo");
+        var value =
+        $("#dialog-confirm-message").empty().text("Tên sản phẩm: " + name);
+        $("#dialog-confirm").dialog({
+            resizable: false,
+            height: 200,
+            width: 400,
+            modal: true,
+            buttons: {
+                "Không": function () {
+                    $(this).dialog("close");
+                    //alert("1");
+                },
+                "Có": function () {
+                    $.ajax({
+                        url: '/ProductMgmt/Delete',
+                        type: 'POST',
+                        data: { page: 1, idProduct: idProduct },
+                        success: function (mydata) {
+                            alert("Đã xóa sản phẩm.");
+                            window.location.href = '/ProductMgmt/';
+                        },
+                        error: function () {
+                            alert("Error");
+                        }
+                    });
+                    $(this).dialog("close");
+                    //alert("2");
+                }
+            }
+        });
+    }
+    
+</script>
+        }
+else
+{
+    <i>Sản phẩm không tồn tại.</i>
 }

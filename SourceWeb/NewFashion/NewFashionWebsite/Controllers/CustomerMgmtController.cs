@@ -67,19 +67,6 @@ namespace NewFashionWebsite.Controllers
         public ActionResult Details(System.Guid id)
         {
             customer cus = customerBLL.getById(id);
-
-            /*ViewData["id"] = cus.cusid;
-            ViewData["name"] = cus.cusfirstname + " " + cus.cuslastname;
-            ViewData["gender"] = cus.customer_information.gender == "M" ? "Nam" : "Nữ";
-            ViewData["birthday"] = cus.customer_information.birthday.Value.ToString("dd/MM/yyyy");
-            ViewData["address1"] = cus.customer_information.address1;
-            ViewData["address2"] = cus.customer_information.address2;
-            ViewData["city"] = cus.customer_information.city;
-            ViewData["country"] = cus.customer_information.country;
-            ViewData["postcode"] = cus.customer_information.post_code;
-            ViewData["tel1"] = cus.customer_information.phonenumber1;
-            ViewData["tel2"] = cus.customer_information.phonenumber2;*/
-            
             return View(cus);
         }
 
@@ -174,7 +161,8 @@ namespace NewFashionWebsite.Controllers
 
         public ActionResult Delete(System.Guid id)
         {
-            return View();
+            customer cus = customerBLL.getById(id);
+            return View(cus);
         }
 
         //
@@ -184,7 +172,7 @@ namespace NewFashionWebsite.Controllers
         public ActionResult Delete(int page, System.Guid idCustomer)
         {
             customer cus = customerBLL.getById(idCustomer);
-
+            string userName = cus.aspnet_Users.UserName;
             
             if (Roles.IsUserInRole(cus.aspnet_Users.UserName, "Admin"))
             {
@@ -194,8 +182,8 @@ namespace NewFashionWebsite.Controllers
             {
                 Roles.RemoveUserFromRole(cus.aspnet_Users.UserName, "Customer");
             }
-            Membership.DeleteUser(cus.aspnet_Users.UserName);
             customerBLL.delete(idCustomer);
+            Membership.DeleteUser(userName);
             int soLuongTrenTrang = 10;
             var tongSoLuong = customerBLL.getCountCustomer();
             
@@ -212,6 +200,29 @@ namespace NewFashionWebsite.Controllers
             @ViewBag.COUNT = soLuongTrang;
             @ViewBag.CURRENT_PAGE = page;
             return View("PartialCustomerList", list);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteCustomer(System.Guid idCustomer)
+        {
+            customer cus = customerBLL.getById(idCustomer);
+            string userName = cus.aspnet_Users.UserName;
+
+            if (Roles.IsUserInRole(cus.aspnet_Users.UserName, "Admin"))
+            {
+                Roles.RemoveUserFromRole(cus.aspnet_Users.UserName, "Admin");
+            }
+            if (Roles.IsUserInRole(cus.aspnet_Users.UserName, "Customer"))
+            {
+                Roles.RemoveUserFromRole(cus.aspnet_Users.UserName, "Customer");
+            }
+            customerBLL.delete(idCustomer);
+            Membership.DeleteUser(userName);
+            
+            
+            if (customerBLL.getById(idCustomer) == null)
+                return RedirectToAction("CustomerMgmt");
+            return View("DeleteFailed", cus);
         }
 
         public ActionResult CreateCustomerSuccess()

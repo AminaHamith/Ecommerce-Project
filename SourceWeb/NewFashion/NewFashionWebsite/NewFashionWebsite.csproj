@@ -2238,6 +2238,9 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\icomoon.ttf" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\icomoon.woff" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
+    <Content Include="Views\CustomerMgmt\DeleteFailed.cshtml" />
+    <Content Include="Views\ProductMgmt\DeleteImage.cshtml" />
+    <Content Include="Views\ProductMgmt\DeleteImageSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
