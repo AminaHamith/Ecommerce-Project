@@ -194,8 +194,9 @@ namespace NewFashionWebsite.Controllers
             {
                 Roles.RemoveUserFromRole(cus.aspnet_Users.UserName, "Customer");
             }
-            Membership.DeleteUser(cus.aspnet_Users.UserName);
             customerBLL.delete(idCustomer);
+            Membership.DeleteUser(cus.aspnet_Users.UserName);
+            
             int soLuongTrenTrang = 10;
             var tongSoLuong = customerBLL.getCountCustomer();
             

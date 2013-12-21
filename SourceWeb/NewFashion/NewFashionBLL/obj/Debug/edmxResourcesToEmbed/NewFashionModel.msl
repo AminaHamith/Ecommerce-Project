@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NewFashionDBModelStoreContainer" CdmEntityContainer="NewFashionDBEntities">
+    <EntitySetMapping Name="advertisements">
+      <EntityTypeMapping TypeName="NewFashionDBModel.advertisement">
+        <MappingFragment StoreEntitySet="advertisement">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="advdescription" ColumnName="advdescription" />
+          <ScalarProperty Name="imgid" ColumnName="imgid" />
+          <ScalarProperty Name="advname" ColumnName="advname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Applications">
+      <EntityTypeMapping TypeName="NewFashionDBModel.aspnet_Applications">
+        <MappingFragment StoreEntitySet="aspnet_Applications">
+          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+          <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Membership">
+      <EntityTypeMapping TypeName="NewFashionDBModel.aspnet_Membership">
+        <MappingFragment StoreEntitySet="aspnet_Membership">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+          <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+          <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+          <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+          <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Paths">
+      <EntityTypeMapping TypeName="NewFashionDBModel.aspnet_Paths">
+        <MappingFragment StoreEntitySet="aspnet_Paths">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="PathId" ColumnName="PathId" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_PersonalizationAllUsers">
+      <EntityTypeMapping TypeName="NewFashionDBModel.aspnet_PersonalizationAllUsers">
+        <MappingFragment StoreEntitySet="aspnet_PersonalizationAllUsers">
+          <ScalarProperty Name="PathId" ColumnName="PathId" />
+          <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_PersonalizationPerUser">
+      <EntityTypeMapping TypeName="NewFashionDBModel.aspnet_PersonalizationPerUser">
+        <MappingFragment StoreEntitySet="aspnet_PersonalizationPerUser">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PathId" ColumnName="PathId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Profile">
+      <EntityTypeMapping TypeName="NewFashionDBModel.aspnet_Profile">
+        <MappingFragment StoreEntitySet="aspnet_Profile">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
+          <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
+          <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Roles">
+      <EntityTypeMapping TypeName="NewFashionDBModel.aspnet_Roles">
+        <MappingFragment StoreEntitySet="aspnet_Roles">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_SchemaVersions">
+      <EntityTypeMapping TypeName="NewFashionDBModel.aspnet_SchemaVersions">
+        <MappingFragment StoreEntitySet="aspnet_SchemaVersions">
+          <ScalarProperty Name="Feature" ColumnName="Feature" />
+          <ScalarProperty Name="CompatibleSchemaVersion" ColumnName="CompatibleSchemaVersion" />
+          <ScalarProperty Name="IsCurrentVersion" ColumnName="IsCurrentVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Users">
+      <EntityTypeMapping TypeName="NewFashionDBModel.aspnet_Users">
+        <MappingFragment StoreEntitySet="aspnet_Users">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+          <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+          <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_WebEvent_Events">
+      <EntityTypeMapping TypeName="NewFashionDBModel.aspnet_WebEvent_Events">
+        <MappingFragment StoreEntitySet="aspnet_WebEvent_Events">
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="EventTimeUtc" ColumnName="EventTimeUtc" />
+          <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+          <ScalarProperty Name="EventType" ColumnName="EventType" />
+          <ScalarProperty Name="EventSequence" ColumnName="EventSequence" />
+          <ScalarProperty Name="EventOccurrence" ColumnName="EventOccurrence" />
+          <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+          <ScalarProperty Name="EventDetailCode" ColumnName="EventDetailCode" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="ApplicationPath" ColumnName="ApplicationPath" />
+          <ScalarProperty Name="ApplicationVirtualPath" ColumnName="ApplicationVirtualPath" />
+          <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+          <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
+          <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="brands">
+      <EntityTypeMapping TypeName="NewFashionDBModel.brand">
+        <MappingFragment StoreEntitySet="brand">
+          <ScalarProperty Name="brandid" ColumnName="brandid" />
+          <ScalarProperty Name="urlimage" ColumnName="urlimage" />
+          <ScalarProperty Name="brandname" ColumnName="brandname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="NewFashionDBModel.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="catid" ColumnName="catid" />
+          <ScalarProperty Name="catname" ColumnName="catname" />
+          <ScalarProperty Name="catparent" ColumnName="catparent" />
+          <ScalarProperty Name="catintro" ColumnName="catintro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="colors">
+      <EntityTypeMapping TypeName="NewFashionDBModel.color">
+        <MappingFragment StoreEntitySet="color">
+          <ScalarProperty Name="colorid" ColumnName="colorid" />
+          <ScalarProperty Name="colorname" ColumnName="colorname" />
+          <ScalarProperty Name="colorcode" ColumnName="colorcode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comments">
+      <EntityTypeMapping TypeName="NewFashionDBModel.comment">
+        <MappingFragment StoreEntitySet="comment">
+          <ScalarProperty Name="cmtid" ColumnName="cmtid" />
+          <ScalarProperty Name="proid" ColumnName="proid" />
+          <ScalarProperty Name="cusid" ColumnName="cusid" />
+          <ScalarProperty Name="cmtcontent" ColumnName="cmtcontent" />
+          <ScalarProperty Name="cmtdate" ColumnName="cmtdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="NewFashionDBModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="cusid" ColumnName="cusid" />
+          <ScalarProperty Name="cusfirstname" ColumnName="cusfirstname" />
+          <ScalarProperty Name="cuslastname" ColumnName="cuslastname" />
+          <ScalarProperty Name="idcustomer_information" ColumnName="idcustomer_information" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customer_information">
+      <EntityTypeMapping TypeName="NewFashionDBModel.customer_information">
+        <MappingFragment StoreEntitySet="customer_information">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="phonenumber1" ColumnName="phonenumber1" />
+          <ScalarProperty Name="phonenumber2" ColumnName="phonenumber2" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="region_state" ColumnName="region_state" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="post_code" ColumnName="post_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="delivery_method">
+      <EntityTypeMapping TypeName="NewFashionDBModel.delivery_method">
+        <MappingFragment StoreEntitySet="delivery_method">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="deliveryintro" ColumnName="deliveryintro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="discounts">
+      <EntityTypeMapping TypeName="NewFashionDBModel.discount">
+        <MappingFragment StoreEntitySet="discount">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+          <ScalarProperty Name="datefinal" ColumnName="datefinal" />
+          <ScalarProperty Name="discountintro" ColumnName="discountintro" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="percentage" ColumnName="percentage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="image_product">
+      <EntityTypeMapping TypeName="NewFashionDBModel.image_product">
+        <MappingFragment StoreEntitySet="image_product">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="imgsmallid" ColumnName="imgsmallid" />
+          <ScalarProperty Name="imglargeid" ColumnName="imglargeid" />
+          <ScalarProperty Name="proid" ColumnName="proid" />
+          <ScalarProperty Name="imgdescription" ColumnName="imgdescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="image_slide">
+      <EntityTypeMapping TypeName="NewFashionDBModel.image_slide">
+        <MappingFragment StoreEntitySet="image_slide">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="imgthumbid" ColumnName="imgthumbid" />
+          <ScalarProperty Name="imgid" ColumnName="imgid" />
+          <ScalarProperty Name="proid" ColumnName="proid" />
+          <ScalarProperty Name="imgdescription" ColumnName="imgdescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="imagetbs">
+      <EntityTypeMapping TypeName="NewFashionDBModel.imagetb">
+        <MappingFragment StoreEntitySet="imagetb">
+          <ScalarProperty Name="imgid" ColumnName="imgid" />
+          <ScalarProperty Name="url" ColumnName="url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="materials">
+      <EntityTypeMapping TypeName="NewFashionDBModel.material">
+        <MappingFragment StoreEntitySet="material">
+          <ScalarProperty Name="materialid" ColumnName="materialid" />
+          <ScalarProperty Name="materialname" ColumnName="materialname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="order_detail">
+      <EntityTypeMapping TypeName="NewFashionDBModel.order_detail">
+        <MappingFragment StoreEntitySet="order_detail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ordid" ColumnName="ordid" />
+          <ScalarProperty Name="proid" ColumnName="proid" />
+          <ScalarProperty Name="ordquantity" ColumnName="ordquantity" />
+          <ScalarProperty Name="ordsaleprice" ColumnName="ordsaleprice" />
+          <ScalarProperty Name="ordtotalprice" ColumnName="ordtotalprice" />
+          <ScalarProperty Name="currency_code" ColumnName="currency_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payment_method">
+      <EntityTypeMapping TypeName="NewFashionDBModel.payment_method">
+        <MappingFragment StoreEntitySet="payment_method">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="paymentintro" ColumnName="paymentintro" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="NewFashionDBModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="proid" ColumnName="proid" />
+          <ScalarProperty Name="proname" ColumnName="proname" />
+          <ScalarProperty Name="procatid" ColumnName="procatid" />
+          <ScalarProperty Name="prointro" ColumnName="prointro" />
+          <ScalarProperty Name="proarticle" ColumnName="proarticle" />
+          <ScalarProperty Name="proquantity" ColumnName="proquantity" />
+          <ScalarProperty Name="prostockprice" ColumnName="prostockprice" />
+          <ScalarProperty Name="materialid" ColumnName="materialid" />
+          <ScalarProperty Name="discountid" ColumnName="discountid" />
+          <ScalarProperty Name="brandid" ColumnName="brandid" />
+          <ScalarProperty Name="colorid" ColumnName="colorid" />
+          <ScalarProperty Name="sizeid" ColumnName="sizeid" />
+          <ScalarProperty Name="datearrival" ColumnName="datearrival" />
+          <ScalarProperty Name="imgthumbid" ColumnName="imgthumbid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="product_order">
+      <EntityTypeMapping TypeName="NewFashionDBModel.product_order">
+        <MappingFragment StoreEntitySet="product_order">
+          <ScalarProperty Name="ordid" ColumnName="ordid" />
+          <ScalarProperty Name="cusid" ColumnName="cusid" />
+          <ScalarProperty Name="idbuyer_information" ColumnName="idbuyer_information" />
+          <ScalarProperty Name="idarrival_information" ColumnName="idarrival_information" />
+          <ScalarProperty Name="iddelivery_method" ColumnName="iddelivery_method" />
+          <ScalarProperty Name="idpayment_method" ColumnName="idpayment_method" />
+          <ScalarProperty Name="idshipping_method" ColumnName="idshipping_method" />
+          <ScalarProperty Name="ordcreate_date" ColumnName="ordcreate_date" />
+          <ScalarProperty Name="ordstatus" ColumnName="ordstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="product_variety">
+      <EntityTypeMapping TypeName="NewFashionDBModel.product_variety">
+        <MappingFragment StoreEntitySet="product_variety">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="proid" ColumnName="proid" />
+          <ScalarProperty Name="varid" ColumnName="varid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shipping_method">
+      <EntityTypeMapping TypeName="NewFashionDBModel.shipping_method">
+        <MappingFragment StoreEntitySet="shipping_method">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="shippingintro" ColumnName="shippingintro" />
+          <ScalarProperty Name="current_code" ColumnName="current_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shopping_cart">
+      <EntityTypeMapping TypeName="NewFashionDBModel.shopping_cart">
+        <MappingFragment StoreEntitySet="shopping_cart">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cusid" ColumnName="cusid" />
+          <ScalarProperty Name="proid" ColumnName="proid" />
+          <ScalarProperty Name="count" ColumnName="count" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="cartstatus" ColumnName="cartstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sizes">
+      <EntityTypeMapping TypeName="NewFashionDBModel.size">
+        <MappingFragment StoreEntitySet="size">
+          <ScalarProperty Name="sizeid" ColumnName="sizeid" />
+          <ScalarProperty Name="sizename" ColumnName="sizename" />
+          <ScalarProperty Name="sizenumber" ColumnName="sizenumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="NewFashionDBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="varieties">
+      <EntityTypeMapping TypeName="NewFashionDBModel.variety">
+        <MappingFragment StoreEntitySet="variety">
+          <ScalarProperty Name="varid" ColumnName="varid" />
+          <ScalarProperty Name="varname" ColumnName="varname" />
+          <ScalarProperty Name="varparent" ColumnName="varparent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wish_list">
+      <EntityTypeMapping TypeName="NewFashionDBModel.wish_list">
+        <MappingFragment StoreEntitySet="wish_list">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cusid" ColumnName="cusid" />
+          <ScalarProperty Name="proid" ColumnName="proid" />
+          <ScalarProperty Name="count" ColumnName="count" />
+          <ScalarProperty Name="status_wish_list" ColumnName="status_wish_list" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="NewFashionDBModel.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
+      <EndProperty Name="aspnet_Roles">
+        <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="aspnet_Users">
+        <ScalarProperty Name="UserId" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

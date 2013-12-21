@@ -8,3 +8,13 @@ D:\RiouxSVN\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\Newtonsoft.Json.xml
 D:\RiouxSVN\SourceWeb\NewFashion\NewFashionBLL\obj\Debug\NewFashionBLL.dll
 D:\RiouxSVN\SourceWeb\NewFashion\NewFashionBLL\obj\Debug\NewFashionBLL.pdb
 D:\RiouxSVN\SourceWeb\NewFashion\NewFashionBLL\obj\Debug\NewFashionBLL.csprojResolveAssemblyReference.cache
+D:\github\pg07\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\NewFashionBLL.dll.config
+D:\github\pg07\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\NewFashionBLL.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\NewFashionBLL.pdb
+D:\github\pg07\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\EntityFramework.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\Newtonsoft.Json.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\EntityFramework.xml
+D:\github\pg07\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\Newtonsoft.Json.xml
+D:\github\pg07\SourceWeb\NewFashion\NewFashionBLL\obj\Debug\NewFashionBLL.csprojResolveAssemblyReference.cache
+D:\github\pg07\SourceWeb\NewFashion\NewFashionBLL\obj\Debug\NewFashionBLL.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionBLL\obj\Debug\NewFashionBLL.pdb

@@ -1,0 +1,1118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NewFashionDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="NewFashionDBModelStoreContainer">
+    <EntitySet Name="advertisement" EntityType="NewFashionDBModel.Store.advertisement" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Applications" EntityType="NewFashionDBModel.Store.aspnet_Applications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Membership" EntityType="NewFashionDBModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Paths" EntityType="NewFashionDBModel.Store.aspnet_Paths" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="NewFashionDBModel.Store.aspnet_PersonalizationAllUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="NewFashionDBModel.Store.aspnet_PersonalizationPerUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Profile" EntityType="NewFashionDBModel.Store.aspnet_Profile" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Roles" EntityType="NewFashionDBModel.Store.aspnet_Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_SchemaVersions" EntityType="NewFashionDBModel.Store.aspnet_SchemaVersions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Users" EntityType="NewFashionDBModel.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_UsersInRoles" EntityType="NewFashionDBModel.Store.aspnet_UsersInRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_WebEvent_Events" EntityType="NewFashionDBModel.Store.aspnet_WebEvent_Events" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="brand" EntityType="NewFashionDBModel.Store.brand" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="category" EntityType="NewFashionDBModel.Store.category" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="color" EntityType="NewFashionDBModel.Store.color" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="comment" EntityType="NewFashionDBModel.Store.comment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="customer" EntityType="NewFashionDBModel.Store.customer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="customer_information" EntityType="NewFashionDBModel.Store.customer_information" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="delivery_method" EntityType="NewFashionDBModel.Store.delivery_method" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="discount" EntityType="NewFashionDBModel.Store.discount" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="image_product" EntityType="NewFashionDBModel.Store.image_product" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="image_slide" EntityType="NewFashionDBModel.Store.image_slide" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="imagetb" EntityType="NewFashionDBModel.Store.imagetb" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="material" EntityType="NewFashionDBModel.Store.material" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="order_detail" EntityType="NewFashionDBModel.Store.order_detail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="payment_method" EntityType="NewFashionDBModel.Store.payment_method" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="product" EntityType="NewFashionDBModel.Store.product" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="product_order" EntityType="NewFashionDBModel.Store.product_order" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="product_variety" EntityType="NewFashionDBModel.Store.product_variety" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="shipping_method" EntityType="NewFashionDBModel.Store.shipping_method" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="shopping_cart" EntityType="NewFashionDBModel.Store.shopping_cart" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="size" EntityType="NewFashionDBModel.Store.size" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="NewFashionDBModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="variety" EntityType="NewFashionDBModel.Store.variety" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="wish_list" EntityType="NewFashionDBModel.Store.wish_list" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__advertise__imgid__19AACF41" Association="NewFashionDBModel.Store.FK__advertise__imgid__19AACF41">
+      <End Role="imagetb" EntitySet="imagetb" />
+      <End Role="advertisement" EntitySet="advertisement" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__Appli__276EDEB3" Association="NewFashionDBModel.Store.FK__aspnet_Me__Appli__276EDEB3">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__UserI__286302EC" Association="NewFashionDBModel.Store.FK__aspnet_Me__UserI__286302EC">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pa__Appli__59063A47" Association="NewFashionDBModel.Store.FK__aspnet_Pa__Appli__59063A47">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__PathI__5EBF139D" Association="NewFashionDBModel.Store.FK__aspnet_Pe__PathI__5EBF139D">
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+      <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__PathI__628FA481" Association="NewFashionDBModel.Store.FK__aspnet_Pe__PathI__628FA481">
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+      <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__UserI__6383C8BA" Association="NewFashionDBModel.Store.FK__aspnet_Pe__UserI__6383C8BA">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pr__UserI__3C69FB99" Association="NewFashionDBModel.Store.FK__aspnet_Pr__UserI__3C69FB99">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Ro__Appli__45F365D3" Association="NewFashionDBModel.Store.FK__aspnet_Ro__Appli__45F365D3">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__Appli__173876EA" Association="NewFashionDBModel.Store.FK__aspnet_Us__Appli__173876EA">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__RoleI__4AB81AF0" Association="NewFashionDBModel.Store.FK__aspnet_Us__RoleI__4AB81AF0">
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+      <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__UserI__49C3F6B7" Association="NewFashionDBModel.Store.FK__aspnet_Us__UserI__49C3F6B7">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__comment__cusid__0C50D423" Association="NewFashionDBModel.Store.FK__comment__cusid__0C50D423">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="comment" EntitySet="comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__comment__proid__0D44F85C" Association="NewFashionDBModel.Store.FK__comment__proid__0D44F85C">
+      <End Role="product" EntitySet="product" />
+      <End Role="comment" EntitySet="comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__image_pro__imgla__16CE6296" Association="NewFashionDBModel.Store.FK__image_pro__imgla__16CE6296">
+      <End Role="imagetb" EntitySet="imagetb" />
+      <End Role="image_product" EntitySet="image_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__image_pro__imgsm__15DA3E5D" Association="NewFashionDBModel.Store.FK__image_pro__imgsm__15DA3E5D">
+      <End Role="imagetb" EntitySet="imagetb" />
+      <End Role="image_product" EntitySet="image_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__image_pro__proid__14E61A24" Association="NewFashionDBModel.Store.FK__image_pro__proid__14E61A24">
+      <End Role="product" EntitySet="product" />
+      <End Role="image_product" EntitySet="image_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__image_sli__imgid__11158940" Association="NewFashionDBModel.Store.FK__image_sli__imgid__11158940">
+      <End Role="imagetb" EntitySet="imagetb" />
+      <End Role="image_slide" EntitySet="image_slide" />
+    </AssociationSet>
+    <AssociationSet Name="FK__image_sli__imgth__1209AD79" Association="NewFashionDBModel.Store.FK__image_sli__imgth__1209AD79">
+      <End Role="imagetb" EntitySet="imagetb" />
+      <End Role="image_slide" EntitySet="image_slide" />
+    </AssociationSet>
+    <AssociationSet Name="FK__image_sli__proid__10216507" Association="NewFashionDBModel.Store.FK__image_sli__proid__10216507">
+      <End Role="product" EntitySet="product" />
+      <End Role="image_slide" EntitySet="image_slide" />
+    </AssociationSet>
+    <AssociationSet Name="FK__order_det__ordid__5C6CB6D7" Association="NewFashionDBModel.Store.FK__order_det__ordid__5C6CB6D7">
+      <End Role="product_order" EntitySet="product_order" />
+      <End Role="order_detail" EntitySet="order_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__order_det__proid__5D60DB10" Association="NewFashionDBModel.Store.FK__order_det__proid__5D60DB10">
+      <End Role="product" EntitySet="product" />
+      <End Role="order_detail" EntitySet="order_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__product__brandid__74794A92" Association="NewFashionDBModel.Store.FK__product__brandid__74794A92">
+      <End Role="brand" EntitySet="brand" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__product__colorid__719CDDE7" Association="NewFashionDBModel.Store.FK__product__colorid__719CDDE7">
+      <End Role="color" EntitySet="color" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__product__imgthum__7755B73D" Association="NewFashionDBModel.Store.FK__product__imgthum__7755B73D">
+      <End Role="imagetb" EntitySet="imagetb" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__product__materia__76619304" Association="NewFashionDBModel.Store.FK__product__materia__76619304">
+      <End Role="material" EntitySet="material" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__product__procati__73852659" Association="NewFashionDBModel.Store.FK__product__procati__73852659">
+      <End Role="category" EntitySet="category" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__product__sizeid__72910220" Association="NewFashionDBModel.Store.FK__product__sizeid__72910220">
+      <End Role="size" EntitySet="size" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__product_o__cusid__54CB950F" Association="NewFashionDBModel.Store.FK__product_o__cusid__54CB950F">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="product_order" EntitySet="product_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__product_o__iddel__57A801BA" Association="NewFashionDBModel.Store.FK__product_o__iddel__57A801BA">
+      <End Role="delivery_method" EntitySet="delivery_method" />
+      <End Role="product_order" EntitySet="product_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__product_o__idpay__59904A2C" Association="NewFashionDBModel.Store.FK__product_o__idpay__59904A2C">
+      <End Role="payment_method" EntitySet="payment_method" />
+      <End Role="product_order" EntitySet="product_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__product_o__idshi__589C25F3" Association="NewFashionDBModel.Store.FK__product_o__idshi__589C25F3">
+      <End Role="shipping_method" EntitySet="shipping_method" />
+      <End Role="product_order" EntitySet="product_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__product_v__proid__7D0E9093" Association="NewFashionDBModel.Store.FK__product_v__proid__7D0E9093">
+      <End Role="product" EntitySet="product" />
+      <End Role="product_variety" EntitySet="product_variety" />
+    </AssociationSet>
+    <AssociationSet Name="FK__product_v__proid__7E02B4CC" Association="NewFashionDBModel.Store.FK__product_v__proid__7E02B4CC">
+      <End Role="variety" EntitySet="variety" />
+      <End Role="product_variety" EntitySet="product_variety" />
+    </AssociationSet>
+    <AssociationSet Name="FK__shopping___cusid__43A1090D" Association="NewFashionDBModel.Store.FK__shopping___cusid__43A1090D">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="shopping_cart" EntitySet="shopping_cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK__shopping___proid__44952D46" Association="NewFashionDBModel.Store.FK__shopping___proid__44952D46">
+      <End Role="product" EntitySet="product" />
+      <End Role="shopping_cart" EntitySet="shopping_cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK__wish_list__cusid__4959E263" Association="NewFashionDBModel.Store.FK__wish_list__cusid__4959E263">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="wish_list" EntitySet="wish_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK__wish_list__proid__4A4E069C" Association="NewFashionDBModel.Store.FK__wish_list__proid__4A4E069C">
+      <End Role="product" EntitySet="product" />
+      <End Role="wish_list" EntitySet="wish_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_customer_aspnet_user" Association="NewFashionDBModel.Store.FK_customer_aspnet_user">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="customer" EntitySet="customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_customer_customer_information" Association="NewFashionDBModel.Store.FK_customer_customer_information">
+      <End Role="customer_information" EntitySet="customer_information" />
+      <End Role="customer" EntitySet="customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_discount_image" Association="NewFashionDBModel.Store.FK_discount_image">
+      <End Role="imagetb" EntitySet="imagetb" />
+      <End Role="discount" EntitySet="discount" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_image" Association="NewFashionDBModel.Store.FK_payment_image">
+      <End Role="imagetb" EntitySet="imagetb" />
+      <End Role="payment_method" EntitySet="payment_method" />
+    </AssociationSet>
+    <AssociationSet Name="FK_product_order_customer_information" Association="NewFashionDBModel.Store.FK_product_order_customer_information">
+      <End Role="customer_information" EntitySet="customer_information" />
+      <End Role="product_order" EntitySet="product_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_product_order_customer_information1" Association="NewFashionDBModel.Store.FK_product_order_customer_information1">
+      <End Role="customer_information" EntitySet="customer_information" />
+      <End Role="product_order" EntitySet="product_order" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="advertisement">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="advdescription" Type="nvarchar(max)" />
+    <Property Name="imgid" Type="int" />
+    <Property Name="advname" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="aspnet_Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="aspnet_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordFormat" Type="int" Nullable="false" />
+    <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="ntext" />
+  </EntityType>
+  <EntityType Name="aspnet_Paths">
+    <Key>
+      <PropertyRef Name="PathId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredPath" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="aspnet_PersonalizationAllUsers">
+    <Key>
+      <PropertyRef Name="PathId" />
+    </Key>
+    <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PageSettings" Type="image" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_PersonalizationPerUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PathId" Type="uniqueidentifier" />
+    <Property Name="UserId" Type="uniqueidentifier" />
+    <Property Name="PageSettings" Type="image" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PropertyNames" Type="ntext" Nullable="false" />
+    <Property Name="PropertyValuesString" Type="ntext" Nullable="false" />
+    <Property Name="PropertyValuesBinary" Type="image" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredRoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="aspnet_SchemaVersions">
+    <Key>
+      <PropertyRef Name="Feature" />
+      <PropertyRef Name="CompatibleSchemaVersion" />
+    </Key>
+    <Property Name="Feature" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="CompatibleSchemaVersion" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="IsCurrentVersion" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_WebEvent_Events">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="char" Nullable="false" MaxLength="32" />
+    <Property Name="EventTimeUtc" Type="datetime" Nullable="false" />
+    <Property Name="EventTime" Type="datetime" Nullable="false" />
+    <Property Name="EventType" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="EventSequence" Type="decimal" Nullable="false" Precision="19" />
+    <Property Name="EventOccurrence" Type="decimal" Nullable="false" Precision="19" />
+    <Property Name="EventCode" Type="int" Nullable="false" />
+    <Property Name="EventDetailCode" Type="int" Nullable="false" />
+    <Property Name="Message" Type="nvarchar" MaxLength="1024" />
+    <Property Name="ApplicationPath" Type="nvarchar" MaxLength="256" />
+    <Property Name="ApplicationVirtualPath" Type="nvarchar" MaxLength="256" />
+    <Property Name="MachineName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="RequestUrl" Type="nvarchar" MaxLength="1024" />
+    <Property Name="ExceptionType" Type="nvarchar" MaxLength="256" />
+    <Property Name="Details" Type="ntext" />
+  </EntityType>
+  <EntityType Name="brand">
+    <Key>
+      <PropertyRef Name="brandid" />
+    </Key>
+    <Property Name="brandid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="urlimage" Type="nvarchar" MaxLength="255" />
+    <Property Name="brandname" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="catid" />
+    </Key>
+    <Property Name="catid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="catname" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="catparent" Type="int" Nullable="false" />
+    <Property Name="catintro" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="color">
+    <Key>
+      <PropertyRef Name="colorid" />
+    </Key>
+    <Property Name="colorid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="colorname" Type="varchar" Nullable="false" MaxLength="32" />
+    <Property Name="colorcode" Type="varchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="comment">
+    <Key>
+      <PropertyRef Name="cmtid" />
+    </Key>
+    <Property Name="cmtid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="proid" Type="int" Nullable="false" />
+    <Property Name="cusid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="cmtcontent" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="cmtdate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="cusid" />
+    </Key>
+    <Property Name="cusid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="cusfirstname" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="cuslastname" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="idcustomer_information" Type="int" />
+  </EntityType>
+  <EntityType Name="customer_information">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="address1" Type="nvarchar" MaxLength="255" />
+    <Property Name="address2" Type="nvarchar" MaxLength="255" />
+    <Property Name="phonenumber1" Type="varchar" MaxLength="20" />
+    <Property Name="phonenumber2" Type="varchar" MaxLength="20" />
+    <Property Name="birthday" Type="datetime" />
+    <Property Name="gender" Type="char" MaxLength="1" />
+    <Property Name="country" Type="nvarchar" MaxLength="100" />
+    <Property Name="region_state" Type="nvarchar" MaxLength="100" />
+    <Property Name="city" Type="nvarchar" MaxLength="100" />
+    <Property Name="post_code" Type="nvarchar" MaxLength="14" />
+  </EntityType>
+  <EntityType Name="delivery_method">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="deliveryintro" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="discount">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="datebegin" Type="datetime" Nullable="false" />
+    <Property Name="datefinal" Type="datetime" Nullable="false" />
+    <Property Name="discountintro" Type="varchar(max)" />
+    <Property Name="image" Type="int" />
+    <Property Name="percentage" Type="float" />
+  </EntityType>
+  <EntityType Name="image_product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="imgsmallid" Type="int" Nullable="false" />
+    <Property Name="imglargeid" Type="int" Nullable="false" />
+    <Property Name="proid" Type="int" />
+    <Property Name="imgdescription" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="image_slide">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="imgthumbid" Type="int" />
+    <Property Name="imgid" Type="int" Nullable="false" />
+    <Property Name="proid" Type="int" />
+    <Property Name="imgdescription" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="imagetb">
+    <Key>
+      <PropertyRef Name="imgid" />
+    </Key>
+    <Property Name="imgid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="url" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="material">
+    <Key>
+      <PropertyRef Name="materialid" />
+    </Key>
+    <Property Name="materialid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="materialname" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="order_detail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ordid" Type="int" Nullable="false" />
+    <Property Name="proid" Type="int" Nullable="false" />
+    <Property Name="ordquantity" Type="int" Nullable="false" />
+    <Property Name="ordsaleprice" Type="int" Nullable="false" />
+    <Property Name="ordtotalprice" Type="int" Nullable="false" />
+    <Property Name="currency_code" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="payment_method">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="paymentintro" Type="nvarchar" MaxLength="200" />
+    <Property Name="image" Type="int" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="proid" />
+    </Key>
+    <Property Name="proid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="proname" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="procatid" Type="int" Nullable="false" />
+    <Property Name="prointro" Type="nvarchar" MaxLength="255" />
+    <Property Name="proarticle" Type="nvarchar(max)" />
+    <Property Name="proquantity" Type="int" Nullable="false" />
+    <Property Name="prostockprice" Type="int" Nullable="false" />
+    <Property Name="materialid" Type="int" />
+    <Property Name="discountid" Type="int" />
+    <Property Name="brandid" Type="int" />
+    <Property Name="colorid" Type="int" />
+    <Property Name="sizeid" Type="int" />
+    <Property Name="datearrival" Type="datetime" Nullable="false" />
+    <Property Name="imgthumbid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="product_order">
+    <Key>
+      <PropertyRef Name="ordid" />
+    </Key>
+    <Property Name="ordid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cusid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="idbuyer_information" Type="int" Nullable="false" />
+    <Property Name="idarrival_information" Type="int" Nullable="false" />
+    <Property Name="iddelivery_method" Type="int" Nullable="false" />
+    <Property Name="idpayment_method" Type="int" />
+    <Property Name="idshipping_method" Type="int" />
+    <Property Name="ordcreate_date" Type="datetime" />
+    <Property Name="ordstatus" Type="int" />
+  </EntityType>
+  <EntityType Name="product_variety">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="proid" Type="int" Nullable="false" />
+    <Property Name="varid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="shipping_method">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="price" Type="int" Nullable="false" />
+    <Property Name="shippingintro" Type="nvarchar" MaxLength="200" />
+    <Property Name="current_code" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="shopping_cart">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cusid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="proid" Type="int" Nullable="false" />
+    <Property Name="count" Type="int" Nullable="false" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="cartstatus" Type="int" />
+  </EntityType>
+  <EntityType Name="size">
+    <Key>
+      <PropertyRef Name="sizeid" />
+    </Key>
+    <Property Name="sizeid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="sizename" Type="varchar" Nullable="false" MaxLength="32" />
+    <Property Name="sizenumber" Type="varchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="variety">
+    <Key>
+      <PropertyRef Name="varid" />
+    </Key>
+    <Property Name="varid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="varname" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="varparent" Type="int" />
+  </EntityType>
+  <EntityType Name="wish_list">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cusid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="proid" Type="int" Nullable="false" />
+    <Property Name="count" Type="int" Nullable="false" />
+    <Property Name="status_wish_list" Type="int" />
+    <Property Name="create_date" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__advertise__imgid__19AACF41">
+    <End Role="imagetb" Type="NewFashionDBModel.Store.imagetb" Multiplicity="0..1" />
+    <End Role="advertisement" Type="NewFashionDBModel.Store.advertisement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="imagetb">
+        <PropertyRef Name="imgid" />
+      </Principal>
+      <Dependent Role="advertisement">
+        <PropertyRef Name="imgid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__Appli__276EDEB3">
+    <End Role="aspnet_Applications" Type="NewFashionDBModel.Store.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="NewFashionDBModel.Store.aspnet_Membership" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__UserI__286302EC">
+    <End Role="aspnet_Users" Type="NewFashionDBModel.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="NewFashionDBModel.Store.aspnet_Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pa__Appli__59063A47">
+    <End Role="aspnet_Applications" Type="NewFashionDBModel.Store.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Paths" Type="NewFashionDBModel.Store.aspnet_Paths" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Paths">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__PathI__5EBF139D">
+    <End Role="aspnet_Paths" Type="NewFashionDBModel.Store.aspnet_Paths" Multiplicity="1" />
+    <End Role="aspnet_PersonalizationAllUsers" Type="NewFashionDBModel.Store.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Paths">
+        <PropertyRef Name="PathId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationAllUsers">
+        <PropertyRef Name="PathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__PathI__628FA481">
+    <End Role="aspnet_Paths" Type="NewFashionDBModel.Store.aspnet_Paths" Multiplicity="0..1" />
+    <End Role="aspnet_PersonalizationPerUser" Type="NewFashionDBModel.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Paths">
+        <PropertyRef Name="PathId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationPerUser">
+        <PropertyRef Name="PathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__UserI__6383C8BA">
+    <End Role="aspnet_Users" Type="NewFashionDBModel.Store.aspnet_Users" Multiplicity="0..1" />
+    <End Role="aspnet_PersonalizationPerUser" Type="NewFashionDBModel.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationPerUser">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pr__UserI__3C69FB99">
+    <End Role="aspnet_Users" Type="NewFashionDBModel.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Profile" Type="NewFashionDBModel.Store.aspnet_Profile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Profile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Ro__Appli__45F365D3">
+    <End Role="aspnet_Applications" Type="NewFashionDBModel.Store.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Roles" Type="NewFashionDBModel.Store.aspnet_Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__Appli__173876EA">
+    <End Role="aspnet_Applications" Type="NewFashionDBModel.Store.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Users" Type="NewFashionDBModel.Store.aspnet_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__RoleI__4AB81AF0">
+    <End Role="aspnet_Roles" Type="NewFashionDBModel.Store.aspnet_Roles" Multiplicity="1" />
+    <End Role="aspnet_UsersInRoles" Type="NewFashionDBModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__UserI__49C3F6B7">
+    <End Role="aspnet_Users" Type="NewFashionDBModel.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_UsersInRoles" Type="NewFashionDBModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__comment__cusid__0C50D423">
+    <End Role="customer" Type="NewFashionDBModel.Store.customer" Multiplicity="1" />
+    <End Role="comment" Type="NewFashionDBModel.Store.comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="cusid" />
+      </Principal>
+      <Dependent Role="comment">
+        <PropertyRef Name="cusid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__comment__proid__0D44F85C">
+    <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="1" />
+    <End Role="comment" Type="NewFashionDBModel.Store.comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="proid" />
+      </Principal>
+      <Dependent Role="comment">
+        <PropertyRef Name="proid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__image_pro__imgla__16CE6296">
+    <End Role="imagetb" Type="NewFashionDBModel.Store.imagetb" Multiplicity="1" />
+    <End Role="image_product" Type="NewFashionDBModel.Store.image_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="imagetb">
+        <PropertyRef Name="imgid" />
+      </Principal>
+      <Dependent Role="image_product">
+        <PropertyRef Name="imglargeid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__image_pro__imgsm__15DA3E5D">
+    <End Role="imagetb" Type="NewFashionDBModel.Store.imagetb" Multiplicity="1" />
+    <End Role="image_product" Type="NewFashionDBModel.Store.image_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="imagetb">
+        <PropertyRef Name="imgid" />
+      </Principal>
+      <Dependent Role="image_product">
+        <PropertyRef Name="imgsmallid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__image_pro__proid__14E61A24">
+    <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="0..1" />
+    <End Role="image_product" Type="NewFashionDBModel.Store.image_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="proid" />
+      </Principal>
+      <Dependent Role="image_product">
+        <PropertyRef Name="proid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__image_sli__imgid__11158940">
+    <End Role="imagetb" Type="NewFashionDBModel.Store.imagetb" Multiplicity="1" />
+    <End Role="image_slide" Type="NewFashionDBModel.Store.image_slide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="imagetb">
+        <PropertyRef Name="imgid" />
+      </Principal>
+      <Dependent Role="image_slide">
+        <PropertyRef Name="imgid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__image_sli__imgth__1209AD79">
+    <End Role="imagetb" Type="NewFashionDBModel.Store.imagetb" Multiplicity="0..1" />
+    <End Role="image_slide" Type="NewFashionDBModel.Store.image_slide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="imagetb">
+        <PropertyRef Name="imgid" />
+      </Principal>
+      <Dependent Role="image_slide">
+        <PropertyRef Name="imgthumbid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__image_sli__proid__10216507">
+    <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="0..1" />
+    <End Role="image_slide" Type="NewFashionDBModel.Store.image_slide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="proid" />
+      </Principal>
+      <Dependent Role="image_slide">
+        <PropertyRef Name="proid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__order_det__ordid__5C6CB6D7">
+    <End Role="product_order" Type="NewFashionDBModel.Store.product_order" Multiplicity="1" />
+    <End Role="order_detail" Type="NewFashionDBModel.Store.order_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product_order">
+        <PropertyRef Name="ordid" />
+      </Principal>
+      <Dependent Role="order_detail">
+        <PropertyRef Name="ordid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__order_det__proid__5D60DB10">
+    <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="1" />
+    <End Role="order_detail" Type="NewFashionDBModel.Store.order_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="proid" />
+      </Principal>
+      <Dependent Role="order_detail">
+        <PropertyRef Name="proid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__product__brandid__74794A92">
+    <End Role="brand" Type="NewFashionDBModel.Store.brand" Multiplicity="0..1" />
+    <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="brand">
+        <PropertyRef Name="brandid" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="brandid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__product__colorid__719CDDE7">
+    <End Role="color" Type="NewFashionDBModel.Store.color" Multiplicity="0..1" />
+    <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="color">
+        <PropertyRef Name="colorid" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="colorid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__product__imgthum__7755B73D">
+    <End Role="imagetb" Type="NewFashionDBModel.Store.imagetb" Multiplicity="1" />
+    <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="imagetb">
+        <PropertyRef Name="imgid" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="imgthumbid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__product__materia__76619304">
+    <End Role="material" Type="NewFashionDBModel.Store.material" Multiplicity="0..1" />
+    <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="material">
+        <PropertyRef Name="materialid" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="materialid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__product__procati__73852659">
+    <End Role="category" Type="NewFashionDBModel.Store.category" Multiplicity="1" />
+    <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="catid" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="procatid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__product__sizeid__72910220">
+    <End Role="size" Type="NewFashionDBModel.Store.size" Multiplicity="0..1" />
+    <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="size">
+        <PropertyRef Name="sizeid" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="sizeid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__product_o__cusid__54CB950F">
+    <End Role="customer" Type="NewFashionDBModel.Store.customer" Multiplicity="1" />
+    <End Role="product_order" Type="NewFashionDBModel.Store.product_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="cusid" />
+      </Principal>
+      <Dependent Role="product_order">
+        <PropertyRef Name="cusid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__product_o__iddel__57A801BA">
+    <End Role="delivery_method" Type="NewFashionDBModel.Store.delivery_method" Multiplicity="1" />
+    <End Role="product_order" Type="NewFashionDBModel.Store.product_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="delivery_method">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="product_order">
+        <PropertyRef Name="iddelivery_method" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__product_o__idpay__59904A2C">
+    <End Role="payment_method" Type="NewFashionDBModel.Store.payment_method" Multiplicity="0..1" />
+    <End Role="product_order" Type="NewFashionDBModel.Store.product_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="payment_method">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="product_order">
+        <PropertyRef Name="idpayment_method" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__product_o__idshi__589C25F3">
+    <End Role="shipping_method" Type="NewFashionDBModel.Store.shipping_method" Multiplicity="0..1" />
+    <End Role="product_order" Type="NewFashionDBModel.Store.product_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shipping_method">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="product_order">
+        <PropertyRef Name="idshipping_method" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__product_v__proid__7D0E9093">
+    <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="1" />
+    <End Role="product_variety" Type="NewFashionDBModel.Store.product_variety" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="proid" />
+      </Principal>
+      <Dependent Role="product_variety">
+        <PropertyRef Name="proid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__product_v__proid__7E02B4CC">
+    <End Role="variety" Type="NewFashionDBModel.Store.variety" Multiplicity="1" />
+    <End Role="product_variety" Type="NewFashionDBModel.Store.product_variety" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="variety">
+        <PropertyRef Name="varid" />
+      </Principal>
+      <Dependent Role="product_variety">
+        <PropertyRef Name="proid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__shopping___cusid__43A1090D">
+    <End Role="customer" Type="NewFashionDBModel.Store.customer" Multiplicity="1" />
+    <End Role="shopping_cart" Type="NewFashionDBModel.Store.shopping_cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="cusid" />
+      </Principal>
+      <Dependent Role="shopping_cart">
+        <PropertyRef Name="cusid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__shopping___proid__44952D46">
+    <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="1" />
+    <End Role="shopping_cart" Type="NewFashionDBModel.Store.shopping_cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="proid" />
+      </Principal>
+      <Dependent Role="shopping_cart">
+        <PropertyRef Name="proid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__wish_list__cusid__4959E263">
+    <End Role="customer" Type="NewFashionDBModel.Store.customer" Multiplicity="1" />
+    <End Role="wish_list" Type="NewFashionDBModel.Store.wish_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="cusid" />
+      </Principal>
+      <Dependent Role="wish_list">
+        <PropertyRef Name="cusid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__wish_list__proid__4A4E069C">
+    <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="1" />
+    <End Role="wish_list" Type="NewFashionDBModel.Store.wish_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="proid" />
+      </Principal>
+      <Dependent Role="wish_list">
+        <PropertyRef Name="proid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_customer_aspnet_user">
+    <End Role="aspnet_Users" Type="NewFashionDBModel.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="customer" Type="NewFashionDBModel.Store.customer" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="customer">
+        <PropertyRef Name="cusid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_customer_customer_information">
+    <End Role="customer_information" Type="NewFashionDBModel.Store.customer_information" Multiplicity="0..1" />
+    <End Role="customer" Type="NewFashionDBModel.Store.customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer_information">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="customer">
+        <PropertyRef Name="idcustomer_information" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_discount_image">
+    <End Role="imagetb" Type="NewFashionDBModel.Store.imagetb" Multiplicity="1" />
+    <End Role="discount" Type="NewFashionDBModel.Store.discount" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="imagetb">
+        <PropertyRef Name="imgid" />
+      </Principal>
+      <Dependent Role="discount">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_image">
+    <End Role="imagetb" Type="NewFashionDBModel.Store.imagetb" Multiplicity="1" />
+    <End Role="payment_method" Type="NewFashionDBModel.Store.payment_method" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="imagetb">
+        <PropertyRef Name="imgid" />
+      </Principal>
+      <Dependent Role="payment_method">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_product_order_customer_information">
+    <End Role="customer_information" Type="NewFashionDBModel.Store.customer_information" Multiplicity="1" />
+    <End Role="product_order" Type="NewFashionDBModel.Store.product_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer_information">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="product_order">
+        <PropertyRef Name="idarrival_information" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_product_order_customer_information1">
+    <End Role="customer_information" Type="NewFashionDBModel.Store.customer_information" Multiplicity="1" />
+    <End Role="product_order" Type="NewFashionDBModel.Store.product_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer_information">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="product_order">
+        <PropertyRef Name="idbuyer_information" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -65,3 +65,41 @@ E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion
 E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\EntityFramework.xml
 E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\Newtonsoft.Json.xml
 E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\EntityFramework.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\NewFashionWebsite.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\NewFashionWebsite.pdb
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\Antlr3.Runtime.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\DataAnnotationsExtensions.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\EntityFramework.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\Microsoft.Web.Infrastructure.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\NewFashionBLL.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\Newtonsoft.Json.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\Recaptcha.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\Recaptcha.MvcModel.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\Recaptcha.Web.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Net.Http.Formatting.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Http.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Http.WebHost.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Mvc.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Optimization.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Providers.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Razor.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.Deployment.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.Razor.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\WebGrease.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\NewFashionBLL.pdb
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\Recaptcha.pdb
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\EntityFramework.xml
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\Newtonsoft.Json.xml
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Net.Http.Formatting.xml
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Http.xml
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Http.WebHost.xml
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Mvc.xml
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Razor.xml
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.xml
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.Deployment.xml
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.Razor.xml
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\obj\Debug\NewFashionWebsite.csprojResolveAssemblyReference.cache
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\obj\Debug\NewFashionWebsite.dll
+D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\obj\Debug\NewFashionWebsite.pdb
