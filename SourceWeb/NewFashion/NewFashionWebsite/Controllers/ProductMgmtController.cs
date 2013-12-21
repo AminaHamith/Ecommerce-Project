@@ -179,5 +179,25 @@ namespace NewFashionWebsite.Controllers
             @ViewBag.CURRENT_PAGE = page;
             return View("PartialProductListMgmt", list);
         }
+
+        public ActionResult DeleteImage()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DeleteImage(int proid, int imageid)
+        {
+            product pro = productBLL.getProductById(proid);
+            List<image_product> imageList = pro.image_product.ToList();
+            ImageProductBLL a = new ImageProductBLL();
+            ImageBLL i = new ImageBLL();
+            int imagelargeid = a.getimage_productById(imageid).imglargeid;
+            int imagesmallid = a.getimage_productById(imageid).imgsmallid;
+            a.delete(imageid);
+            i.delete(imagelargeid);
+            i.delete(imagesmallid);
+            return View("DeleteImageSuccess");
+        }
     }
 }

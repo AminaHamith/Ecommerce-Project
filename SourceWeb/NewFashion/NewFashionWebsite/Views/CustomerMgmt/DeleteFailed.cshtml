@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Thông tin khách hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    @Styles.Render("~/Content/css-admin-custom2")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @model NewFashionBLL.customer
+}
+<h2>Xóa thông tin khách hàng</h2>
+<p>Có lỗi xảy ra, không thể xóa thông tin khách hàng <b>@Model.cuslastname</b>. Xin vui lòng thử lại sau.</p>
+<p><a href="/CustomerMgmt/">Trở lại</a></p>

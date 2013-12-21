@@ -144,15 +144,11 @@ using (Html.BeginForm("Edit", "ProductMgmt", FormMethod.Post))
             Hình ảnh:
         </td>
        <td width="70%" align="left" valign="top">
-           <div style="clear: both">
-               <a href="#" onclick="alert('Đang xây dựng')">Thêm ảnh</a>
-           </div>
-           
            @foreach (var img in Model.image_product.ToList())
            {
-               <div style="float: left; margin: 5px 15px 5px 5px;">
+               <div id="image-@img.id" style="float: left; margin: 5px 15px 5px 5px;">
                    <div style="float: right; position:absolute; margin: 5px 5px 5px 5px;">
-                       <a id="delete" onclick="alert('Đang xây dựng')" class="btn btn-danger btn-sm btn-flat btn-rect" data-original-title="" title="">
+                       <a id="delete" onclick="deleteImage(@Model.proid, @img.id)" class="btn btn-danger btn-sm btn-flat btn-rect" data-original-title="" title="">
                            <i class="glyphicon glyphicon-remove"></i>
                        </a>
                    </div>
@@ -175,4 +171,20 @@ using (Html.BeginForm("Edit", "ProductMgmt", FormMethod.Post))
     </tr>
 </table>
     }
+    <script>
+        function deleteImage(proid, imageid) {
+            $.ajax({
+                url: '/ProductMgmt/DeleteImage',
+                type: 'POST',
+                data: { proid: proid, imageid: imageid },
+                success: function (mydata) {
+                    console.log(mydata);
+                    $("#image-" + imageid).fadeOut();
+                },
+                error: function () {
+                    alert("Error");
+                }
+            });
+        }
+    </script>
 }

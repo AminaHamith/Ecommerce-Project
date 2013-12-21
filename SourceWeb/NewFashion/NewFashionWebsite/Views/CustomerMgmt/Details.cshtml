@@ -27,7 +27,9 @@
             Giới tính:
         </td>
        <td width="70%" align="left" valign="top">
-               @if (Int32.Parse(Model.customer_information.gender) == 0)
+           @if (Model.customer_information != null)
+           {
+               if (Int32.Parse(Model.customer_information.gender) == 0)
                {
                    <b>Nam</b>
                }
@@ -35,6 +37,7 @@
                {
                    <b>Nữ</b>
                }
+           }
        </td>
     </tr>
     <tr>
@@ -43,9 +46,12 @@
         </td>
        <td width="70%" align="left" valign="top">
            <b>
-               @if (Model.customer_information.birthday != null)
+               @if (Model.customer_information != null)
                {
-                   @Model.customer_information.birthday.Value.ToString("dd/MM/yyyy");
+                   if (Model.customer_information.birthday != null)
+                   {
+                        @Model.customer_information.birthday.Value.ToString("dd/MM/yyyy");
+                   }
                }
            </b>
        </td>
@@ -56,7 +62,10 @@
         </td>
        <td width="70%" align="left" valign="top">
            <b>
-               @Model.customer_information.address1
+               @if (Model.customer_information != null)
+               {
+                   @Model.customer_information.address1
+               }
            </b>
        </td>
     </tr>
@@ -66,7 +75,10 @@
         </td>
        <td width="70%" align="left" valign="top">
            <b>
-               @Model.customer_information.address2
+               @if (Model.customer_information != null)
+               {
+                   @Model.customer_information.address2
+               }
            </b>
        </td>
     </tr>
@@ -76,7 +88,10 @@
         </td>
        <td width="70%" align="left" valign="top">
            <b>
-               @Model.customer_information.city
+               @if (Model.customer_information != null)
+               {
+                   @Model.customer_information.city
+               }
            </b>
        </td>
     </tr>
@@ -86,7 +101,10 @@
         </td>
        <td width="70%" align="left" valign="top">
            <b>
-               @Model.customer_information.country
+               @if (Model.customer_information != null)
+               {
+                   @Model.customer_information.country
+               }
            </b>
        </td>
     </tr>
@@ -96,7 +114,10 @@
         </td>
        <td width="70%" align="left" valign="top">
            <b>
-               @Model.customer_information.post_code
+               @if (Model.customer_information != null)
+               {
+                   @Model.customer_information.post_code
+               }
            </b>
        </td>
     </tr>
@@ -106,7 +127,10 @@
         </td>
        <td width="70%" align="left" valign="top">
            <b>
-               @Model.customer_information.phonenumber1
+               @if (Model.customer_information != null)
+               {
+                   @Model.customer_information.phonenumber1
+               }
            </b>
        </td>
     </tr>
@@ -116,7 +140,10 @@
         </td>
        <td width="70%" align="left" valign="top">
            <b>
-               @Model.customer_information.phonenumber2
+               @if (Model.customer_information != null)
+               {
+                   @Model.customer_information.phonenumber2
+               }
            </b>
        </td>
     </tr>
@@ -126,7 +153,7 @@
         </td>
         <td width="70%" align="left" valign="top">
             <b>
-                <a id="delete" onclick="alert('Đang xây dựng')" class="btn btn-danger btn-sm btn-flat btn-rect" data-original-title="" title="">
+                <a id="delete"href="@Url.Action("Delete", "CustomerMgmt", new { id = Model.cusid.ToString()})" class="btn btn-danger btn-sm btn-flat btn-rect" data-original-title="" title="">
                     <i class="glyphicon glyphicon-remove"> Xóa</i>
 
                 </a>
