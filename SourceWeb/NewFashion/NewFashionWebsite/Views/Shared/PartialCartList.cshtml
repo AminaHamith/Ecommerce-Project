@@ -15,12 +15,12 @@
             <td class="model">@Model[i].product.category.catname</td>
             <td class="quantity">
                 <!--<input type="text" size="1" value="Model[i].count" name="quantity[40]" class="span1"></td>-->
-                @Html.TextBoxFor(m => m[i].count, new { @class="span1",@size="1",@name="quantity[40]"})
+                @Html.TextBoxFor(m => m[i].count, new { @class="span1",@size="1",@id=@Model[i].id})
             <td class="price">@Model[i].product.prostockprice</td>
             <td class="total">@(Model[i].count*Model[i].product.prostockprice)</td>
             <td class="remove-update"><a onclick="removeCart(@Model[i].id, '@Model[i].product.proname')" class="tip remove" title="Remove">
                 <img src="@Url.Content("~/Images/remove.png")" alt=""></a>
-                <a href="#" class="tip update" title="Update">
+                <a onclick="updateCart(@Model[i].id)" class="tip update" title="Update">
                     <img src="@Url.Content("~/Images/update.png")" alt=""></a></td>
         </tr>
         }
@@ -70,4 +70,24 @@
         });
     }
     
+    function updateCart(idCart) {
+        alert("1");
+        var str = "#" + idCart;
+        var quantity = $("#" + idCart).val();
+        alert(quantity);
+       /*
+        $.ajax({
+            url: '/ShoppingCart/UpdateFromCart',
+            type: 'POST',
+            data: { idCart: idCart },
+            success: function (mydata) {
+                $("#divPartialViewCartList").empty().append(mydata);
+                //alert("Success");
+            },
+            error: function () {
+                alert("Error");
+            }
+        });*/
+                    
+    }
 </script>

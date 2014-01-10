@@ -160,7 +160,7 @@
     <Compile Include="Models\ResetPasswordModel.cs" />
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\ShoppingCartModel.cs" />
-    <Compile Include="Models\ShoppingCartModel1.cs" />
+    <Compile Include="Models\CartModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

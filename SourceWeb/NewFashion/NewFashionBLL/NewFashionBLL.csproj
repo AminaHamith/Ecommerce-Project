@@ -165,9 +165,6 @@
     <Compile Include="product_order.cs">
       <DependentUpon>NewFashionModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="product_variety.cs">
-      <DependentUpon>NewFashionModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="shipping_method.cs">
       <DependentUpon>NewFashionModel.tt</DependentUpon>
@@ -179,9 +176,6 @@
       <DependentUpon>NewFashionModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">
-      <DependentUpon>NewFashionModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="variety.cs">
       <DependentUpon>NewFashionModel.tt</DependentUpon>
     </Compile>
     <Compile Include="wish_list.cs">

@@ -18,7 +18,14 @@ namespace NewFashionWebsite.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            CustomerBLL customerBLL = new CustomerBLL();
+            ShoppingCartBLL shoppingCartBLL = new ShoppingCartBLL();
+            List<shopping_cart> listCart = null;
+
+            CartModel cartModel = CartModel.GetCart(this.HttpContext);
+            listCart = cartModel.GetCartItems();
+
+            return View(listCart);
         }
 
         //
@@ -106,53 +113,43 @@ namespace NewFashionWebsite.Controllers
                 return View();
             }
         }
-        [HttpPost]
+        
+
         public ActionResult AddToCart(int idProduct, int quantity)
         {
             ProductBLL productBLL = new ProductBLL();
-            CustomerBLL customerBLL = new CustomerBLL();
-            ShoppingCartBLL shoppingCartBLL = new ShoppingCartBLL();
-            ShoppingCartModel model = null;
+            
+            CartModel cartModel = CartModel.GetCart(this.HttpContext);
+            product pro = productBLL.getProductById(idProduct);
+            
+            cartModel.AddToCart(pro,quantity);
 
-            if (Request.IsAuthenticated == true)
-            {
-                MembershipUser user = Membership.GetUser(User.Identity.Name);
-                customer cus = customerBLL.getById((Guid)user.ProviderUserKey);
-
-                shoppingCartBLL.AddToCart(idProduct, cus.cusid,quantity);
-
-                int price = productBLL.getProductById(idProduct).prostockprice;
-                int count = shoppingCartBLL.GetCount(cus.cusid);
-                int total = shoppingCartBLL.GetTotal(cus.cusid);
-                string result = (count).ToString() + " " + (total).ToString();
-                model = new ShoppingCartModel
-                {
-                    listCart = shoppingCartBLL.GetCartItems(cus.cusid),
-                    total = shoppingCartBLL.GetTotal(cus.cusid),
-                };
-                ViewBag.SHOPPING_CART = model;
-            }
-            else
-            {
-            }
-            return PartialView("PartialShoppingCart");
+            UpdateCartSumary(cartModel);
+            return RedirectToAction("ShoppingCart","Home");
         }
+
         [HttpPost]
         public ActionResult RemoveFromCart(int idCart)
         {
-            CustomerBLL customerBLL = new CustomerBLL();
-            ShoppingCartBLL shoppingCartBLL = new ShoppingCartBLL();
+            CartModel cartModel = CartModel.GetCart(this.HttpContext);
+            cartModel.RemoveFromCart(idCart);
 
-            shoppingCartBLL.RemoveFromCart(idCart);
             List<shopping_cart> listCart = null;
-            if (Request.IsAuthenticated == true)
-            {
-                MembershipUser user = Membership.GetUser(User.Identity.Name);
-                customer cus = customerBLL.getById((Guid)user.ProviderUserKey);
-
-                listCart = shoppingCartBLL.GetCartItems(cus.cusid);
-            }
+            listCart = cartModel.GetCartItems();
+            
+            UpdateCartSumary(cartModel);
             return PartialView("PartialCartList",listCart);
+        }
+
+        public void UpdateCartSumary(CartModel cartModel)
+        {
+            List<shopping_cart> listCart = cartModel.GetCartItems();
+            ShoppingCartModel model = new ShoppingCartModel
+            {
+                listCart = listCart,
+                total = cartModel.GetTotal(),
+            };
+            Session["CART"] = model;
         }
     }
 }

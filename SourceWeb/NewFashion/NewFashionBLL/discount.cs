@@ -14,6 +14,11 @@ namespace NewFashionBLL
     
     public partial class discount
     {
+        public discount()
+        {
+            this.products = new HashSet<product>();
+        }
+    
         public int id { get; set; }
         public string name { get; set; }
         public System.DateTime datebegin { get; set; }
@@ -23,5 +28,6 @@ namespace NewFashionBLL
         public Nullable<double> percentage { get; set; }
     
         public virtual imagetb imagetb { get; set; }
+        public virtual ICollection<product> products { get; set; }
     }
 }

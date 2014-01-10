@@ -54,7 +54,7 @@ namespace NewFashionWebsite.Controllers
         }
         //
         // GET: /Home/
-        [ShoppingCartAttribute]
+         
         public ActionResult Index()
         {
             var listImageSlides = imageSlideBLL.getList();
@@ -68,7 +68,7 @@ namespace NewFashionWebsite.Controllers
 
         //
         // GET: /Home/About
-        [ShoppingCartAttribute]
+         
         public ActionResult About()
         {
             return View();
@@ -94,7 +94,7 @@ namespace NewFashionWebsite.Controllers
 
         //
         // GET: /Home/Contact
-        [ShoppingCartAttribute]
+         
         public ActionResult Contact()
         {
             return View();
@@ -134,7 +134,7 @@ namespace NewFashionWebsite.Controllers
 
         //
         // GET: /Home/ProductDetail
-        [ShoppingCartAttribute]
+         
         public ActionResult ProductDetail(int idProduct)
         {
             product pro = productBLL.getProductById(idProduct);
@@ -187,21 +187,16 @@ namespace NewFashionWebsite.Controllers
 
         //
         // GET: /Home/ShoppingCart
-        [ShoppingCartAttribute]
+         
         public ActionResult ShoppingCart()
         {
             CustomerBLL customerBLL = new CustomerBLL();
             ShoppingCartBLL shoppingCartBLL = new ShoppingCartBLL();
             List<shopping_cart> listCart = null;
-            if (Request.IsAuthenticated == true)
-            {
-                MembershipUser user = Membership.GetUser(User.Identity.Name);
-                customer cus = customerBLL.getById((Guid)user.ProviderUserKey);
 
-                int total = shoppingCartBLL.GetTotal(cus.cusid);
-                @ViewBag.TOTAL = total;
-                listCart = shoppingCartBLL.GetCartItems(cus.cusid);
-            }
+            CartModel cartModel = CartModel.GetCart(this.HttpContext);
+            listCart = cartModel.GetCartItems();
+
             return View(listCart);
         }
 
@@ -225,7 +220,7 @@ namespace NewFashionWebsite.Controllers
 
         //
         // GET: /Home/Checkout
-        [ShoppingCartAttribute]
+         
         public ActionResult Checkout()
         {
             return View();
@@ -251,7 +246,7 @@ namespace NewFashionWebsite.Controllers
 
         //
         // GET: /Home/ProductList
-        [ShoppingCartAttribute]
+         
         public ActionResult ProductList(int idCategory, int? page)
         {
             page = page ?? 1;
@@ -303,7 +298,7 @@ namespace NewFashionWebsite.Controllers
 
         //
         // GET: /Home/PurchaseHistory
-        [ShoppingCartAttribute]
+         
         public ActionResult PurchaseHistory()
         {
             return View();
@@ -329,7 +324,7 @@ namespace NewFashionWebsite.Controllers
 
         //
         // GET: /Home/Brands
-        [ShoppingCartAttribute]
+         
         public ActionResult Brands()
         {
             return View();
@@ -355,7 +350,7 @@ namespace NewFashionWebsite.Controllers
 
         //
         // GET: /Home/Compare
-        [ShoppingCartAttribute]
+         
         public ActionResult Compare()
         {
             return View();
@@ -381,7 +376,7 @@ namespace NewFashionWebsite.Controllers
 
         //
         // GET: /Home/Wishlist
-        [ShoppingCartAttribute]
+         
         public ActionResult Wishlist()
         {
             return View();

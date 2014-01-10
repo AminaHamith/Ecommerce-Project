@@ -29,12 +29,10 @@
     <EntitySet Name="payment_method" EntityType="NewFashionDBModel.Store.payment_method" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="product" EntityType="NewFashionDBModel.Store.product" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="product_order" EntityType="NewFashionDBModel.Store.product_order" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="product_variety" EntityType="NewFashionDBModel.Store.product_variety" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="shipping_method" EntityType="NewFashionDBModel.Store.shipping_method" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="shopping_cart" EntityType="NewFashionDBModel.Store.shopping_cart" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="size" EntityType="NewFashionDBModel.Store.size" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="sysdiagrams" EntityType="NewFashionDBModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="variety" EntityType="NewFashionDBModel.Store.variety" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="wish_list" EntityType="NewFashionDBModel.Store.wish_list" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK__advertise__imgid__19AACF41" Association="NewFashionDBModel.Store.FK__advertise__imgid__19AACF41">
       <End Role="imagetb" EntitySet="imagetb" />
@@ -164,18 +162,6 @@
       <End Role="shipping_method" EntitySet="shipping_method" />
       <End Role="product_order" EntitySet="product_order" />
     </AssociationSet>
-    <AssociationSet Name="FK__product_v__proid__7D0E9093" Association="NewFashionDBModel.Store.FK__product_v__proid__7D0E9093">
-      <End Role="product" EntitySet="product" />
-      <End Role="product_variety" EntitySet="product_variety" />
-    </AssociationSet>
-    <AssociationSet Name="FK__product_v__proid__7E02B4CC" Association="NewFashionDBModel.Store.FK__product_v__proid__7E02B4CC">
-      <End Role="variety" EntitySet="variety" />
-      <End Role="product_variety" EntitySet="product_variety" />
-    </AssociationSet>
-    <AssociationSet Name="FK__shopping___cusid__43A1090D" Association="NewFashionDBModel.Store.FK__shopping___cusid__43A1090D">
-      <End Role="customer" EntitySet="customer" />
-      <End Role="shopping_cart" EntitySet="shopping_cart" />
-    </AssociationSet>
     <AssociationSet Name="FK__shopping___proid__44952D46" Association="NewFashionDBModel.Store.FK__shopping___proid__44952D46">
       <End Role="product" EntitySet="product" />
       <End Role="shopping_cart" EntitySet="shopping_cart" />
@@ -203,6 +189,10 @@
     <AssociationSet Name="FK_payment_image" Association="NewFashionDBModel.Store.FK_payment_image">
       <End Role="imagetb" EntitySet="imagetb" />
       <End Role="payment_method" EntitySet="payment_method" />
+    </AssociationSet>
+    <AssociationSet Name="FK_product_discount" Association="NewFashionDBModel.Store.FK_product_discount">
+      <End Role="discount" EntitySet="discount" />
+      <End Role="product" EntitySet="product" />
     </AssociationSet>
     <AssociationSet Name="FK_product_order_customer_information" Association="NewFashionDBModel.Store.FK_product_order_customer_information">
       <End Role="customer_information" EntitySet="customer_information" />
@@ -359,7 +349,7 @@
     </Key>
     <Property Name="brandid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="urlimage" Type="nvarchar" MaxLength="255" />
-    <Property Name="brandname" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="brandname" Type="nvarchar" Nullable="false" MaxLength="100" />
   </EntityType>
   <EntityType Name="category">
     <Key>
@@ -375,7 +365,7 @@
       <PropertyRef Name="colorid" />
     </Key>
     <Property Name="colorid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="colorname" Type="varchar" Nullable="false" MaxLength="32" />
+    <Property Name="colorname" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="colorcode" Type="varchar" MaxLength="32" />
   </EntityType>
   <EntityType Name="comment">
@@ -426,7 +416,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="datebegin" Type="datetime" Nullable="false" />
     <Property Name="datefinal" Type="datetime" Nullable="false" />
     <Property Name="discountintro" Type="varchar(max)" />
@@ -465,7 +455,7 @@
       <PropertyRef Name="materialid" />
     </Key>
     <Property Name="materialid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="materialname" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="materialname" Type="nvarchar" Nullable="false" MaxLength="100" />
   </EntityType>
   <EntityType Name="order_detail">
     <Key>
@@ -506,6 +496,7 @@
     <Property Name="sizeid" Type="int" />
     <Property Name="datearrival" Type="datetime" Nullable="false" />
     <Property Name="imgthumbid" Type="int" Nullable="false" />
+    <Property Name="proquantityorder" Type="int" />
   </EntityType>
   <EntityType Name="product_order">
     <Key>
@@ -520,14 +511,6 @@
     <Property Name="idshipping_method" Type="int" />
     <Property Name="ordcreate_date" Type="datetime" />
     <Property Name="ordstatus" Type="int" />
-  </EntityType>
-  <EntityType Name="product_variety">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="proid" Type="int" Nullable="false" />
-    <Property Name="varid" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="shipping_method">
     <Key>
@@ -555,7 +538,7 @@
       <PropertyRef Name="sizeid" />
     </Key>
     <Property Name="sizeid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="sizename" Type="varchar" Nullable="false" MaxLength="32" />
+    <Property Name="sizename" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="sizenumber" Type="varchar" MaxLength="32" />
   </EntityType>
   <EntityType Name="sysdiagrams">
@@ -567,14 +550,6 @@
     <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
-  <EntityType Name="variety">
-    <Key>
-      <PropertyRef Name="varid" />
-    </Key>
-    <Property Name="varid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="varname" Type="nvarchar" Nullable="false" MaxLength="32" />
-    <Property Name="varparent" Type="int" />
   </EntityType>
   <EntityType Name="wish_list">
     <Key>
@@ -971,42 +946,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__product_v__proid__7D0E9093">
-    <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="1" />
-    <End Role="product_variety" Type="NewFashionDBModel.Store.product_variety" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="product">
-        <PropertyRef Name="proid" />
-      </Principal>
-      <Dependent Role="product_variety">
-        <PropertyRef Name="proid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__product_v__proid__7E02B4CC">
-    <End Role="variety" Type="NewFashionDBModel.Store.variety" Multiplicity="1" />
-    <End Role="product_variety" Type="NewFashionDBModel.Store.product_variety" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="variety">
-        <PropertyRef Name="varid" />
-      </Principal>
-      <Dependent Role="product_variety">
-        <PropertyRef Name="proid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__shopping___cusid__43A1090D">
-    <End Role="customer" Type="NewFashionDBModel.Store.customer" Multiplicity="1" />
-    <End Role="shopping_cart" Type="NewFashionDBModel.Store.shopping_cart" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="customer">
-        <PropertyRef Name="cusid" />
-      </Principal>
-      <Dependent Role="shopping_cart">
-        <PropertyRef Name="cusid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__shopping___proid__44952D46">
     <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="1" />
     <End Role="shopping_cart" Type="NewFashionDBModel.Store.shopping_cart" Multiplicity="*" />
@@ -1088,6 +1027,18 @@
       </Principal>
       <Dependent Role="payment_method">
         <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_product_discount">
+    <End Role="discount" Type="NewFashionDBModel.Store.discount" Multiplicity="0..1" />
+    <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="discount">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="discountid" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

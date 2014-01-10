@@ -9,67 +9,67 @@ using System.Web.Mvc;
 
 namespace NewFashionWebsite.Models
 {
-    public partial class ShoppingCartModel1
+    public partial class CartModel
     {
         private NewFashionDBEntities db = new NewFashionDBEntities();
-        ShoppingCartBLL shoppingCartBLL;
-        public const string CartSessionCustomerKey = "CART_CUSTOMER_ID";
+        ShoppingCartBLL shoppingCartBLL = new ShoppingCartBLL();
+        public const string CartSessionKey = "CART_ID";
         System.Guid CustomerId { get; set; }
 
-        public static ShoppingCartModel1 GetCart(HttpContextBase context)
+        public static CartModel GetCart(HttpContextBase context)
         {
-            var cart = new ShoppingCartModel1();
+            var cart = new CartModel();
             cart.CustomerId = System.Guid.Parse(cart.GetCartIdCustomer(context));
             return cart;
         }
         // Helper method to simplify shopping cart calls
-        public static ShoppingCartModel1 GetCart(Controller controller)
+        public static CartModel GetCart(Controller controller)
         {
             return GetCart(controller.HttpContext);
         }
 
         public String GetCartIdCustomer(HttpContextBase context)
         {
-            if (context.Session[CartSessionCustomerKey] == null)
+            if (context.Session[CartSessionKey] == null)
             {
                 if (!string.IsNullOrWhiteSpace(context.User.Identity.Name))
                 {
                     CustomerBLL customerBLL = new CustomerBLL();
                     System.Guid idCustomer = customerBLL.getByUserName(context.User.Identity.Name).cusid;
-                    context.Session[CartSessionCustomerKey] = idCustomer.ToString();
+                    context.Session[CartSessionKey] = idCustomer.ToString();
                 }
-                /*else
+                else
                 {
                     // Generate a new random GUID using System.Guid class
                     Guid tempCartId = Guid.NewGuid();
                     // Send tempCartId back to client as a cookie
-                    context.Session[CartSessionCustomerKey] = tempCartId.ToString();
-                }*/
+                    context.Session[CartSessionKey] = tempCartId.ToString();
+                }
             }
-            return context.Session[CartSessionCustomerKey].ToString();
+            return context.Session[CartSessionKey].ToString();
         }
 
         //get list cart of customer
         public List<shopping_cart> GetCartItems()
         {
-            return db.shopping_cart.Where(cart => cart.cusid == this.CustomerId).ToList();
+            return shoppingCartBLL.GetCartItems(this.CustomerId);
         }
 
-        /*
+        
         //get cart by id
         public shopping_cart getCartById(int idCart)
         {
-            return db.shopping_cart.Where(c => c.id == this.shoppingCart.id).FirstOrDefault();
-        }*/
+            return shoppingCartBLL.getCartById(idCart);
+        }
 
         //get cart by idProduct and idCustomer
         public shopping_cart GetCartByIdProduct(int idProduct)
         {
-            return db.shopping_cart.Where(c => c.proid == idProduct).Where(c => c.cusid == CustomerId).FirstOrDefault();
+            return shoppingCartBLL.GetCartByIdProduct(idProduct,CustomerId);
         }
 
         //add product to cart
-        public void AddToCart(product product)
+        public void AddToCart(product product, int quantity)
         {
             //Lấy 1 dòng trong cart của customer mua sản phẩm
             shopping_cart cartItem = GetCartByIdProduct(product.proid);
@@ -80,28 +80,32 @@ namespace NewFashionWebsite.Models
                 cartItem = new shopping_cart
                 {
                     proid = product.proid,
-                    count = 1,
+                    count = quantity,
                     cusid = CustomerId,
                     create_date = DateTime.Now
                 };
 
-                db.shopping_cart.Add(cartItem);
+                shoppingCartBLL.AddToCart(cartItem);
             }
             else
             {
                 // If the item does exist in the cart, then add one to the quantity
                 cartItem.count++;
-                db.Entry(cartItem).State = EntityState.Modified;
+                shoppingCartBLL.UpdateCart(cartItem);
             }
 
-            // Save changes
-            db.SaveChanges();
         }
 
-        public int RemoveFromCart(int idCart)
+        public void RemoveFromCart(int idCart)
         {
             // Get the cart
-            shopping_cart cartItem = db.shopping_cart.Where(c => c.id == idCart).FirstOrDefault();
+            shopping_cart cartItem = shoppingCartBLL.getCartById(idCart);
+            shoppingCartBLL.RemoveFromCart(cartItem);
+        }
+        public int UpdateFromCart(int idCart)
+        {
+            // Get the cart
+            shopping_cart cartItem = shoppingCartBLL.getCartById(idCart);
 
             int itemCount = 0;
 
@@ -110,63 +114,42 @@ namespace NewFashionWebsite.Models
                 if (cartItem.count > 1)
                 {
                     cartItem.count--;
+                    shoppingCartBLL.UpdateCart(cartItem);
                     itemCount = cartItem.count;
                 }
                 else
                 {
-                    db.shopping_cart.Remove(cartItem);
+                    shoppingCartBLL.RemoveFromCart(cartItem);
                 }
 
-                // Save changes
-                db.SaveChanges();
             }
 
             return itemCount;
         }
-
         public void EmptyCart()
         {
-            List<shopping_cart> cartItems = db.shopping_cart.Where(cart => cart.cusid == CustomerId).ToList();
-
-            foreach (var cartItem in cartItems)
-            {
-                db.shopping_cart.Remove(cartItem);
-            }
-
-            // Save changes
-            db.SaveChanges();
+            shoppingCartBLL.EmptyCart(this.CustomerId);
         }
 
 
 
         public int GetCount()
         {
-            return 0;
+            return shoppingCartBLL.GetCount(this.CustomerId);
         }
 
         public int GetTotal()
         {
-            // Multiply album price by count of that album to get 
-            // the current price for each of those albums in the cart
-            // sum all album price totals to get the cart total
-            int? total = (from cartItems in db.shopping_cart
-                          where cartItems.cusid == CustomerId
-                          select cartItems.count * cartItems.product.prostockprice).Sum();
-            return total ?? 0;
+            return shoppingCartBLL.GetTotal(this.CustomerId);
         }
 
         // When a user has logged in, migrate their shopping cart to
         // be associated with their username
         // Sau khi khách hàng đăng nhập cập nhật lại cusid của các dòng trong shopping_cart
-        public void MigrateCart(System.Guid idCus)
+        public void MigrateCart(System.Guid newCusId)
         {
-            var shoppingCart = db.shopping_cart.Where(c => c.cusid == CustomerId);
-
-            foreach (shopping_cart item in shoppingCart)
-            {
-                item.cusid = idCus;
-            }
-            db.SaveChanges();
+            shoppingCartBLL.MigrateCart(this.CustomerId,newCusId);
+            this.CustomerId = newCusId;
         }
     }
 }

@@ -52,12 +52,10 @@ namespace NewFashionBLL
         public DbSet<payment_method> payment_method { get; set; }
         public DbSet<product> products { get; set; }
         public DbSet<product_order> product_order { get; set; }
-        public DbSet<product_variety> product_variety { get; set; }
         public DbSet<shipping_method> shipping_method { get; set; }
         public DbSet<shopping_cart> shopping_cart { get; set; }
         public DbSet<size> sizes { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
-        public DbSet<variety> varieties { get; set; }
         public DbSet<wish_list> wish_list { get; set; }
     }
 }

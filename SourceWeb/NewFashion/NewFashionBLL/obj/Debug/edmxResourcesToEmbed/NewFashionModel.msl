@@ -309,6 +309,7 @@
           <ScalarProperty Name="sizeid" ColumnName="sizeid" />
           <ScalarProperty Name="datearrival" ColumnName="datearrival" />
           <ScalarProperty Name="imgthumbid" ColumnName="imgthumbid" />
+          <ScalarProperty Name="proquantityorder" ColumnName="proquantityorder" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -324,15 +325,6 @@
           <ScalarProperty Name="idshipping_method" ColumnName="idshipping_method" />
           <ScalarProperty Name="ordcreate_date" ColumnName="ordcreate_date" />
           <ScalarProperty Name="ordstatus" ColumnName="ordstatus" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="product_variety">
-      <EntityTypeMapping TypeName="NewFashionDBModel.product_variety">
-        <MappingFragment StoreEntitySet="product_variety">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="proid" ColumnName="proid" />
-          <ScalarProperty Name="varid" ColumnName="varid" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -376,15 +368,6 @@
           <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="varieties">
-      <EntityTypeMapping TypeName="NewFashionDBModel.variety">
-        <MappingFragment StoreEntitySet="variety">
-          <ScalarProperty Name="varid" ColumnName="varid" />
-          <ScalarProperty Name="varname" ColumnName="varname" />
-          <ScalarProperty Name="varparent" ColumnName="varparent" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

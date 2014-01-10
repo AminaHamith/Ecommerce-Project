@@ -86,15 +86,10 @@
     </form>-->
     <span class="cart-button">
         
-        @if(Request.IsAuthenticated == true)
-        {
-            //Ajax.ActionLink("Thêm vào giỏ hàng","AddToCart","ShoppingCart", new { idProduct = Model.proid,  quantity = 1}, new AjaxOptions{InsertionMode = InsertionMode.Replace,UpdateTargetId = "" } )
-            <a onclick="addToCart(@Model.proid, 1)">Thêm vào giỏ hàng</a>
-        }
-        else
-        {
-            <a href="cart.html">Đăng nhập để mua hàng</a>
-        }
+       
+            
+            <a href="@Url.Action("AddToCart", "ShoppingCart", new {idProduct=Model.proid,quantity=1 })">Thêm vào giỏ hàng</a>
+        
         
         <a href="compare.html">Thêm vào so sánh</a>
     </span>

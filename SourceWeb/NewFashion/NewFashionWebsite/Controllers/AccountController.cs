@@ -71,6 +71,13 @@ namespace NewFashionWebsite.Controllers
             if (ModelState.IsValid && Membership.ValidateUser(model.Username, model.Password))
             {
                 FormsAuthentication.SetAuthCookie(model.Username, true);
+
+                CartModel cartModel = CartModel.GetCart(this.HttpContext);
+                CustomerBLL customerBLL = new CustomerBLL();
+                System.Guid idCustomer = customerBLL.getByUserName(model.Username).cusid;
+                cartModel.MigrateCart(idCustomer);
+                this.HttpContext.Session[CartModel.CartSessionKey] = idCustomer;
+
                 return RedirectToAction("Index","Home");
             }
 
@@ -92,6 +99,13 @@ namespace NewFashionWebsite.Controllers
             if (Membership.ValidateUser(username, password))
             {
                 FormsAuthentication.SetAuthCookie(username, true);
+
+                CartModel cartModel = CartModel.GetCart(this.HttpContext);
+                CustomerBLL customerBLL = new CustomerBLL();
+                System.Guid idCustomer = customerBLL.getByUserName(username).cusid;
+                cartModel.MigrateCart(idCustomer);
+                this.HttpContext.Session[CartModel.CartSessionKey] = idCustomer;
+
                 return RedirectToAction("Index", "Home");
             }
 
@@ -109,6 +123,8 @@ namespace NewFashionWebsite.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
+            Session.Remove(CartModel.CartSessionKey);
+            Session.Remove("CART");
             return RedirectToAction("Index", "Home");
         }
 
@@ -178,7 +194,7 @@ namespace NewFashionWebsite.Controllers
 
         //
         // GET: /Account/ChangeInformation
-        [ShoppingCartAttribute]
+         
         public ActionResult ChangeInformation()
         {
             MembershipUser user = Membership.GetUser(User.Identity.Name);
@@ -222,7 +238,7 @@ namespace NewFashionWebsite.Controllers
 
         //
         // GET: /Account/ChangePassword
-        [ShoppingCartAttribute]
+         
         public ActionResult ChangePassword()
         {
             return View();
@@ -264,7 +280,7 @@ namespace NewFashionWebsite.Controllers
         //
         // GET: /Account/ResetPassword
         [HttpGet]
-        [ShoppingCartAttribute]
+         
         [AllowAnonymous]
         public ActionResult ResetPassword()
         {
@@ -318,7 +334,7 @@ namespace NewFashionWebsite.Controllers
 
         //
         // GET: /Account/Information
-        [ShoppingCartAttribute]
+         
         public ActionResult Information()
         {
             MembershipUser user = Membership.GetUser(User.Identity.Name);
@@ -343,18 +359,18 @@ namespace NewFashionWebsite.Controllers
             ViewBag.GENDER = items;
             return View(model);
         }
-        [ShoppingCartAttribute]
+         
         public ActionResult ChangePasswordSuccess()
         {
             return View();
         }
-        [ShoppingCartAttribute]
+         
         [AllowAnonymous]
         public ActionResult ResetPasswordSuccess()
         {
             return View();
         }
-        [ShoppingCartAttribute]
+         
         public ActionResult ChangeInformationSuccess()
         {
             return View();

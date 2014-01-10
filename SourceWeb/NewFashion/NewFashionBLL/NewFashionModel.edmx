@@ -34,12 +34,10 @@
           <EntitySet Name="payment_method" EntityType="NewFashionDBModel.Store.payment_method" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="product" EntityType="NewFashionDBModel.Store.product" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="product_order" EntityType="NewFashionDBModel.Store.product_order" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="product_variety" EntityType="NewFashionDBModel.Store.product_variety" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="shipping_method" EntityType="NewFashionDBModel.Store.shipping_method" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="shopping_cart" EntityType="NewFashionDBModel.Store.shopping_cart" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="size" EntityType="NewFashionDBModel.Store.size" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sysdiagrams" EntityType="NewFashionDBModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="variety" EntityType="NewFashionDBModel.Store.variety" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="wish_list" EntityType="NewFashionDBModel.Store.wish_list" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK__advertise__imgid__19AACF41" Association="NewFashionDBModel.Store.FK__advertise__imgid__19AACF41">
             <End Role="imagetb" EntitySet="imagetb" />
@@ -169,18 +167,6 @@
             <End Role="shipping_method" EntitySet="shipping_method" />
             <End Role="product_order" EntitySet="product_order" />
           </AssociationSet>
-          <AssociationSet Name="FK__product_v__proid__7D0E9093" Association="NewFashionDBModel.Store.FK__product_v__proid__7D0E9093">
-            <End Role="product" EntitySet="product" />
-            <End Role="product_variety" EntitySet="product_variety" />
-          </AssociationSet>
-          <AssociationSet Name="FK__product_v__proid__7E02B4CC" Association="NewFashionDBModel.Store.FK__product_v__proid__7E02B4CC">
-            <End Role="variety" EntitySet="variety" />
-            <End Role="product_variety" EntitySet="product_variety" />
-          </AssociationSet>
-          <AssociationSet Name="FK__shopping___cusid__43A1090D" Association="NewFashionDBModel.Store.FK__shopping___cusid__43A1090D">
-            <End Role="customer" EntitySet="customer" />
-            <End Role="shopping_cart" EntitySet="shopping_cart" />
-          </AssociationSet>
           <AssociationSet Name="FK__shopping___proid__44952D46" Association="NewFashionDBModel.Store.FK__shopping___proid__44952D46">
             <End Role="product" EntitySet="product" />
             <End Role="shopping_cart" EntitySet="shopping_cart" />
@@ -208,6 +194,10 @@
           <AssociationSet Name="FK_payment_image" Association="NewFashionDBModel.Store.FK_payment_image">
             <End Role="imagetb" EntitySet="imagetb" />
             <End Role="payment_method" EntitySet="payment_method" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_discount" Association="NewFashionDBModel.Store.FK_product_discount">
+            <End Role="discount" EntitySet="discount" />
+            <End Role="product" EntitySet="product" />
           </AssociationSet>
           <AssociationSet Name="FK_product_order_customer_information" Association="NewFashionDBModel.Store.FK_product_order_customer_information">
             <End Role="customer_information" EntitySet="customer_information" />
@@ -364,7 +354,7 @@
           </Key>
           <Property Name="brandid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="urlimage" Type="nvarchar" MaxLength="255" />
-          <Property Name="brandname" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="brandname" Type="nvarchar" Nullable="false" MaxLength="100" />
         </EntityType>
         <EntityType Name="category">
           <Key>
@@ -380,7 +370,7 @@
             <PropertyRef Name="colorid" />
           </Key>
           <Property Name="colorid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="colorname" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="colorname" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="colorcode" Type="varchar" MaxLength="32" />
         </EntityType>
         <EntityType Name="comment">
@@ -431,7 +421,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="datebegin" Type="datetime" Nullable="false" />
           <Property Name="datefinal" Type="datetime" Nullable="false" />
           <Property Name="discountintro" Type="varchar(max)" />
@@ -470,7 +460,7 @@
             <PropertyRef Name="materialid" />
           </Key>
           <Property Name="materialid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="materialname" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="materialname" Type="nvarchar" Nullable="false" MaxLength="100" />
         </EntityType>
         <EntityType Name="order_detail">
           <Key>
@@ -511,6 +501,7 @@
           <Property Name="sizeid" Type="int" />
           <Property Name="datearrival" Type="datetime" Nullable="false" />
           <Property Name="imgthumbid" Type="int" Nullable="false" />
+          <Property Name="proquantityorder" Type="int" />
         </EntityType>
         <EntityType Name="product_order">
           <Key>
@@ -525,14 +516,6 @@
           <Property Name="idshipping_method" Type="int" />
           <Property Name="ordcreate_date" Type="datetime" />
           <Property Name="ordstatus" Type="int" />
-        </EntityType>
-        <EntityType Name="product_variety">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="proid" Type="int" Nullable="false" />
-          <Property Name="varid" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="shipping_method">
           <Key>
@@ -560,7 +543,7 @@
             <PropertyRef Name="sizeid" />
           </Key>
           <Property Name="sizeid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="sizename" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="sizename" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="sizenumber" Type="varchar" MaxLength="32" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -572,14 +555,6 @@
           <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <EntityType Name="variety">
-          <Key>
-            <PropertyRef Name="varid" />
-          </Key>
-          <Property Name="varid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="varname" Type="nvarchar" Nullable="false" MaxLength="32" />
-          <Property Name="varparent" Type="int" />
         </EntityType>
         <EntityType Name="wish_list">
           <Key>
@@ -976,42 +951,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__product_v__proid__7D0E9093">
-          <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="1" />
-          <End Role="product_variety" Type="NewFashionDBModel.Store.product_variety" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="product">
-              <PropertyRef Name="proid" />
-            </Principal>
-            <Dependent Role="product_variety">
-              <PropertyRef Name="proid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__product_v__proid__7E02B4CC">
-          <End Role="variety" Type="NewFashionDBModel.Store.variety" Multiplicity="1" />
-          <End Role="product_variety" Type="NewFashionDBModel.Store.product_variety" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="variety">
-              <PropertyRef Name="varid" />
-            </Principal>
-            <Dependent Role="product_variety">
-              <PropertyRef Name="proid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__shopping___cusid__43A1090D">
-          <End Role="customer" Type="NewFashionDBModel.Store.customer" Multiplicity="1" />
-          <End Role="shopping_cart" Type="NewFashionDBModel.Store.shopping_cart" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="customer">
-              <PropertyRef Name="cusid" />
-            </Principal>
-            <Dependent Role="shopping_cart">
-              <PropertyRef Name="cusid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__shopping___proid__44952D46">
           <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="1" />
           <End Role="shopping_cart" Type="NewFashionDBModel.Store.shopping_cart" Multiplicity="*" />
@@ -1096,6 +1035,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_product_discount">
+          <End Role="discount" Type="NewFashionDBModel.Store.discount" Multiplicity="0..1" />
+          <End Role="product" Type="NewFashionDBModel.Store.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="discount">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="discountid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_product_order_customer_information">
           <End Role="customer_information" Type="NewFashionDBModel.Store.customer_information" Multiplicity="1" />
           <End Role="product_order" Type="NewFashionDBModel.Store.product_order" Multiplicity="*" />
@@ -1153,12 +1104,10 @@
           <EntitySet Name="payment_method" EntityType="NewFashionDBModel.payment_method" />
           <EntitySet Name="products" EntityType="NewFashionDBModel.product" />
           <EntitySet Name="product_order" EntityType="NewFashionDBModel.product_order" />
-          <EntitySet Name="product_variety" EntityType="NewFashionDBModel.product_variety" />
           <EntitySet Name="shipping_method" EntityType="NewFashionDBModel.shipping_method" />
           <EntitySet Name="shopping_cart" EntityType="NewFashionDBModel.shopping_cart" />
           <EntitySet Name="sizes" EntityType="NewFashionDBModel.size" />
           <EntitySet Name="sysdiagrams" EntityType="NewFashionDBModel.sysdiagram" />
-          <EntitySet Name="varieties" EntityType="NewFashionDBModel.variety" />
           <EntitySet Name="wish_list" EntityType="NewFashionDBModel.wish_list" />
           <AssociationSet Name="FK__advertise__imgid__19AACF41" Association="NewFashionDBModel.FK__advertise__imgid__19AACF41">
             <End Role="imagetb" EntitySet="imagetbs" />
@@ -1228,10 +1177,6 @@
             <End Role="customer" EntitySet="customers" />
             <End Role="product_order" EntitySet="product_order" />
           </AssociationSet>
-          <AssociationSet Name="FK__shopping___cusid__43A1090D" Association="NewFashionDBModel.FK__shopping___cusid__43A1090D">
-            <End Role="customer" EntitySet="customers" />
-            <End Role="shopping_cart" EntitySet="shopping_cart" />
-          </AssociationSet>
           <AssociationSet Name="FK__wish_list__cusid__4959E263" Association="NewFashionDBModel.FK__wish_list__cusid__4959E263">
             <End Role="customer" EntitySet="customers" />
             <End Role="wish_list" EntitySet="wish_list" />
@@ -1255,6 +1200,10 @@
           <AssociationSet Name="FK_discount_image" Association="NewFashionDBModel.FK_discount_image">
             <End Role="imagetb" EntitySet="imagetbs" />
             <End Role="discount" EntitySet="discounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_discount" Association="NewFashionDBModel.FK_product_discount">
+            <End Role="discount" EntitySet="discounts" />
+            <End Role="product" EntitySet="products" />
           </AssociationSet>
           <AssociationSet Name="FK__image_pro__imgla__16CE6296" Association="NewFashionDBModel.FK__image_pro__imgla__16CE6296">
             <End Role="imagetb" EntitySet="imagetbs" />
@@ -1308,10 +1257,6 @@
             <End Role="size" EntitySet="sizes" />
             <End Role="product" EntitySet="products" />
           </AssociationSet>
-          <AssociationSet Name="FK__product_v__proid__7D0E9093" Association="NewFashionDBModel.FK__product_v__proid__7D0E9093">
-            <End Role="product" EntitySet="products" />
-            <End Role="product_variety" EntitySet="product_variety" />
-          </AssociationSet>
           <AssociationSet Name="FK__shopping___proid__44952D46" Association="NewFashionDBModel.FK__shopping___proid__44952D46">
             <End Role="product" EntitySet="products" />
             <End Role="shopping_cart" EntitySet="shopping_cart" />
@@ -1323,10 +1268,6 @@
           <AssociationSet Name="FK__product_o__idshi__589C25F3" Association="NewFashionDBModel.FK__product_o__idshi__589C25F3">
             <End Role="shipping_method" EntitySet="shipping_method" />
             <End Role="product_order" EntitySet="product_order" />
-          </AssociationSet>
-          <AssociationSet Name="FK__product_v__proid__7E02B4CC" Association="NewFashionDBModel.FK__product_v__proid__7E02B4CC">
-            <End Role="variety" EntitySet="varieties" />
-            <End Role="product_variety" EntitySet="product_variety" />
           </AssociationSet>
           <AssociationSet Name="aspnet_UsersInRoles" Association="NewFashionDBModel.aspnet_UsersInRoles">
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
@@ -1493,7 +1434,7 @@
           </Key>
           <Property Name="brandid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="urlimage" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="brandname" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="brandname" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="products" Relationship="NewFashionDBModel.FK__product__brandid__74794A92" FromRole="brand" ToRole="product" />
         </EntityType>
         <EntityType Name="category">
@@ -1511,7 +1452,7 @@
             <PropertyRef Name="colorid" />
           </Key>
           <Property Name="colorid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="colorname" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="colorname" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="colorcode" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="products" Relationship="NewFashionDBModel.FK__product__colorid__719CDDE7" FromRole="color" ToRole="product" />
         </EntityType>
@@ -1538,7 +1479,6 @@
           <NavigationProperty Name="aspnet_Users" Relationship="NewFashionDBModel.FK_customer_aspnet_user" FromRole="customer" ToRole="aspnet_Users" />
           <NavigationProperty Name="comments" Relationship="NewFashionDBModel.FK__comment__cusid__0C50D423" FromRole="customer" ToRole="comment" />
           <NavigationProperty Name="product_order" Relationship="NewFashionDBModel.FK__product_o__cusid__54CB950F" FromRole="customer" ToRole="product_order" />
-          <NavigationProperty Name="shopping_cart" Relationship="NewFashionDBModel.FK__shopping___cusid__43A1090D" FromRole="customer" ToRole="shopping_cart" />
           <NavigationProperty Name="wish_list" Relationship="NewFashionDBModel.FK__wish_list__cusid__4959E263" FromRole="customer" ToRole="wish_list" />
           <NavigationProperty Name="customer_information" Relationship="NewFashionDBModel.FK_customer_customer_information" FromRole="customer" ToRole="customer_information" />
         </EntityType>
@@ -1575,13 +1515,14 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="datebegin" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="datefinal" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="discountintro" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="image" Type="Int32" />
           <Property Name="percentage" Type="Double" />
           <NavigationProperty Name="imagetb" Relationship="NewFashionDBModel.FK_discount_image" FromRole="discount" ToRole="imagetb" />
+          <NavigationProperty Name="products" Relationship="NewFashionDBModel.FK_product_discount" FromRole="discount" ToRole="product" />
         </EntityType>
         <EntityType Name="image_product">
           <Key>
@@ -1629,7 +1570,7 @@
             <PropertyRef Name="materialid" />
           </Key>
           <Property Name="materialid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="materialname" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="materialname" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="products" Relationship="NewFashionDBModel.FK__product__materia__76619304" FromRole="material" ToRole="product" />
         </EntityType>
         <EntityType Name="order_detail">
@@ -1675,17 +1616,18 @@
           <Property Name="sizeid" Type="Int32" />
           <Property Name="datearrival" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="imgthumbid" Type="Int32" Nullable="false" />
+          <Property Name="proquantityorder" Type="Int32" />
           <NavigationProperty Name="brand" Relationship="NewFashionDBModel.FK__product__brandid__74794A92" FromRole="product" ToRole="brand" />
           <NavigationProperty Name="category" Relationship="NewFashionDBModel.FK__product__procati__73852659" FromRole="product" ToRole="category" />
           <NavigationProperty Name="color" Relationship="NewFashionDBModel.FK__product__colorid__719CDDE7" FromRole="product" ToRole="color" />
           <NavigationProperty Name="comments" Relationship="NewFashionDBModel.FK__comment__proid__0D44F85C" FromRole="product" ToRole="comment" />
+          <NavigationProperty Name="discount" Relationship="NewFashionDBModel.FK_product_discount" FromRole="product" ToRole="discount" />
           <NavigationProperty Name="image_product" Relationship="NewFashionDBModel.FK__image_pro__proid__14E61A24" FromRole="product" ToRole="image_product" />
           <NavigationProperty Name="image_slide" Relationship="NewFashionDBModel.FK__image_sli__proid__10216507" FromRole="product" ToRole="image_slide" />
           <NavigationProperty Name="imagetb" Relationship="NewFashionDBModel.FK__product__imgthum__7755B73D" FromRole="product" ToRole="imagetb" />
           <NavigationProperty Name="material" Relationship="NewFashionDBModel.FK__product__materia__76619304" FromRole="product" ToRole="material" />
           <NavigationProperty Name="order_detail" Relationship="NewFashionDBModel.FK__order_det__proid__5D60DB10" FromRole="product" ToRole="order_detail" />
           <NavigationProperty Name="size" Relationship="NewFashionDBModel.FK__product__sizeid__72910220" FromRole="product" ToRole="size" />
-          <NavigationProperty Name="product_variety" Relationship="NewFashionDBModel.FK__product_v__proid__7D0E9093" FromRole="product" ToRole="product_variety" />
           <NavigationProperty Name="shopping_cart" Relationship="NewFashionDBModel.FK__shopping___proid__44952D46" FromRole="product" ToRole="shopping_cart" />
           <NavigationProperty Name="wish_list" Relationship="NewFashionDBModel.FK__wish_list__proid__4A4E069C" FromRole="product" ToRole="wish_list" />
         </EntityType>
@@ -1710,16 +1652,6 @@
           <NavigationProperty Name="payment_method" Relationship="NewFashionDBModel.FK__product_o__idpay__59904A2C" FromRole="product_order" ToRole="payment_method" />
           <NavigationProperty Name="shipping_method" Relationship="NewFashionDBModel.FK__product_o__idshi__589C25F3" FromRole="product_order" ToRole="shipping_method" />
         </EntityType>
-        <EntityType Name="product_variety">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="proid" Type="Int32" Nullable="false" />
-          <Property Name="varid" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="product" Relationship="NewFashionDBModel.FK__product_v__proid__7D0E9093" FromRole="product_variety" ToRole="product" />
-          <NavigationProperty Name="variety" Relationship="NewFashionDBModel.FK__product_v__proid__7E02B4CC" FromRole="product_variety" ToRole="variety" />
-        </EntityType>
         <EntityType Name="shipping_method">
           <Key>
             <PropertyRef Name="id" />
@@ -1741,7 +1673,6 @@
           <Property Name="count" Type="Int32" Nullable="false" />
           <Property Name="create_date" Type="DateTime" Precision="3" />
           <Property Name="cartstatus" Type="Int32" />
-          <NavigationProperty Name="customer" Relationship="NewFashionDBModel.FK__shopping___cusid__43A1090D" FromRole="shopping_cart" ToRole="customer" />
           <NavigationProperty Name="product" Relationship="NewFashionDBModel.FK__shopping___proid__44952D46" FromRole="shopping_cart" ToRole="product" />
         </EntityType>
         <EntityType Name="size">
@@ -1749,7 +1680,7 @@
             <PropertyRef Name="sizeid" />
           </Key>
           <Property Name="sizeid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="sizename" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="sizename" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="sizenumber" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="products" Relationship="NewFashionDBModel.FK__product__sizeid__72910220" FromRole="size" ToRole="product" />
         </EntityType>
@@ -1762,15 +1693,6 @@
           <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="variety">
-          <Key>
-            <PropertyRef Name="varid" />
-          </Key>
-          <Property Name="varid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="varname" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="varparent" Type="Int32" />
-          <NavigationProperty Name="product_variety" Relationship="NewFashionDBModel.FK__product_v__proid__7E02B4CC" FromRole="variety" ToRole="product_variety" />
         </EntityType>
         <EntityType Name="wish_list">
           <Key>
@@ -1989,18 +1911,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__shopping___cusid__43A1090D">
-          <End Role="customer" Type="NewFashionDBModel.customer" Multiplicity="1" />
-          <End Role="shopping_cart" Type="NewFashionDBModel.shopping_cart" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="customer">
-              <PropertyRef Name="cusid" />
-            </Principal>
-            <Dependent Role="shopping_cart">
-              <PropertyRef Name="cusid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__wish_list__cusid__4959E263">
           <End Role="customer" Type="NewFashionDBModel.customer" Multiplicity="1" />
           <End Role="wish_list" Type="NewFashionDBModel.wish_list" Multiplicity="*" />
@@ -2070,6 +1980,18 @@
             </Principal>
             <Dependent Role="discount">
               <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_discount">
+          <End Role="discount" Type="NewFashionDBModel.discount" Multiplicity="0..1" />
+          <End Role="product" Type="NewFashionDBModel.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="discount">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="discountid" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2229,18 +2151,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__product_v__proid__7D0E9093">
-          <End Role="product" Type="NewFashionDBModel.product" Multiplicity="1" />
-          <End Role="product_variety" Type="NewFashionDBModel.product_variety" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="product">
-              <PropertyRef Name="proid" />
-            </Principal>
-            <Dependent Role="product_variety">
-              <PropertyRef Name="proid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__shopping___proid__44952D46">
           <End Role="product" Type="NewFashionDBModel.product" Multiplicity="1" />
           <End Role="shopping_cart" Type="NewFashionDBModel.shopping_cart" Multiplicity="*" />
@@ -2274,18 +2184,6 @@
             </Principal>
             <Dependent Role="product_order">
               <PropertyRef Name="idshipping_method" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__product_v__proid__7E02B4CC">
-          <End Role="variety" Type="NewFashionDBModel.variety" Multiplicity="1" />
-          <End Role="product_variety" Type="NewFashionDBModel.product_variety" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="variety">
-              <PropertyRef Name="varid" />
-            </Principal>
-            <Dependent Role="product_variety">
-              <PropertyRef Name="proid" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2607,6 +2505,7 @@
                 <ScalarProperty Name="sizeid" ColumnName="sizeid" />
                 <ScalarProperty Name="datearrival" ColumnName="datearrival" />
                 <ScalarProperty Name="imgthumbid" ColumnName="imgthumbid" />
+                <ScalarProperty Name="proquantityorder" ColumnName="proquantityorder" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2622,15 +2521,6 @@
                 <ScalarProperty Name="idshipping_method" ColumnName="idshipping_method" />
                 <ScalarProperty Name="ordcreate_date" ColumnName="ordcreate_date" />
                 <ScalarProperty Name="ordstatus" ColumnName="ordstatus" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="product_variety">
-            <EntityTypeMapping TypeName="NewFashionDBModel.product_variety">
-              <MappingFragment StoreEntitySet="product_variety">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="proid" ColumnName="proid" />
-                <ScalarProperty Name="varid" ColumnName="varid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2674,15 +2564,6 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="varieties">
-            <EntityTypeMapping TypeName="NewFashionDBModel.variety">
-              <MappingFragment StoreEntitySet="variety">
-                <ScalarProperty Name="varid" ColumnName="varid" />
-                <ScalarProperty Name="varname" ColumnName="varname" />
-                <ScalarProperty Name="varparent" ColumnName="varparent" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

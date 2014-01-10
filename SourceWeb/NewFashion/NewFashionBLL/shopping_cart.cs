@@ -21,7 +21,6 @@ namespace NewFashionBLL
         public Nullable<System.DateTime> create_date { get; set; }
         public Nullable<int> cartstatus { get; set; }
     
-        public virtual customer customer { get; set; }
         public virtual product product { get; set; }
     }
 }

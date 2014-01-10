@@ -18,7 +18,6 @@ namespace NewFashionBLL
         {
             this.comments = new HashSet<comment>();
             this.product_order = new HashSet<product_order>();
-            this.shopping_cart = new HashSet<shopping_cart>();
             this.wish_list = new HashSet<wish_list>();
         }
     
@@ -30,7 +29,6 @@ namespace NewFashionBLL
         public virtual aspnet_Users aspnet_Users { get; set; }
         public virtual ICollection<comment> comments { get; set; }
         public virtual ICollection<product_order> product_order { get; set; }
-        public virtual ICollection<shopping_cart> shopping_cart { get; set; }
         public virtual ICollection<wish_list> wish_list { get; set; }
         public virtual customer_information customer_information { get; set; }
     }

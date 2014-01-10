@@ -30,6 +30,12 @@ namespace NewFashionBLL.BLL
         }
 
         //add product to cart
+        public void AddToCart(shopping_cart cart)
+        {
+            db.shopping_cart.Add(cart);
+            db.SaveChanges();
+        }
+        //add product to cart
         public void AddToCart(int idProduct,System.Guid idCustomer,int quantity)
         {
             shopping_cart cartItem = getCartById(idProduct, idCustomer);
@@ -58,6 +64,11 @@ namespace NewFashionBLL.BLL
             db.SaveChanges();
         }
 
+        public void UpdateCart(shopping_cart cart)
+        {
+            db.Entry(cart).State = EntityState.Modified;
+            db.SaveChanges();
+        }
         public void RemoveFromCart(int idCart)
         {
             // Get the cart
@@ -71,7 +82,17 @@ namespace NewFashionBLL.BLL
                 db.SaveChanges();
             }
         }
-
+        public void RemoveFromCart(shopping_cart cart)
+        {
+            
+                db.shopping_cart.Remove(cart);
+                // Save changes
+                db.SaveChanges();
+        }
+        public shopping_cart GetCartByIdProduct(int idProduct,System.Guid CustomerId)
+        {
+            return db.shopping_cart.Where(c => c.proid == idProduct).Where(c => c.cusid == CustomerId).FirstOrDefault();
+        }
         public void EmptyCart(System.Guid idCustomer)
         {
             List<shopping_cart> cartItems = db.shopping_cart.Where(cart => cart.cusid == idCustomer).ToList();
@@ -117,6 +138,18 @@ namespace NewFashionBLL.BLL
                               select cartItems.count * cartItems.product.prostockprice).Sum();
                 return total ?? 0;
             }
+        }
+
+        public void MigrateCart(System.Guid curCusId, System.Guid newCusId)
+        {
+            var shoppingCart = db.shopping_cart.Where(c => c.cusid == curCusId);
+
+            foreach (shopping_cart item in shoppingCart)
+            {
+                item.cusid = newCusId;
+                db.Entry(item).State = System.Data.EntityState.Modified;
+            }
+            db.SaveChanges();
         }
     }
 }
