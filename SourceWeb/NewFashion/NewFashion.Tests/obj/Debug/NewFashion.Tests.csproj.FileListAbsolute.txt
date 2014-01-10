@@ -33,3 +33,37 @@ E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion
 E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashion.Tests\obj\Debug\NewFashion.Tests.pdb
 E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\Recaptcha.pdb
 E:\data\bum\documents\2013-2014\hk1\THUONG MAI DIEN TU\pg07\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\EntityFramework.xml
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\NewFashion.Tests.dll.config
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\NewFashion.Tests.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\NewFashion.Tests.pdb
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\NewFashionWebsite.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Web.Helpers.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Web.Http.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Web.Mvc.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Web.Razor.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Web.WebPages.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Web.Optimization.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\NewFashionBLL.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\Recaptcha.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\EntityFramework.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\NewFashionWebsite.pdb
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\Microsoft.Web.Infrastructure.xml
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Web.Helpers.xml
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Web.Http.xml
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Web.Http.WebHost.xml
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Web.Mvc.xml
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Web.Razor.xml
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Web.WebPages.xml
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\NewFashionBLL.pdb
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\bin\Debug\EntityFramework.xml
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\obj\Debug\NewFashion.Tests.csprojResolveAssemblyReference.cache
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\obj\Debug\NewFashion.Tests.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashion.Tests\obj\Debug\NewFashion.Tests.pdb

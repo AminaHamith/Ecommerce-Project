@@ -18,3 +18,12 @@ D:\github\pg07\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\Newtonsoft.Json.xml
 D:\github\pg07\SourceWeb\NewFashion\NewFashionBLL\obj\Debug\NewFashionBLL.csprojResolveAssemblyReference.cache
 D:\github\pg07\SourceWeb\NewFashion\NewFashionBLL\obj\Debug\NewFashionBLL.dll
 D:\github\pg07\SourceWeb\NewFashion\NewFashionBLL\obj\Debug\NewFashionBLL.pdb
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\NewFashionBLL.dll.config
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\NewFashionBLL.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\NewFashionBLL.pdb
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\EntityFramework.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\EntityFramework.xml
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionBLL\obj\Debug\NewFashionBLL.csprojResolveAssemblyReference.cache
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionBLL\obj\Debug\NewFashionBLL.dll
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionBLL\obj\Debug\NewFashionBLL.pdb
