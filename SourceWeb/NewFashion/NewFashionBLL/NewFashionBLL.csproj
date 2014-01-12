@@ -58,6 +58,18 @@
     <Compile Include="aspnet_Membership.cs">
       <DependentUpon>NewFashionModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="aspnet_Membership_GetPasswordWithFormat_Result.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Membership_GetPassword_Result.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Membership_GetUserByName_Result.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Membership_GetUserByUserId_Result.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="aspnet_Paths.cs">
       <DependentUpon>NewFashionModel.tt</DependentUpon>
     </Compile>
@@ -70,6 +82,9 @@
     <Compile Include="aspnet_Profile.cs">
       <DependentUpon>NewFashionModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="aspnet_Profile_GetProperties_Result.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="aspnet_Roles.cs">
       <DependentUpon>NewFashionModel.tt</DependentUpon>
     </Compile>
@@ -79,6 +94,9 @@
     <Compile Include="aspnet_Users.cs">
       <DependentUpon>NewFashionModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="aspnet_UsersInRoles_RemoveUsersFromRoles_Result.cs">
+      <DependentUpon>NewFashionModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="aspnet_WebEvent_Events.cs">
       <DependentUpon>NewFashionModel.tt</DependentUpon>
     </Compile>
@@ -86,6 +104,7 @@
     <Compile Include="BLL\CategoryBLL.cs" />
     <Compile Include="BLL\ColorBLL.cs" />
     <Compile Include="BLL\CustomerBLL.cs" />
+    <Compile Include="BLL\CustomerInfoBLL.cs" />
     <Compile Include="BLL\DeliveryMethodBLL.cs" />
     <Compile Include="BLL\ImageProductBLL.cs" />
     <Compile Include="BLL\ImageSlideBLL.cs" />

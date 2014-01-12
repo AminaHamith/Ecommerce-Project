@@ -206,6 +206,9 @@
           <ScalarProperty Name="region_state" ColumnName="region_state" />
           <ScalarProperty Name="city" ColumnName="city" />
           <ScalarProperty Name="post_code" ColumnName="post_code" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="email" ColumnName="email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -391,5 +394,134 @@
         <ScalarProperty Name="UserId" ColumnName="UserId" />
       </EndProperty>
     </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="aspnet_AnyDataInTables" FunctionName="NewFashionDBModel.Store.aspnet_AnyDataInTables" />
+    <FunctionImportMapping FunctionImportName="aspnet_Applications_CreateApplication" FunctionName="NewFashionDBModel.Store.aspnet_Applications_CreateApplication" />
+    <FunctionImportMapping FunctionImportName="aspnet_CheckSchemaVersion" FunctionName="NewFashionDBModel.Store.aspnet_CheckSchemaVersion" />
+    <FunctionImportMapping FunctionImportName="aspnet_Membership_ChangePasswordQuestionAndAnswer" FunctionName="NewFashionDBModel.Store.aspnet_Membership_ChangePasswordQuestionAndAnswer" />
+    <FunctionImportMapping FunctionImportName="aspnet_Membership_CreateUser" FunctionName="NewFashionDBModel.Store.aspnet_Membership_CreateUser" />
+    <FunctionImportMapping FunctionImportName="aspnet_Membership_FindUsersByEmail" FunctionName="NewFashionDBModel.Store.aspnet_Membership_FindUsersByEmail" />
+    <FunctionImportMapping FunctionImportName="aspnet_Membership_FindUsersByName" FunctionName="NewFashionDBModel.Store.aspnet_Membership_FindUsersByName" />
+    <FunctionImportMapping FunctionImportName="aspnet_Membership_GetAllUsers" FunctionName="NewFashionDBModel.Store.aspnet_Membership_GetAllUsers" />
+    <FunctionImportMapping FunctionImportName="aspnet_Membership_GetNumberOfUsersOnline" FunctionName="NewFashionDBModel.Store.aspnet_Membership_GetNumberOfUsersOnline" />
+    <FunctionImportMapping FunctionImportName="aspnet_Membership_GetPassword" FunctionName="NewFashionDBModel.Store.aspnet_Membership_GetPassword">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NewFashionDBModel.aspnet_Membership_GetPassword_Result">
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+          <ScalarProperty Name="Column2" ColumnName="Column2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="aspnet_Membership_GetPasswordWithFormat" FunctionName="NewFashionDBModel.Store.aspnet_Membership_GetPasswordWithFormat">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NewFashionDBModel.aspnet_Membership_GetPasswordWithFormat_Result">
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+          <ScalarProperty Name="Column2" ColumnName="Column2" />
+          <ScalarProperty Name="Column3" ColumnName="Column3" />
+          <ScalarProperty Name="Column4" ColumnName="Column4" />
+          <ScalarProperty Name="Column5" ColumnName="Column5" />
+          <ScalarProperty Name="Column6" ColumnName="Column6" />
+          <ScalarProperty Name="Column7" ColumnName="Column7" />
+          <ScalarProperty Name="Column8" ColumnName="Column8" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="aspnet_Membership_GetUserByEmail" FunctionName="NewFashionDBModel.Store.aspnet_Membership_GetUserByEmail" />
+    <FunctionImportMapping FunctionImportName="aspnet_Membership_GetUserByName" FunctionName="NewFashionDBModel.Store.aspnet_Membership_GetUserByName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NewFashionDBModel.aspnet_Membership_GetUserByName_Result">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="aspnet_Membership_GetUserByUserId" FunctionName="NewFashionDBModel.Store.aspnet_Membership_GetUserByUserId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NewFashionDBModel.aspnet_Membership_GetUserByUserId_Result">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="aspnet_Membership_ResetPassword" FunctionName="NewFashionDBModel.Store.aspnet_Membership_ResetPassword" />
+    <FunctionImportMapping FunctionImportName="aspnet_Membership_SetPassword" FunctionName="NewFashionDBModel.Store.aspnet_Membership_SetPassword" />
+    <FunctionImportMapping FunctionImportName="aspnet_Membership_UnlockUser" FunctionName="NewFashionDBModel.Store.aspnet_Membership_UnlockUser" />
+    <FunctionImportMapping FunctionImportName="aspnet_Membership_UpdateUser" FunctionName="NewFashionDBModel.Store.aspnet_Membership_UpdateUser" />
+    <FunctionImportMapping FunctionImportName="aspnet_Membership_UpdateUserInfo" FunctionName="NewFashionDBModel.Store.aspnet_Membership_UpdateUserInfo" />
+    <FunctionImportMapping FunctionImportName="aspnet_Paths_CreatePath" FunctionName="NewFashionDBModel.Store.aspnet_Paths_CreatePath" />
+    <FunctionImportMapping FunctionImportName="aspnet_Personalization_GetApplicationId" FunctionName="NewFashionDBModel.Store.aspnet_Personalization_GetApplicationId" />
+    <FunctionImportMapping FunctionImportName="aspnet_PersonalizationAdministration_DeleteAllState" FunctionName="NewFashionDBModel.Store.aspnet_PersonalizationAdministration_DeleteAllState" />
+    <FunctionImportMapping FunctionImportName="aspnet_PersonalizationAdministration_FindState" FunctionName="NewFashionDBModel.Store.aspnet_PersonalizationAdministration_FindState" />
+    <FunctionImportMapping FunctionImportName="aspnet_PersonalizationAdministration_GetCountOfState" FunctionName="NewFashionDBModel.Store.aspnet_PersonalizationAdministration_GetCountOfState" />
+    <FunctionImportMapping FunctionImportName="aspnet_PersonalizationAdministration_ResetSharedState" FunctionName="NewFashionDBModel.Store.aspnet_PersonalizationAdministration_ResetSharedState" />
+    <FunctionImportMapping FunctionImportName="aspnet_PersonalizationAdministration_ResetUserState" FunctionName="NewFashionDBModel.Store.aspnet_PersonalizationAdministration_ResetUserState" />
+    <FunctionImportMapping FunctionImportName="aspnet_PersonalizationAllUsers_GetPageSettings" FunctionName="NewFashionDBModel.Store.aspnet_PersonalizationAllUsers_GetPageSettings" />
+    <FunctionImportMapping FunctionImportName="aspnet_PersonalizationAllUsers_ResetPageSettings" FunctionName="NewFashionDBModel.Store.aspnet_PersonalizationAllUsers_ResetPageSettings" />
+    <FunctionImportMapping FunctionImportName="aspnet_PersonalizationAllUsers_SetPageSettings" FunctionName="NewFashionDBModel.Store.aspnet_PersonalizationAllUsers_SetPageSettings" />
+    <FunctionImportMapping FunctionImportName="aspnet_PersonalizationPerUser_GetPageSettings" FunctionName="NewFashionDBModel.Store.aspnet_PersonalizationPerUser_GetPageSettings" />
+    <FunctionImportMapping FunctionImportName="aspnet_PersonalizationPerUser_ResetPageSettings" FunctionName="NewFashionDBModel.Store.aspnet_PersonalizationPerUser_ResetPageSettings" />
+    <FunctionImportMapping FunctionImportName="aspnet_PersonalizationPerUser_SetPageSettings" FunctionName="NewFashionDBModel.Store.aspnet_PersonalizationPerUser_SetPageSettings" />
+    <FunctionImportMapping FunctionImportName="aspnet_Profile_DeleteInactiveProfiles" FunctionName="NewFashionDBModel.Store.aspnet_Profile_DeleteInactiveProfiles" />
+    <FunctionImportMapping FunctionImportName="aspnet_Profile_DeleteProfiles" FunctionName="NewFashionDBModel.Store.aspnet_Profile_DeleteProfiles" />
+    <FunctionImportMapping FunctionImportName="aspnet_Profile_GetNumberOfInactiveProfiles" FunctionName="NewFashionDBModel.Store.aspnet_Profile_GetNumberOfInactiveProfiles" />
+    <FunctionImportMapping FunctionImportName="aspnet_Profile_GetProfiles" FunctionName="NewFashionDBModel.Store.aspnet_Profile_GetProfiles" />
+    <FunctionImportMapping FunctionImportName="aspnet_Profile_GetProperties" FunctionName="NewFashionDBModel.Store.aspnet_Profile_GetProperties">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NewFashionDBModel.aspnet_Profile_GetProperties_Result">
+          <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
+          <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
+          <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="aspnet_Profile_SetProperties" FunctionName="NewFashionDBModel.Store.aspnet_Profile_SetProperties" />
+    <FunctionImportMapping FunctionImportName="aspnet_RegisterSchemaVersion" FunctionName="NewFashionDBModel.Store.aspnet_RegisterSchemaVersion" />
+    <FunctionImportMapping FunctionImportName="aspnet_Roles_CreateRole" FunctionName="NewFashionDBModel.Store.aspnet_Roles_CreateRole" />
+    <FunctionImportMapping FunctionImportName="aspnet_Roles_DeleteRole" FunctionName="NewFashionDBModel.Store.aspnet_Roles_DeleteRole" />
+    <FunctionImportMapping FunctionImportName="aspnet_Roles_GetAllRoles" FunctionName="NewFashionDBModel.Store.aspnet_Roles_GetAllRoles" />
+    <FunctionImportMapping FunctionImportName="aspnet_Roles_RoleExists" FunctionName="NewFashionDBModel.Store.aspnet_Roles_RoleExists" />
+    <FunctionImportMapping FunctionImportName="aspnet_Setup_RemoveAllRoleMembers" FunctionName="NewFashionDBModel.Store.aspnet_Setup_RemoveAllRoleMembers" />
+    <FunctionImportMapping FunctionImportName="aspnet_Setup_RestorePermissions" FunctionName="NewFashionDBModel.Store.aspnet_Setup_RestorePermissions" />
+    <FunctionImportMapping FunctionImportName="aspnet_UnRegisterSchemaVersion" FunctionName="NewFashionDBModel.Store.aspnet_UnRegisterSchemaVersion" />
+    <FunctionImportMapping FunctionImportName="aspnet_Users_CreateUser" FunctionName="NewFashionDBModel.Store.aspnet_Users_CreateUser" />
+    <FunctionImportMapping FunctionImportName="aspnet_Users_DeleteUser" FunctionName="NewFashionDBModel.Store.aspnet_Users_DeleteUser" />
+    <FunctionImportMapping FunctionImportName="aspnet_UsersInRoles_AddUsersToRoles" FunctionName="NewFashionDBModel.Store.aspnet_UsersInRoles_AddUsersToRoles" />
+    <FunctionImportMapping FunctionImportName="aspnet_UsersInRoles_FindUsersInRole" FunctionName="NewFashionDBModel.Store.aspnet_UsersInRoles_FindUsersInRole" />
+    <FunctionImportMapping FunctionImportName="aspnet_UsersInRoles_GetRolesForUser" FunctionName="NewFashionDBModel.Store.aspnet_UsersInRoles_GetRolesForUser" />
+    <FunctionImportMapping FunctionImportName="aspnet_UsersInRoles_GetUsersInRoles" FunctionName="NewFashionDBModel.Store.aspnet_UsersInRoles_GetUsersInRoles" />
+    <FunctionImportMapping FunctionImportName="aspnet_UsersInRoles_IsUserInRole" FunctionName="NewFashionDBModel.Store.aspnet_UsersInRoles_IsUserInRole" />
+    <FunctionImportMapping FunctionImportName="aspnet_UsersInRoles_RemoveUsersFromRoles" FunctionName="NewFashionDBModel.Store.aspnet_UsersInRoles_RemoveUsersFromRoles">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NewFashionDBModel.aspnet_UsersInRoles_RemoveUsersFromRoles_Result">
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="aspnet_WebEvent_LogEvent" FunctionName="NewFashionDBModel.Store.aspnet_WebEvent_LogEvent" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="NewFashionDBModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="NewFashionDBModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="NewFashionDBModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="NewFashionDBModel.Store.sp_helpdiagramdefinition" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="NewFashionDBModel.Store.sp_helpdiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="NewFashionDBModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="NewFashionDBModel.Store.sp_upgraddiagrams" />
   </EntityContainerMapping>
 </Mapping>

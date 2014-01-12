@@ -155,6 +155,7 @@
     <Compile Include="Models\ChangePasswordModel.cs" />
     <Compile Include="Models\CheckoutModel.cs" />
     <Compile Include="Models\ImageModel.cs" />
+    <Compile Include="Models\PayPalFunctions.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\ResetPasswordModel.cs" />
@@ -2241,6 +2242,7 @@
     <Content Include="Views\CustomerMgmt\DeleteFailed.cshtml" />
     <Content Include="Views\ProductMgmt\DeleteImage.cshtml" />
     <Content Include="Views\ProductMgmt\DeleteImageSuccess.cshtml" />
+    <Content Include="Views\Home\CheckoutSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2253,7 +2255,7 @@
     <Folder Include="Images\products\Da_ngoai\Nam\Vi_that_lung\Vi\" />
     <Folder Include="Images\products\Da_ngoai\Nu\Ao\" />
     <Folder Include="Images\products\Da_ngoai\Nu\Vay\" />
-    <Folder Include="Utils\" />
+    <Folder Include="Util\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -1,36 +1,70 @@
-﻿@model  List<NewFashionBLL.shopping_cart>
+﻿@model  NewFashionWebsite.Models.ShoppingCartModel
 <style>
     #dialog-confirm {
-        display:none;
+        display: none;
     }
 </style>
-@if(Model != null)
+<table class="shopping-cart">
+    <tr>
+        <th class="image">Hình đại diện</th>
+        <th class="name">Tên sản phẩm</th>
+        <th class="model">Danh mục</th>
+        <th class="quantity">Số lượng</th>
+        <th class="price">Đơn giá</th>
+        <th class="total">Tổng</th>
+        <th class="action"></th>
+    </tr>
+    <tbody>
+@if (Model != null)
+{
+    for (var i = 0; i < Model.listCart.Count(); i++)
     {
-        for(var i = 0; i < Model.Count() ; i++)
-        {
-        <tr>
-            <td class="image"><a href="#">
-                <img title="product" alt="product" src="@Url.Content(Model[i].product.imagetb.url)" height="50" width="50"></a></td>
-            <td class="name"><a href="#">@Model[i].product.proname</a></td>
-            <td class="model">@Model[i].product.category.catname</td>
-            <td class="quantity">
-                <!--<input type="text" size="1" value="Model[i].count" name="quantity[40]" class="span1"></td>-->
-                @Html.TextBoxFor(m => m[i].count, new { @class="span1",@size="1",@id=@Model[i].id})
-            <td class="price">@Model[i].product.prostockprice</td>
-            <td class="total">@(Model[i].count*Model[i].product.prostockprice)</td>
-            <td class="remove-update"><a onclick="removeCart(@Model[i].id, '@Model[i].product.proname')" class="tip remove" title="Remove">
-                <img src="@Url.Content("~/Images/remove.png")" alt=""></a>
-                <a onclick="updateCart(@Model[i].id)" class="tip update" title="Update">
-                    <img src="@Url.Content("~/Images/update.png")" alt=""></a></td>
-        </tr>
-        }
+    <tr>
+        <td class="image"><a href="#">
+            <img title="product" alt="product" src="@Url.Content(Model.listCart[i].product.imagetb.url)" height="50" width="50"></a></td>
+        <td class="name"><a href="#">@Model.listCart[i].product.proname</a></td>
+        <td class="model">@Model.listCart[i].product.category.catname</td>
+        <td class="quantity">
+            <!--<input type="text" size="1" value="Model[i].count" name="quantity[40]" class="span1"></td>-->
+            @Html.TextBoxFor(m => m.listCart[i].count, new { @class = "span1", @size = "1", @id = @Model.listCart[i].id })
+        <td class="price">@Model.listCart[i].product.prostockprice VNĐ</td>
+        <td class="total" id="total @Model.listCart[i].id">@(Model.listCart[i].count * Model.listCart[i].product.prostockprice)  VNĐ</td>
+        <td class="remove-update"><a onclick="removeCart(@Model.listCart[i].id, '@Model.listCart[i].product.proname')" class="tip remove" title="Remove">
+            <img src="@Url.Content("~/Images/remove.png")" alt=""></a>
+            <a onclick="updateCart(@Model.listCart[i].id)" class="tip update" title="Update">
+                <img src="@Url.Content("~/Images/update.png")" alt=""></a></td>
+    </tr>
     }
-    else
-    {
-        
-    }
+    
+   
+}
+else
+{
+
+}
+</tbody>
+</table>
+<div class="contentbox">
+    <!--cartoptionbox-->
+    <div class="alltotal one-half">
+        <table class="alltotal">
+            
+            <tr>
+                
+                <td><span class="extra grandtotal">Tổng cộng :</span></td>
+                
+                    <td><span class="grandtotal" id="total">@Model.total VNĐ</span></td>
+                
+            </tr>
+        </table>
+        <a href="@Url.Action("Index","Home")"><input type="submit" value="Tiếp tục mua sắm"></a>
+        <a href="@Url.Action("Checkout","Home")"><input type="submit" value="Thanh toán"></a>
+    </div>
+    <!--end:alltotal-->
+</div>
 <div id="dialog-confirm" title="Xóa sản phẩm?">
-    <p id="dialog-confirm-message"><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span></p><p>Bạn thực sự muốn xóa?</p>
+    <p id="dialog-confirm-message"><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span></p>
+    <p>Bạn thực sự muốn xóa?</p>
 </div>
 
 <script>
@@ -64,30 +98,60 @@
                         }
                     });
                     $(this).dialog("close");
-                   // alert("3");
+                    // alert("3");
                 }
             }
         });
     }
-    
+
     function updateCart(idCart) {
-        alert("1");
+        //alert("1");
         var str = "#" + idCart;
         var quantity = $("#" + idCart).val();
-        alert(quantity);
-       /*
-        $.ajax({
-            url: '/ShoppingCart/UpdateFromCart',
-            type: 'POST',
-            data: { idCart: idCart },
-            success: function (mydata) {
-                $("#divPartialViewCartList").empty().append(mydata);
-                //alert("Success");
-            },
-            error: function () {
-                alert("Error");
+        //alert(quantity);
+
+        if (!$.isNumeric(quantity)) {
+            alert("Số lượng sản phẩm phải là số.");
+        } else {
+            if (quantity <= 0) {
+                alert("Số lượng sản phẩm phải lớn hơn 0.")
+            } else {
+                $.ajax({
+                    url: '/ShoppingCart/UpdateFromCart',
+                    type: 'POST',
+                    data: { idCart: idCart, quantity: quantity },
+                    success: function (mydata) {
+                        if (mydata.Status == "Success") {
+                            alert(mydata.Message);
+                            //alert(mydata.Total);
+                            $("#total").empty().text(mydata.Total + " VNĐ");
+                            var s = "#total " + idCart;
+                            $(s).empty().text(mydata.TotalItem + " VNĐ");
+                        }
+                        else {
+                            alert(mydata.Message);
+                            $("#" + idCart).val(mydata.Count);
+                        }
+                    },
+                    error: function () {
+                        alert("Error");
+                    }
+                });
             }
-        });*/
-                    
+        }
+        /*
+         $.ajax({
+             url: '/ShoppingCart/UpdateFromCart',
+             type: 'POST',
+             data: { idCart: idCart },
+             success: function (mydata) {
+                 $("#divPartialViewCartList").empty().append(mydata);
+                 //alert("Success");
+             },
+             error: function () {
+                 alert("Error");
+             }
+         });*/
+
     }
 </script>

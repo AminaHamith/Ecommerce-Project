@@ -103,7 +103,6 @@ D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.Ra
 D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\obj\Debug\NewFashionWebsite.csprojResolveAssemblyReference.cache
 D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\obj\Debug\NewFashionWebsite.dll
 D:\github\pg07\SourceWeb\NewFashion\NewFashionWebsite\obj\Debug\NewFashionWebsite.pdb
-C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionWebsite\obj\Debug\NewFashionWebsite.csprojResolveAssemblyReference.cache
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionWebsite\bin\NewFashionWebsite.dll
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionWebsite\bin\NewFashionWebsite.pdb
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionWebsite\bin\EntityFramework.dll
@@ -120,7 +119,6 @@ C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewF
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionWebsite\bin\NewFashionBLL.pdb
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionWebsite\bin\EntityFramework.xml
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionWebsite\bin\Microsoft.Web.Infrastructure.xml
-C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionWebsite\bin\Newtonsoft.Json.xml
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Net.Http.Formatting.xml
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Http.xml
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.Http.WebHost.xml
@@ -129,5 +127,6 @@ C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewF
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.xml
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.Deployment.xml
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionWebsite\bin\System.Web.WebPages.Razor.xml
+C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionWebsite\obj\Debug\NewFashionWebsite.csprojResolveAssemblyReference.cache
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionWebsite\obj\Debug\NewFashionWebsite.dll
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionWebsite\obj\Debug\NewFashionWebsite.pdb

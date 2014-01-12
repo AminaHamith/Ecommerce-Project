@@ -11,7 +11,7 @@ namespace NewFashionWebsite.Models
 {
     public partial class CartModel
     {
-        private NewFashionDBEntities db = new NewFashionDBEntities();
+        
         ShoppingCartBLL shoppingCartBLL = new ShoppingCartBLL();
         public const string CartSessionKey = "CART_ID";
         System.Guid CustomerId { get; set; }
@@ -102,29 +102,9 @@ namespace NewFashionWebsite.Models
             shopping_cart cartItem = shoppingCartBLL.getCartById(idCart);
             shoppingCartBLL.RemoveFromCart(cartItem);
         }
-        public int UpdateFromCart(int idCart)
+        public void UpdateFromCart(shopping_cart cartItem)
         {
-            // Get the cart
-            shopping_cart cartItem = shoppingCartBLL.getCartById(idCart);
-
-            int itemCount = 0;
-
-            if (cartItem != null)
-            {
-                if (cartItem.count > 1)
-                {
-                    cartItem.count--;
-                    shoppingCartBLL.UpdateCart(cartItem);
-                    itemCount = cartItem.count;
-                }
-                else
-                {
-                    shoppingCartBLL.RemoveFromCart(cartItem);
-                }
-
-            }
-
-            return itemCount;
+            shoppingCartBLL.UpdateCart(cartItem);
         }
         public void EmptyCart()
         {
@@ -150,6 +130,16 @@ namespace NewFashionWebsite.Models
         {
             shoppingCartBLL.MigrateCart(this.CustomerId,newCusId);
             this.CustomerId = newCusId;
+        }
+        public void UpdateCartSumary(HttpContextBase context)
+        {
+            List<shopping_cart> listCart = GetCartItems();
+            ShoppingCartModel model = new ShoppingCartModel
+            {
+                listCart = listCart,
+                total = GetTotal(),
+            };
+            context.Session["CART"] = model;
         }
     }
 }

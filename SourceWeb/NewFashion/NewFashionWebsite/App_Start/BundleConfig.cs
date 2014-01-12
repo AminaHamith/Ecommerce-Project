@@ -34,7 +34,9 @@ namespace NewFashionWebsite
                         "~/Content/css/prettyPhoto.css",
                         "~/Content/css/style.css",
                         "~/Content/css/tipsy.css",
-                        "~/Content/css/menu-profile.css"));
+                        "~/Content/css/menu-profile.css",
+                        "~/Content/css/itemslider.css",
+                        "~/Content/css/jquery.jqzoom.css"));
 
             //css dành cho trang admin
             bundles.Add(new StyleBundle("~/Content/css-admin").Include(
@@ -79,6 +81,7 @@ namespace NewFashionWebsite
                         "~/Scripts/js/jquery-1.8.2.1.js",
                         "~/Scripts/js/css3-mediaqueries.js", //mediaqueries-->
                         "~/Scripts/js/modernizr-1.7.js", //modernizr-->
+                        "~/Scripts/js/modernizr.custom.js", //<!--itemslider-modernizr-->
                         "~/Scripts/js/jquery.prettyPhoto.js", // prettyPhoto -->
                         "~/Scripts/js/jquery.tipsy.js", //tooltip-->
                         "~/Scripts/js/jquery.easing.1.3.js",
@@ -89,40 +92,13 @@ namespace NewFashionWebsite
                         "~/Scripts/js/jquery.dcmegamenu.1.3.3.js", //menu-->
                         "~/Scripts/js/jquery.tweet.js",
                         "~/Scripts/js/jquery.quovolver.js", //blockquote-->
-                        "~/Scripts/js/custom.js")); //custom-->
-
-            //Script shopymart index
-            bundles.Add(new ScriptBundle("~/bundles/script-shopymart-index").Include(
-                        "~/Scripts/js/jquery.easing.1.3.js",  //camera slider-->
-                        "~/Scripts/js/camera.js",  //camera slider-->
-                        "~/Scripts/js/jquery.jcarousel.js", // list_work -->
-                        "~/Scripts/js/jquery.tweet.js" //twitter plugin-->
-                        ));
-
-            //Script shopymart prouduct list
-            bundles.Add(new ScriptBundle("~/bundles/script-shopymart-product-list").Include(
-                        "~/Scripts/js/productview.js"//product view -->
-                        ));
-            //Script shopymart prouduct detail
-            bundles.Add(new ScriptBundle("~/bundles/script-shopymart-product-detail").Include(
+                        "~/Scripts/js/jquery.catslider.js",
+                        "~/Scripts/js/custom.js",
                         "~/Scripts/js/jquery.jqzoom-core.js",
-                        "~/Scripts/js/organictabs.jquery.js"
-                        ));
+                        "~/Scripts/js/organictabs.jquery.js",
+                        "~/Scripts/js/rating.js")); //custom-->
 
-            //Script shopymart checkout
-            bundles.Add(new ScriptBundle("~/bundles/script-shopymart-checkout").Include(
-                        "~/Scripts/js/organictabs.jquery.js"
-                        ));
-
-            //Script shopymart brands
-            bundles.Add(new ScriptBundle("~/bundles/script-shopymart-brands").Include(
-                        "~/Scripts/js/accordion.js"
-                        ));
-
-            //Script shopymart compare
-            bundles.Add(new ScriptBundle("~/bundles/script-shopymart-compare").Include(
-                        "~/Scripts/js/jquery.rating.js"
-                        ));
+            
 
             //Script trang admin
             bundles.Add(new ScriptBundle("~/bundles/script-admin").Include(

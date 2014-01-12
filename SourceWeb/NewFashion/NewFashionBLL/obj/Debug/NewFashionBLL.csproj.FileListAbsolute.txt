@@ -23,7 +23,6 @@ C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewF
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\NewFashionBLL.pdb
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\EntityFramework.dll
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\EntityFramework.xml
-C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionBLL\bin\Debug\Newtonsoft.Json.xml
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionBLL\obj\Debug\NewFashionBLL.csprojResolveAssemblyReference.cache
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionBLL\obj\Debug\NewFashionBLL.dll
 C:\Users\PHAMNGUYEN\Documents\GitHub\Ecommerce-Project\SourceWeb\NewFashion\NewFashionBLL\obj\Debug\NewFashionBLL.pdb

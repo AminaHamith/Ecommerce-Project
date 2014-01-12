@@ -68,7 +68,7 @@ namespace NewFashionWebsite.Controllers
         [AllowAnonymous]
         public ActionResult Login(AccountModel model)
         {
-            if (ModelState.IsValid && Membership.ValidateUser(model.Username, model.Password))
+            if (Membership.ValidateUser(model.Username, model.Password))
             {
                 FormsAuthentication.SetAuthCookie(model.Username, true);
 
@@ -76,6 +76,7 @@ namespace NewFashionWebsite.Controllers
                 CustomerBLL customerBLL = new CustomerBLL();
                 System.Guid idCustomer = customerBLL.getByUserName(model.Username).cusid;
                 cartModel.MigrateCart(idCustomer);
+                cartModel.UpdateCartSumary(this.HttpContext);
                 this.HttpContext.Session[CartModel.CartSessionKey] = idCustomer;
 
                 return RedirectToAction("Index","Home");
@@ -105,7 +106,7 @@ namespace NewFashionWebsite.Controllers
                 System.Guid idCustomer = customerBLL.getByUserName(username).cusid;
                 cartModel.MigrateCart(idCustomer);
                 this.HttpContext.Session[CartModel.CartSessionKey] = idCustomer;
-
+                cartModel.UpdateCartSumary(this.HttpContext);
                 return RedirectToAction("Index", "Home");
             }
 

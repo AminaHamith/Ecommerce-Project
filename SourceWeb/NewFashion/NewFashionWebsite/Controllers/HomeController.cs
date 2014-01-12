@@ -197,7 +197,10 @@ namespace NewFashionWebsite.Controllers
             CartModel cartModel = CartModel.GetCart(this.HttpContext);
             listCart = cartModel.GetCartItems();
 
-            return View(listCart);
+            ShoppingCartModel model = new ShoppingCartModel();
+            model.listCart = listCart;
+            model.total = cartModel.GetTotal();
+            return View(model);
         }
 
         //
@@ -223,27 +226,117 @@ namespace NewFashionWebsite.Controllers
          
         public ActionResult Checkout()
         {
-            return View();
+            CheckoutModel model = new CheckoutModel();
+            CartModel cartModel = CartModel.GetCart(this.HttpContext);
+            if (!string.IsNullOrWhiteSpace(User.Identity.Name))
+            {
+                MembershipUser user = Membership.GetUser(User.Identity.Name);
+                CustomerBLL customerBLL = new CustomerBLL();
+                customer cus = customerBLL.getById((Guid)user.ProviderUserKey);
+
+                model.cart = new ShoppingCartModel();
+                model.cart.listCart = cartModel.GetCartItems();
+                model.cart.total = cartModel.GetTotal();
+                model.customer = cus;
+                if (cus.customer_information != null)
+                {
+                    model.arrival_information = cus.customer_information;
+                }
+                else
+                {
+                    model.arrival_information = new customer_information();
+                }
+                model.arrival_information.firstname = cus.cusfirstname;
+                model.arrival_information.lastname = cus.cuslastname ;
+                model.arrival_information.email = cus.aspnet_Users.aspnet_Membership.Email;
+            }
+            else
+            {
+
+            }
+            List<SelectListItem> items1 = new List<SelectListItem>();
+            items1.Add(new SelectListItem { Text = "Chọn phương thức", Value = "0" });
+            items1.Add(new SelectListItem { Text = "Trong vòng 1 tuần", Value = "1" });
+            items1.Add(new SelectListItem { Text = "Trong vòng 5 ngày", Value = "2" });
+            items1.Add(new SelectListItem { Text = "Trong vòng 2 ngày", Value = "3" });
+            items1.Add(new SelectListItem { Text = "Trong vòng 1 ngày", Value = "4" });
+            ViewBag.SHIPPING_METHOD = items1;
+
+            List<SelectListItem> items2 = new List<SelectListItem>();
+            items2.Add(new SelectListItem { Text = "Chọn phương thức", Value = "0" });
+            items2.Add(new SelectListItem { Text = "Tại cửa hàng", Value = "1" });
+            items2.Add(new SelectListItem { Text = "Tại nhà", Value = "2" });
+
+            ViewBag.DELIVERY_METHOD = items2;
+            return View(model);
         }
 
         //
         // POST: /Home/Checkout
 
         [HttpPost]
-        public ActionResult Checkout(FormCollection collection)
+        public ActionResult Checkout(CheckoutModel model)
         {
-            try
+            if(ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                customer_information cusInfo = new customer_information();
+                cusInfo.address1 = model.address1;
+                cusInfo.address2 = model.address2;
+                cusInfo.city = model.city;
+                cusInfo.country = model.country;
+                cusInfo.email = model.Email;
+                cusInfo.firstname = model.firstname;
+                cusInfo.lastname = model.lastname;
+                cusInfo.phonenumber1 = model.phonenumber1;
+                cusInfo.phonenumber2 = model.phonenumber2;
+                cusInfo.region_state = model.region_state;
 
-                return RedirectToAction("Index");
+                CustomerInfoBLL cusInfoBLL = new CustomerInfoBLL();
+                int idCusInfo = cusInfoBLL.create(cusInfo);
+                product_order order = new product_order();
+                order.idarrival_information = idCusInfo;
+                order.ordstatus = 0;
+                order.ordcreate_date = DateTime.Now;
+                order.idbuyer_information = idCusInfo;
+                order.idpayment_method = 1;
+                order.idshipping_method = model.shipping.id;
+                order.iddelivery_method = model.delivery.id;
+
+                MembershipUser user = Membership.GetUser(User.Identity.Name);
+                CustomerBLL customerBLL = new CustomerBLL();
+                customer cus = customerBLL.getById((Guid)user.ProviderUserKey);
+
+                order.cusid = cus.cusid;
+                OrderBLL orderBLL = new OrderBLL();
+                int idOrder = orderBLL.create(order);
+
+                OrderDetailBLL orderDetailBLL = new OrderDetailBLL();
+
+                CartModel cartModel = CartModel.GetCart(this.HttpContext);
+                List<shopping_cart> listCart = cartModel.GetCartItems();
+
+                foreach (shopping_cart item in listCart)
+                {
+                    order_detail orderDetail = new order_detail();
+                    orderDetail.ordid = idOrder;
+                    orderDetail.ordquantity = item.count;
+                    orderDetail.ordtotalprice = item.count * item.product.prostockprice;
+                    orderDetail.proid = item.proid;
+                    orderDetail.ordsaleprice = 0;
+                    orderDetail.currency_code = "VND";
+
+                    orderDetailBLL.create(orderDetail);
+                }
             }
-            catch
-            {
-                return View();
-            }
+
+            return View("CheckoutSuccess");
+            
         }
 
+        public ActionResult CheckoutSuccess()
+        {
+            return View();
+        }
         //
         // GET: /Home/ProductList
          

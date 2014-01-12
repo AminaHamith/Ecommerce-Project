@@ -19,7 +19,7 @@ namespace NewFashionWebsite.Controllers
         public ActionResult Index()
         {
             CustomerBLL customerBLL = new CustomerBLL();
-            ShoppingCartBLL shoppingCartBLL = new ShoppingCartBLL();
+            
             List<shopping_cart> listCart = null;
 
             CartModel cartModel = CartModel.GetCart(this.HttpContext);
@@ -124,7 +124,7 @@ namespace NewFashionWebsite.Controllers
             
             cartModel.AddToCart(pro,quantity);
 
-            UpdateCartSumary(cartModel);
+            cartModel.UpdateCartSumary(this.HttpContext);
             return RedirectToAction("ShoppingCart","Home");
         }
 
@@ -136,20 +136,48 @@ namespace NewFashionWebsite.Controllers
 
             List<shopping_cart> listCart = null;
             listCart = cartModel.GetCartItems();
-            
-            UpdateCartSumary(cartModel);
-            return PartialView("PartialCartList",listCart);
+
+            ShoppingCartModel model = new ShoppingCartModel();
+            model.listCart = listCart;
+            model.total = cartModel.GetTotal();
+
+            cartModel.UpdateCartSumary(this.HttpContext);
+            return PartialView("PartialCartList", model);
         }
 
-        public void UpdateCartSumary(CartModel cartModel)
+        [HttpPost]
+        public ActionResult UpdateFromCart(int idCart,int quantity)
         {
-            List<shopping_cart> listCart = cartModel.GetCartItems();
-            ShoppingCartModel model = new ShoppingCartModel
+            ProductBLL productBLL = new ProductBLL();
+            CartModel cartModel = CartModel.GetCart(this.HttpContext);
+            shopping_cart cart = cartModel.getCartById(idCart);
+            
+            product pro = productBLL.getProductById(cart.proid);
+            if (pro.proquantity >= quantity)
             {
-                listCart = listCart,
-                total = cartModel.GetTotal(),
-            };
-            Session["CART"] = model;
+                cart.count = quantity;
+                cartModel.UpdateFromCart(cart);
+                cartModel.UpdateCartSumary(this.HttpContext);
+                return Json(new
+                {
+                    Message = "Cập nhật " + cart.product.proname + " số lượng " + quantity + " thành công",
+                    Total = cartModel.GetTotal(),
+                    TotalItem = pro.prostockprice*quantity,
+                    Status = "Success"
+                });
+            }
+            else
+            {
+                return Json(new
+                {
+                    Message = "Cập nhật " + cart.product.proname + " số lượng " + quantity + 
+                    " thất bại, số lượng sản phẩm chỉ còn " + pro.proquantity + " cái",
+                    Count = cart.count,
+                    Status = "Error"
+                });
+            }
         }
+
+        
     }
 }

@@ -14,8 +14,8 @@
                                     <p></p>
                                     <div class="button">
                                         <!--value.product.proid-->
-                                      <a href="@Url.Action("ShoppingCart","Home")">View Cart</a>
-                                      <a href="@Url.Action("Checkout","Home")">Checkout</a>
+                                      <a href="@Url.Action("ShoppingCart","Home")">Giỏ hàng</a>
+                                      <a href="@Url.Action("ProductDetail", "Home", new { idProduct=value.proid})">Xem chi tiết</a>
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                             {
                                 <h4>Sản phẩm được mua nhiều nhất</h4>
                                 <ul id="mycarousel" class="jcarousel-skin-tango item da-thumbs">
-                                    @foreach(var value in ViewBag.LIST_BEST_SELLERS)
+                                    @foreach(NewFashionBLL.product value in ViewBag.LIST_BEST_SELLERS)
                                     {
                                     <li>
                                         <img src="@Url.Content("~/Images/products/product-1.jpg")" alt="" />
@@ -66,7 +66,7 @@
                                             <h3>American Dress</h3>
                                             <p>
                                             <a href="@Url.Action("ProductDetail","Home")" class="link tip" title="View Detail"></a>&nbsp;
-                                            <a href="cart.html" class="cart tip" title="Add to cart"></a>&nbsp;&nbsp;
+                                            <a href="@Url.Action("AddToCart", "ShoppingCart", new {idProduct=value.proid,quantity=1 })" class="cart tip" title="Add to cart"></a>&nbsp;&nbsp;
                                             <a href="@Url.Content("~/Images/preview/work_1_l.jpg")" rel="prettyPhoto[gallery1]" class="zoom tip" title="Zoom" ></a></p>
                                         </article>
                                     </li>             
@@ -89,10 +89,11 @@
                                 <!--<span class="sale">Sale</span>-->
                                 <!--<span class="new">New</span>-->
                                 <ul>
-                                	<li><a href="@Url.Action("ProductDetail", "Home", new { idProduct = value.proid})" class="cart tip" title="Xem thông tin">Xem thông tin</a></li>
+                                    <li><a href="@Url.Action("AddToCart", "ShoppingCart", new {idProduct=value.proid,quantity=1 })" class="cart tip" title="Add to cart" class="cart tip" title="Add to Cart">Cart</a></li>
+                                	
                                     <li><a href="@Url.Content("~/Images/preview/work_1_l.jpg")" rel="prettyPhoto[gallery1]" class="zoom tip" title="Zoom">Zoom</a></li>
                                     <li><a href="wishlist.html" class="wishlist tip" title="Add to Wishlist">Add Wishlist</a></li>
-                                    <li><a href="@Url.Action("Compare","Home")" class="compare tip" title="Compare">Compare</a></li>
+                                    <li><a href="@Url.Action("ProductDetail", "Home", new { idProduct = value.proid})" class="compare tip" title="Xem thông tin">Xem thông tin</a></li>
                                 </ul>
                             </li>     
                             }       

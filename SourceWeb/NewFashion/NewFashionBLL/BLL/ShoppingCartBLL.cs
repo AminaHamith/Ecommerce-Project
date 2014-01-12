@@ -14,7 +14,7 @@ namespace NewFashionBLL.BLL
         //get list cart of customer
         public List<shopping_cart> GetCartItems(System.Guid idCustomer)
         {
-            return db.shopping_cart.Where(cart => cart.cusid == idCustomer).ToList();
+            return db.shopping_cart.Include("product").Where(s => s.cusid == idCustomer).ToList();
         }
 
         //get cart by id
@@ -84,7 +84,6 @@ namespace NewFashionBLL.BLL
         }
         public void RemoveFromCart(shopping_cart cart)
         {
-            
                 db.shopping_cart.Remove(cart);
                 // Save changes
                 db.SaveChanges();

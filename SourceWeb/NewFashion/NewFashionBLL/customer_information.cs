@@ -32,6 +32,9 @@ namespace NewFashionBLL
         public string region_state { get; set; }
         public string city { get; set; }
         public string post_code { get; set; }
+        public string firstname { get; set; }
+        public string lastname { get; set; }
+        public string email { get; set; }
     
         public virtual ICollection<customer> customers { get; set; }
         public virtual ICollection<product_order> product_order { get; set; }

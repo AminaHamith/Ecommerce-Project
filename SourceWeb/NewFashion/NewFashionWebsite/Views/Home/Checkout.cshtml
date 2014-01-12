@@ -1,7 +1,7 @@
 ﻿@model NewFashionWebsite.Models.CheckoutModel
 @{
     ViewBag.Title = "Payment";
-    @Scripts.Render("~/bundles/script-shopymart-checkout")
+    @Scripts.Render("~/bundles/jqueryval")
 }
 </script>
 <script type="text/javascript">
@@ -13,304 +13,317 @@
 </script>
 <div style="clear: both; display: block; height: 40px"></div>
 <h2>Thanh toán: &nbsp;<small>các bước thanh toán</small></h2>
-<div id="tab" class="tab2">
-    <ul class="nav nav2">
-        <li class="nav-one"><a href="#billing" class="current">Thông tin người mua</a></li>
-        <li class="nav-two"><a href="#delivery">Thông tin người nhận</a></li>
-        <li class="nav-three"><a href="#deliverymethod">Phương thức giao hàng</a></li>
-        <li class="nav-four"><a href="#payment">Phương thức thanh toán</a></li>
-        <li class="nav-five"><a href="#confirm">Xác nhận</a></li>
-    </ul>
-    <div class="list-wrap checkoutbox">
+<font id="allError" color="#FF0000"></font>
+		<br /> 
+		<font id="shippingError" color="#FF0000"></font>
+		
+		&nbsp;<font id="deliveryError" color="#FF0000"></font>
+@if (Request.IsAuthenticated == false)
+{
+<br />
+    <p style="color:red">Vui lòng <a href="@Url.Action("Login", "Account")">ĐĂNG NHẬP</a> để có thể thanh toán.</p>
+    <p>Nếu bạn chưa có tài khoản có thể <a href="@Url.Action("Register", "Account")">Đăng ký</a></p>
+<br />
+}
+else
+{
+    if (Model.cart.listCart == null || Model.cart.listCart.Count == 0)
+    {
+        <p>Bạn không có sản phẩm trong giò hàng.</p>
+    }
+    else
+    {
+    <div id="tab" class="tab2">
+        <ul class="nav nav2">
+            <li class="nav-one"><a href="#billing" class="current">Thông tin người mua</a></li>
+            <li class="nav-two"><a href="#deliverymethod">Phương thức giao hàng</a></li>
+            <li class="nav-three"><a href="#shippingmethod">Thời gian giao hàng</a></li>
+            <li class="nav-four"><a href="#payment">Phương thức thanh toán</a></li>
+            <li class="nav-five"><a href="#confirm">Xác nhận</a></li>
+        </ul>
+        <div class="list-wrap checkoutbox">
+        @using (Html.BeginForm("Checkout", null, FormMethod.Post,new {@name="myForm",@onsubmit="return validateForm()"}))
+        {
+        @Html.ValidationSummary(true)
+            <div id="billing">
+                <div action="#" class="form-register">
+                    <div class="one-third first">
+                        <h3>Thông tin cá nhân</h3>
+                        <div class="registerbox">
+                            <fieldset>
+                                <div class="control-group">
+                                    <label class="control-label"><span class="red">*</span> Họ:</label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.firstname, new { @class = "input-xlarge" , @Value=@Model.arrival_information.firstname })&nbsp @Html.ValidationMessageFor(m => m.firstname)
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label"><span class="red">*</span> Tên:</label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.lastname, new { @class = "input-xlarge" , @Value=@Model.arrival_information.lastname})&nbsp @Html.ValidationMessageFor(m => m.lastname)
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label"><span class="red">*</span> Email:</label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "input-xlarge", @Value=@Model.arrival_information.email })&nbsp @Html.ValidationMessageFor(m => m.Email)
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label"><span class="red">*</span> Số điện thoại thứ nhất:</label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.phonenumber1, new { @class = "input-xlarge" , @Value=@Model.arrival_information.phonenumber1})&nbsp @Html.ValidationMessageFor(m => m.phonenumber1)
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label"> Số điện thoại thứ hai:</label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.phonenumber2, new { @class = "input-xlarge" , @Value=@Model.arrival_information.phonenumber2})&nbsp @Html.ValidationMessageFor(m => m.phonenumber2)
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="one-third">
+                        <h3>Địa chỉ</h3>
+                        <div class="registerbox">
+                            <fieldset>
+                                <div class="control-group">
+                                    <label class="control-label"><span class="red">*</span>Địa chỉ thứ nhất:</label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.address1, new { @class = "input-xlarge" , @Value=@Model.arrival_information.address1})&nbsp @Html.ValidationMessageFor(m => m.address1)
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Địa chỉ thứ hai:</label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.address2, new { @class = "input-xlarge" , @Value=@Model.arrival_information.address2})&nbsp @Html.ValidationMessageFor(m => m.address2)
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">
+                                        <span class="red">*</span>Quốc gia:</label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.country, new { @class = "input-xlarge" , @Value=@Model.arrival_information.country})&nbsp @Html.ValidationMessageFor(m => m.country)
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">
+                                        <span class="red">*</span>Thành phố:</label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.city, new { @class = "input-xlarge" , @Value=@Model.arrival_information.city})&nbsp @Html.ValidationMessageFor(m => m.city)
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">
+                                        <span class="red">*</span>Quận huyện:</label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.region_state, new { @class = "input-xlarge" , @Value=@Model.arrival_information.region_state})&nbsp @Html.ValidationMessageFor(m => m.region_state)
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+            <!--end:billing-->
+        
+            <div id="deliverymethod" class="hide">
+                <p>Phương thức bạn có thể nhận hàng</p>
+                <label class="inline">
+                    <div class="control-group">
+                    <label class="control-label"> </label>
+                    <div class="controls">
+                        <label>
+                            @Html.DropDownListFor(m => m.delivery.id, (IEnumerable<SelectListItem>)ViewBag.DELIVERY_METHOD)
+                        </label>
+                    </div>
+                </div>                    
+                </label>
             
-        <div id="billing">
-            <form action="#" class="form-register">
-                <div class="one-third first">
-                    <h3>Thông tin cá nhân</h3>
-                    <div class="registerbox">
-                        <fieldset>
-                            <div class="control-group">
-                                <label class="control-label"><span class="red">*</span> Họ:</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><span class="red">*</span> Tên:</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><span class="red">*</span> Email:</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><span class="red">*</span> Số điện thoại thứ nhất:</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"> Số điện thoại thứ hai:</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge">
-                                </div>
-                            </div>
-                        </fieldset>
+            </div>
+
+                <div id="shippingmethod" class="hide">
+                <p>Khoảng thời gian bạn có thể nhận hàng</p>
+                <label class="inline">
+                    <div class="control-group">
+                    <label class="control-label"> </label>
+                    <div class="controls">
+                        <label>
+                            @Html.DropDownListFor(m => m.shipping.id, (IEnumerable<SelectListItem>)ViewBag.SHIPPING_METHOD)
+                        </label>
                     </div>
-                </div>
-                <div class="one-third">
-                    <h3>Địa chỉ</h3>
-                    <div class="registerbox">
-                        <fieldset>
-                            <div class="control-group">
-                                <label class="control-label"><span class="red">*</span>Địa chỉ thứ nhất:</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Địa chỉ thứ hai:</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">
-                                    <span class="red">*</span>Thành phố:</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">
-                                    Mã khu vực:</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label for="select01" class="control-label">
-                                    <span class="red">*</span>Quốc gia:</label>
-                                <div class="controls">
-                                    <select id="select01" class="span3">
-                                        <option>Country:</option>
-                                        <option>Philippines</option>
-                                        <option>Germany</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">
-                                    <span class="red">*</span>Quận / huyện:</label>
-                                <div class="controls">
-                                    <select id="select02" class="span3">
-                                        <option>Region / State:</option>
-                                        <option>Manila</option>
-                                        <option>Cagayan de Oro City</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                </div>
-                
-            </form>
-        </div>
-        <!--end:billing-->
-        <div id="delivery" class="hide">
-            <form action="#" class="form-register">
-                <div class="one-third first">
-                    <h3>Thông tin cá nhân</h3>
-                    <div class="registerbox">
-                        <fieldset>
-                            <div class="control-group">
-                                <label class="control-label"><span class="red">*</span> Họ:</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><span class="red">*</span> Tên:</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><span class="red">*</span> Email:</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><span class="red">*</span> Số điện thoại thứ nhất:</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"> Số điện thoại thứ hai:</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge">
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                </div>
-                <div class="one-third">
-                    <h3>Địa chỉ</h3>
-                    <div class="registerbox">
-                        <fieldset>
-                            <div class="control-group">
-                                <label class="control-label"><span class="red">*</span>Địa chỉ thứ nhất:</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Địa chỉ thứ hai:</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">
-                                    <span class="red">*</span>Thành phố:</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">
-                                    Mã khu vực:</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label for="select01" class="control-label">
-                                    <span class="red">*</span>Quốc gia:</label>
-                                <div class="controls">
-                                    <select id="select01" class="span3">
-                                        <option>Country:</option>
-                                        <option>Philippines</option>
-                                        <option>Germany</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">
-                                    <span class="red">*</span>Quận / huyện:</label>
-                                <div class="controls">
-                                    <select id="select02" class="span3">
-                                        <option>Region / State:</option>
-                                        <option>Manila</option>
-                                        <option>Cagayan de Oro City</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                </div>
-                
-            </form>
-        </div>
-        <!--end:delivery-->
-        <div id="deliverymethod" class="hide">
-            <p>Phương thức bạn có thể thanh toán</p>
-            <label class="inline">
-                <input type="radio" value="option1">
-                Nhận tại cửa hàng
-                                   
-            </label>
-            <label class="inline">
-                <input type="radio" value="option1">
-                Giao tận nhà
-                                   
-            </label>
-            <textarea rows="3">Add Comment here...</textarea>
-            <br>
-            <span><a href="#">Continue</a></span>
-        </div>
-        <!--end:deliverymethod-->
-        <div id="payment" class="hide">
-            <p>Please select the preferred payment method to use on this order.</p>
-            <label class="inline">
-                <input type="radio" value="option1">
-                Cash on delivery
-                                   
-            </label>
-            <textarea rows="3">Add Comment here...</textarea>
-            <br>
-            <span><a href="#">Continue</a></span>
-        </div>
-        <!--end:payment-->
-        <div id="confirm" class="hide">
-            <table class="shopping-cart">
-                <tr>
-                    <th class="image">Hình đại diện</th>
-                    <th class="name">Tên sản phẩm</th>
-                    <th class="model">Danh mục</th>
-                    <th class="quantity">Số lượng</th>
-                    <th class="price">Đơn giá</th>
-                    <th class="total">Tổng</th>
-                </tr>
-                <tbody id="divPartialViewCartList">
-                @if(Model != null)
-                {
-                   if (Model.listCart != null)
-                   {
-                       for (var i = 0; i < Model.listCart.Count(); i++)
-                       {
-                            <tr>
-                                <td class="image"><a href="#">
-                                    <img title="product" alt="product" src="@Url.Content(Model.listCart[i].product.imagetb.url)" height="50" width="50"></a></td>
-                                <td class="name"><a href="#">@Model.listCart[i].product.proname</a></td>
-                                <td class="model">@Model.listCart[i].product.category.catname</td>
-                                <td class="quantity">
-                                    <!--<input type="text" size="1" value="Model[i].count" name="quantity[40]" class="span1"></td>-->
-                                    @Html.TextBoxFor(m => m.listCart[i].count, new { @class = "span1", @size = "1", @name = "quantity[40]" })
-                                <td class="price">@Model.listCart[i].product.prostockprice</td>
-                                <td class="total">@(Model.listCart[i].count * Model.listCart[i].product.prostockprice)</td>
-                            </tr>
-                       }
-                   }
-                }
-                </tbody>
-            </table>
-            <div class="contentbox">
-                
-                <!--cartoptionbox-->
-                <div class="alltotal one-half">
-                    <table class="alltotal">
-                        <tr>
-                            <td><span class="extra">Sub-Total :</span></td>
-                            <td><span></span></td>
-                        </tr>
-                        <tr>
-                            <td><span class="extra">Eco Tax (-2.00) :</span></td>
-                            <td><span></span></td>
-                        </tr>
-                        <tr>
-                            <td><span class="extra">VAT (18.2%) :</span></td>
-                            <td><span></span></td>
-                        </tr>
-                        <tr>
-                            <td><span class="extra grandtotal">Total :</span></td>
-                            <td><span class="grandtotal"></span></td>
+                </div>             
+                </label>
+            
+            </div>
+            <!--end:deliverymethod-->
+            <div id="payment" class="hide">
+                <p>Chọn phương thức bạn có thể thanh toán.</p>
+                <label class="inline">
+                    <table>
+                        <tr style="vertical-align:middle;text-align:center; ">
+                            <td><img src="@Url.Content("~/Images/payment-icon-paypal.png")" /></td>
+                            <td style="vertical-align:middle;text-align:center; "><input type="radio" value="paypal" checked></td>
                         </tr>
                     </table>
-                    <input type="submit" value="Continue Shopping">
-                    <input type="submit" value="CheckOut">
-                </div>
-                <!--end:alltotal-->
+                
+                
+                </label>
             </div>
-            <!--end:contentbox-->
+            <!--end:payment-->
+            <div id="confirm" class="hide">
+                <table class="shopping-cart">
+                    <tr>
+                        <th class="image">Hình đại diện</th>
+                        <th class="name">Tên sản phẩm</th>
+                        <th class="model">Danh mục</th>
+                        <th class="quantity">Số lượng</th>
+                        <th class="price">Đơn giá</th>
+                        <th class="total">Tổng</th>
+                    </tr>
+                    <tbody id="divPartialViewCartList">
+                    @if (Model != null)
+                    {
+                        if (Model.cart.listCart != null)
+                        {
+                            for (var i = 0; i < Model.cart.listCart.Count(); i++)
+                            {
+                                <tr>
+                                    <td class="image"><a href="#">
+                                        <img title="product" alt="product" src="@Url.Content(Model.cart.listCart[i].product.imagetb.url)" height="50" width="50"></a></td>
+                                    <td class="name"><a href="#">@Model.cart.listCart[i].product.proname</a></td>
+                                    <td class="model">@Model.cart.listCart[i].product.category.catname</td>
+                                    <td class="quantity">
+                                        <!--<input type="text" size="1" value="Model[i].count" name="quantity[40]" class="span1"></td>-->
+                                        @Html.TextBoxFor(m => m.cart.listCart[i].count, new { @class = "span1", @size = "1", @name = "quantity[40]" })
+                                    <td class="price">@Model.cart.listCart[i].product.prostockprice</td>
+                                    <td class="total">@(Model.cart.listCart[i].count * Model.cart.listCart[i].product.prostockprice)</td>
+                                </tr>
+                            }
+                        }
+                    }
+                    </tbody>
+                </table>
+                <div class="contentbox">
+                
+                    <!--cartoptionbox-->
+                    <div class="alltotal one-half">
+                        <table class="alltotal">
+                            
+                            <tr>
+                                <td><span class="extra grandtotal">Total :</span></td>
+                                <td><span class="grandtotal">@Model.cart.total</span></td>
+                            </tr>
+                        </table>
+                        @Html.AntiForgeryToken()
+                        <input type="submit" value="Tiếp tục mua hàng">
+                        <input type="submit" value="Thanh toán" onclick="submitForms()">
+                    </div>
+                    <!--end:alltotal-->
+                </div>
+                <!--end:contentbox-->
+            </div>
+            <!--end:confirm-->
+            }
         </div>
-        <!--end:confirm-->
     </div>
-</div>
+    }
+}
 <div style="clear: both; display: block; height: 40px"></div>
+<script type="text/javascript">
+    
+    function validateForm() {
+        //alert("1");
+        var lastName = document.forms["myForm"]["lastname"].value;
+        var firstName = document.forms["myForm"]["firstname"].value;
+        var phoneNumber1 = document.forms["myForm"]["phonenumber1"].value;
+        var email = document.forms["myForm"]["Email"].value;
+        var address1 = document.forms["myForm"]["address1"].value;
+        var city = document.forms["myForm"]["city"].value;
+        var country = document.forms["myForm"]["country"].value;
+        var region_state = document.forms["myForm"]["region_state"].value;
+
+        var DeliveryMethod = document.getElementById("delivery_id");
+        var idDeliveryMethod = DeliveryMethod.options[DeliveryMethod.selectedIndex].value;
+
+        var ShippingMethod = document.getElementById("shipping_id");
+        var idShippingMethod = ShippingMethod.options[ShippingMethod.selectedIndex].value;
+
+
+        //alert(idShippingMethod);
+        //alert(idDeliveryMethod);
+        
+        
+        var flag = true;
+        
+
+        var testInfo = true;
+        var testShippingMethod = true;
+        var testDeliveryMethod = true;
+
+        if (lastName == null || lastName == "") {
+            
+            testInfo = false;
+        } else {
+            
+        }
+
+        if (firstName == null || firstName == "") {
+            
+            testInfo = false;
+        } else {
+            
+        }
+
+        if (phoneNumber1 == null || phoneNumber1 == "") {
+            
+            testInfo = false;
+        } else {
+            
+        }
+
+        if (address1 == null || address1 == "") {
+            
+            testInfo = false;
+        } else {
+            
+        }
+
+        if (city == null || city == "") {
+            
+            testInfo = false;
+        } else {
+            
+        }
+
+        if (email == null || email == "") {
+            
+            testInfo = false;
+        } else {
+            
+        }
+
+
+        $("#allError").text("");
+        $("#shippingError").text("");
+        $("#deliveryError").text("");
+        if (testInfo == false) {
+            $("#allError").text('Bạn chưa nhập đầy đủ thông tin cá nhân.');
+        }
+        if (idShippingMethod == '0') {
+            testShippingMethod = false;
+            $("#shippingError").text('Bạn chưa chọn thời gian nhận hàng.');
+        }
+        if (idDeliveryMethod == '0') {
+            testDeliveryMethod = false;
+            $("#deliveryError").text('Bạn chưa chọn phương thức giao hàng.');
+        }
+        if (testInfo != false && testShippingMethod != false && testDeliveryMethod != false) {
+            return true;
+        }
+        return false;
+    }
+
+</script>

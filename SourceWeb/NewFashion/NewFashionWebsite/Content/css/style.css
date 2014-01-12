@@ -600,6 +600,18 @@ form.form-register .pull-right{float:left; font-size:12px;}
 form.form-register .pull-right input.submit{ border:none; cursor:pointer; background:#f5640c; padding:5px 10px; color:#fff; -webkit-border-radius: 2px; -khtml-border-radius: 2px; border-radius: 2px;}
 form.form-register .pull-right input.submit:hover{ color:#fff !important; background:#353535; -ms-transition: all 0.5s ease-in-out; -webkit-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; transition: all 0.5s ease-in-out;}
 
+div.form-register{ width:100%; float:left;}
+div.form-register h3{ font-size:14px;}
+div.form-register .registerbox{ width:100%; float:left; margin-bottom:20px;}
+div.form-register .registerbox .control-group{ float:left; width:100%; margin-bottom:10px;}
+div.form-register .registerbox .control-group label{ float:left; width:30%; font-size:13px; color:#757575;}
+div.form-register .registerbox .control-group label.checkbox{ border:1px solid red; width:50px; float:left;}
+div.form-register .registerbox .control-group label span{ color:red !important;}
+div.form-register .registerbox .control-group input{ border:1px solid #e5e5e5; padding:7px 10px; width:200px; -webkit-border-radius: 2px; -khtml-border-radius: 2px; border-radius: 2px;}
+div.form-register .registerbox select{ width:222px; border:1px solid #e5e5e5; padding:7px 10px; background:none;}
+div.form-register .pull-right{float:left; font-size:12px;}
+div.form-register .pull-right input.submit{ border:none; cursor:pointer; background:#f5640c; padding:5px 10px; color:#fff; -webkit-border-radius: 2px; -khtml-border-radius: 2px; border-radius: 2px;}
+div.form-register .pull-right input.submit:hover{ color:#fff !important; background:#353535; -ms-transition: all 0.5s ease-in-out; -webkit-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; transition: all 0.5s ease-in-out;}
 /*shopping cart*/
 table.shopping-cart{ border:1px solid #e5e5e5; width:100%; float:left; margin-bottom:40px;}
 table.shopping-cart tr th{ border:1px solid #e5e5e5; padding:15px 10px; background:#f9f9f9; font-size:14px;}
